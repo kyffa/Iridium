@@ -205,12 +205,23 @@ body {
 	line-height: 1.3;
 	align-items: center;
 	background-color: rgba(var(--callout-color), 0.1);
-	border-bottom: var(--callout-border-width) dashed rgba(var(--callout-color), var(--callout-border-opacity));
 }
 .callout-content p,
 .callout-content .callout,
 .markdown-source-view.mod-cm6 .callout-content .callout {
 	margin: 0;
+}
+.callout-content {
+	border-top: var(--callout-border-width) dashed rgba(var(--callout-color), var(--callout-border-opacity));
+}
+
+/* Canvas */
+.canvas-embed {
+	border: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
+	border-radius: var(--radius-m);
+}
+.inline-embed > .canvas-minimap {
+	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
 }
 
 /* Code */
@@ -235,9 +246,9 @@ body {
 	--embed-padding: 0;
 }
 .embed-title {
+	gap: 0.65em;
 	padding: 0.85em 1em;
 	background-color: hsla(var(--i-secondary-accent-hsl), 0.1);
-	border-bottom: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
 	line-height: 1.3;
 }
 .markdown-embed {
@@ -246,6 +257,30 @@ body {
 .markdown-embed .markdown-preview-view,
 .markdown-reading-view .markdown-embed .markdown-preview-view {
 	padding: 1em;
+	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
+}
+
+/* Embedded search results */
+.internal-query {
+	border: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
+	border-radius: var(--radius-m);
+	--background-modifier-border: hsla(var(--i-secondary-accent-hsl), 0.45);
+}
+.internal-query .internal-query-header {
+	padding: 0.85em 1em;
+	gap: 0.65em;
+	border-radius: var(--radius-m) var(--radius-m) 0 0;
+	background-color: hsla(var(--i-secondary-accent-hsl), 0.1);
+	line-height: 1.3;
+}
+.internal-query .search-result-container {
+	border: 0;
+	border-radius: 0 0 var(--radius-m) var(--radius-m);
+	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
+	background-color: transparent;
+}
+.internal-query .internal-query-header-icon {
+	margin: 0;
 }
 
 /* Graphs */
@@ -349,6 +384,12 @@ body {
 	--metadata-property-radius: var(--radius-s);
 }
 
+/* PDF view */
+.pdf-embed:not(.canvas-node-content) {
+	--background-modifier-border: hsla(var(--i-secondary-accent-hsl), 0.45);
+	border-radius: var(--radius-m);
+}
+
 /* Tabs */
 body {
 	--tab-text-color-focused-highlighted: var(--text-normal);
@@ -375,6 +416,9 @@ body {
 	--table-selection-border-radius: 0;
 	--table-drag-handle-color: var(--i-secondary-accent);
 	--table-add-button-border-color: var(--table-border-color);
+}
+.el-table {
+	margin: var(--p-spacing) 0;
 }
 .markdown-rendered table {
 	margin: 0;
