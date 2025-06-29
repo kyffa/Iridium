@@ -64,6 +64,9 @@ body {
 	/* Blocks */
 	--embed-block-shadow-hover: none;
 
+	/* Horizontal rules */
+	--hr-color: hsla(var(--i-secondary-accent-hsl), 0.45);
+
 	/* Icons */
 	--icon-color-active: var(--text-normal);
 	--icon-opacity: 1;
@@ -300,14 +303,6 @@ body {
 	color: var(--i-secondary-accent);
 }
 
-/* Horizontal rules */
-body {
-	--hr-color: hsla(var(--i-secondary-accent-hsl), 0.45);
-}
-hr {
-	margin: 0;
-}
-
 /* Links */
 body {
 	--link-color: var(--i-secondary-text-accent);
@@ -459,29 +454,29 @@ audio::-webkit-media-controls-enclosure {
 
 /* Highlight headings */
 .i-highlight-headings :is(
-	h1, .markdown-rendered h1, .inline-title h1, .cm-header-1,
-	h2, .markdown-rendered h2, .inline-title h2, .cm-header-2,
-	h3, .markdown-rendered h3, .inline-title h3, .cm-header-3,
-	h4, .markdown-rendered h4, .inline-title h4, .cm-header-4,
-	h5, .markdown-rendered h5, .inline-title h5, .cm-header-5,
-	h6, .markdown-rendered h6, .inline-title h6, .cm-header-6) {
+	.markdown-rendered h1, .inline-title h1, .cm-header-1,
+	.markdown-rendered h2, .inline-title h2, .cm-header-2,
+	.markdown-rendered h3, .inline-title h3, .cm-header-3,
+	.markdown-rendered h4, .inline-title h4, .cm-header-4,
+	.markdown-rendered h5, .inline-title h5, .cm-header-5,
+	.markdown-rendered h6, .inline-title h6, .cm-header-6) {
 	border-radius: var(--radius-s);
 	padding-left: 0.3em;
 	padding-right: 0.3em;
 	width: fit-content;
 }
-.theme-light.i-highlight-headings :is(h1, .markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 75%, 0.35);}
-.theme-light.i-highlight-headings :is(h2, .markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.35);}
-.theme-light.i-highlight-headings :is(h3, .markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.35);}
-.theme-light.i-highlight-headings :is(h4, .markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.35);}
-.theme-light.i-highlight-headings :is(h5, .markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.35);}
-.theme-light.i-highlight-headings :is(h6, .markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 75%, 0.35);}
-.theme-dark.i-highlight-headings :is(h1, .markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 70%, 0.25);}
-.theme-dark.i-highlight-headings :is(h2, .markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
-.theme-dark.i-highlight-headings :is(h3, .markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.25);}
-.theme-dark.i-highlight-headings :is(h4, .markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.25);}
-.theme-dark.i-highlight-headings :is(h5, .markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.25);}
-.theme-dark.i-highlight-headings :is(h6, .markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 75%, 0.35);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.35);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.35);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.35);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.35);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 75%, 0.35);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 70%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
 
 /* Smaller headings */
 .i-smaller-headings {
