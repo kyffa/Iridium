@@ -4,47 +4,7 @@ body {
 	--i-secondary-accent-l: var(--accent-l);
 	--i-secondary-accent-hsl: var(--i-secondary-accent-h), var(--i-secondary-accent-s), var(--i-secondary-accent-l);
 	--i-secondary-accent: hsl(var(--i-secondary-accent-hsl));
-}
-.theme-light {
-	--i-light-s: 25%;
-	--i-light-l: 1;
-	--i-1: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 4%));
-	--i-2: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 8%));
-	--i-3: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 10%));
-	--i-4: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 12%));
-	--i-5: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 14%));
-	--i-6: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 16%));
-	--i-7: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 18%));
-	--i-8: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 22%));
-	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) - 10%));
-	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 30%);
-	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 20%);
-}
-.theme-dark {
-	--i-dark-s: 12%;
-	--i-dark-background-primary-l: 12%;
-	--i-dark-l: 1;
-	--i-1: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 4%)));
-	--i-2: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 8%)));
-	--i-3: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 10%)));
-	--i-4: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 12%)));
-	--i-5: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 14%)));
-	--i-6: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 16%)));
-	--i-7: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 18%)));
-	--i-8: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + (var(--i-dark-l) * 22%)));
-	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) + 10%));
-	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
-	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
 
-	/* Backgrounds */
-	--background-primary: hsl(var(--accent-h), var(--i-dark-s), var(--i-dark-background-primary-l));
-
-	/* Text */
-	--text-normal: hsl(0, 0%, calc(var(--i-dark-background-primary-l) + 73%));
-	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
-}
-
-body {
 	/* Checkboxes */
 	--checkbox-radius: 50%;
 	--checkbox-color: var(--i-secondary-accent);
@@ -68,7 +28,9 @@ body {
 	--hr-color: hsla(var(--i-secondary-accent-hsl), 0.45);
 
 	/* Icons */
-	--icon-color-active: var(--text-normal);
+	--icon-color: var(--text-normal);
+  	--icon-color-hover: var(--icon-color);
+	--icon-color-active: var(--icon-color);
 	--icon-opacity: 1;
 
 	/* Indentation guide */
@@ -81,7 +43,7 @@ body {
 	--list-marker-color-collapsed: var(--i-secondary-text-accent);
 
 	/* File navigator */
-	--nav-item-color-highlighted: var(--text-normal);
+	--nav-item-color: var(--text-normal);
 	--nav-item-background-selected: var(--i-4);
 	--nav-indentation-guide-color: var(--i-4);
 	--nav-collapse-icon-color-collapsed: var(--collapse-icon-color-collapsed);
@@ -92,8 +54,12 @@ body {
 	/* Prompts */
 	--prompt-border-color: var(--background-modifier-border);
 
+	/* Search */
+	--search-icon-color: var(--icon-color);
+
 	/* Status bar */
 	--status-bar-background: var(--i-2);
+	--status-bar-text-color: var(--text-normal);
 
 	/* Tags */
 	--tag-color: var(--text-normal);
@@ -116,17 +82,23 @@ body {
 	--background-modifier-border-focus: var(--i-8);
 
 	/* Text */
-	--text-normal: #222222;
-	--text-muted: var(--text-normal);
-	--text-faint: var(--text-normal);
-	--text-selection: hsla(var(--i-secondary-accent-hsl), 0.2);
-	--text-accent: hsl(var(--accent-h), var(--accent-s), 30%);
-	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), 20%);
-	--interactive-hover: var(--i-1);
 	--interactive-accent: var(--color-accent);
-	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 10%));
 }
 .theme-light {
+	--i-light-s: 25%;
+	--i-light-l: 1;
+	--i-1: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 4%));
+	--i-2: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 8%));
+	--i-3: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 10%));
+	--i-4: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 12%));
+	--i-5: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 14%));
+	--i-6: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 16%));
+	--i-7: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 18%));
+	--i-8: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 22%));
+	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) - 10%));
+	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 30%);
+	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 20%);
+
 	--color-base-05: hsl(var(--accent-h), var(--accent-s), 99%) !important;
 	--color-base-10: hsl(var(--accent-h), var(--accent-s), 98%) !important;
 	--color-base-20: hsl(var(--accent-h), var(--accent-s), 96%) !important;
@@ -138,8 +110,33 @@ body {
 	--color-base-60: hsl(var(--accent-h), var(--accent-s), 44%) !important;
 	--color-base-70: hsl(var(--accent-h), var(--accent-s), 36%) !important;
 	--color-base-100: hsl(var(--accent-h), var(--accent-s), 13%) !important;
+
+	/* Text */
+	--text-normal: hsl(0, 0%, calc(17% - var(--i-light-l) * 4%));
+	--text-muted: hsl(0, 0%, calc(40% - var(--i-light-l) * 4%));
+	--text-faint: hsl(0, 0%, calc(71% - var(--i-light-l) * 4%));
+	--text-selection: hsla(var(--i-secondary-accent-hsl), 0.2);
+	--text-accent: hsl(var(--accent-h), var(--accent-s), 30%);
+	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), 20%);
+	--interactive-hover: var(--i-1);
+	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 10%));
 }
 .theme-dark {
+	--i-dark-s: 12%;
+	--i-dark-background-primary-l: 12%;
+	--i-dark-l: 1;
+	--i-1: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
+	--i-2: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 8%));
+	--i-3: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 10%));
+	--i-4: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 12%));
+	--i-5: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 14%));
+	--i-6: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 16%));
+	--i-7: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 18%));
+	--i-8: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 22%));
+	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) + 10%));
+	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
+	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
+
 	--color-base-00: hsl(var(--accent-h), var(--accent-s), 12%) !important;
 	--color-base-05: hsl(var(--accent-h), var(--accent-s), 13%) !important;
 	--color-base-10: hsl(var(--accent-h), var(--accent-s), 14%) !important;
@@ -152,12 +149,38 @@ body {
 	--color-base-60: hsl(var(--accent-h), var(--accent-s), 60%) !important;
 	--color-base-70: hsl(var(--accent-h), var(--accent-s), 70%) !important;
 	--color-base-100: hsl(var(--accent-h), var(--accent-s), 85%) !important;
+
+	/* Backgrounds */
+	--background-primary: hsl(var(--accent-h), var(--i-dark-s), var(--i-dark-background-primary-l));
+
+	/* Inputs */
 	--background-modifier-form-field: var(--background-primary);
-	--interactive-normal: var(--i-2);
-	--interactive-hover: var(--i-3);
-	--text-accent: hsl(var(--accent-h), var(--accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
-	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
+
+	/* Text */
+	--text-normal: hsl(0, 0%, calc(70% + var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
+	--text-muted: hsl(0, 0%, calc(55% + var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
+	--text-faint: hsl(0, 0%, calc(25% + var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
 	--text-selection: hsla(var(--i-secondary-accent-hsl), 0.25);
+	--text-accent: hsl(var(--accent-h), var(--accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
+	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
+	--interactive-normal: var(--i-2);
+	--interactive-hover: var(--background-modifier-hover);
+	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
+}
+
+.theme-light .view-content {
+	--background-modifier-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(100% - var(--i-light-l) * 10%));
+	--background-modifier-active-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(100% - var(--i-light-l) * 12%));
+	--background-modifier-border: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(100% - var(--i-light-l) * 14%));
+	--background-modifier-border-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(100% - var(--i-light-l) * 18%));
+	--background-modifier-border-focus: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(100% - var(--i-light-l) * 22%));
+}
+.theme-dark .view-content {
+	--background-modifier-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 10%));
+	--background-modifier-active-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 12%));
+	--background-modifier-border: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 14%));
+	--background-modifier-border-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 18%));
+	--background-modifier-border-focus: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 22%));
 }
 
 /* Blockquotes */
@@ -222,12 +245,6 @@ body {
 body {
 	--code-background: hsla(var(--i-secondary-accent-hsl), 0.1);
 }
-.theme-light {
-	--code-comment: #ababab;
-}
-.theme-dark {
-	--code-comment: hsl(0, 0%, calc(var(--i-dark-background-primary-l) + 28%));
-}
 .markdown-rendered pre {
 	margin: var(--p-spacing) 0;
 }
@@ -261,29 +278,6 @@ body {
 	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
 }
 
-/* Embedded search results */
-.internal-query {
-	border: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
-	border-radius: var(--radius-m);
-	--background-modifier-border: hsla(var(--i-secondary-accent-hsl), 0.45);
-}
-.internal-query .internal-query-header {
-	padding: 0.85em 1em;
-	gap: 0.65em;
-	border-radius: var(--radius-m) var(--radius-m) 0 0;
-	background-color: hsla(var(--i-secondary-accent-hsl), 0.1);
-	line-height: 1.3;
-}
-.internal-query .search-result-container {
-	border: 0;
-	border-radius: 0 0 var(--radius-m) var(--radius-m);
-	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
-	background-color: transparent;
-}
-.internal-query .internal-query-header-icon {
-	margin: 0;
-}
-
 /* Graphs */
 body {
 	--graph-node-focused: var(--i-secondary-accent);
@@ -309,9 +303,8 @@ body {
 	--link-color-hover: var(--i-secondary-text-accent-hover);
 	--link-external-color: var(--i-secondary-text-accent);
 	--link-external-color-hover: var(--i-secondary-text-accent-hover);
-	--link-unresolved-color: var(--i-secondary-accent);
-	--link-unresolved-opacity: 1;
-	--link-unresolved-decoration-color: var(--link-unresolved-color);
+	--link-unresolved-color: var(--i-secondary-text-accent);
+	--link-unresolved-decoration-color: hsla(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 30%, 0.3);
 }
 a:hover {
 	background-color: hsla(var(--i-secondary-accent-hsl), 0.1);
@@ -332,6 +325,8 @@ body {
 	--metadata-label-background: hsla(var(--i-secondary-accent-hsl), 0.1);
 	--metadata-label-background-hover: var(--metadata-label-background);
 	--metadata-label-background-active: var(--metadata-label-background);
+	--metadata-label-text-color: var(--text-normal);
+  	--metadata-label-text-color-hover: var(--metadata-label-text-color);
 	--metadata-input-background-active: var(--metadata-input-background);
 }
 .markdown-source-view .metadata-container,
@@ -392,7 +387,10 @@ body {
 
 /* Tabs */
 body {
-	--tab-text-color-focused-highlighted: var(--text-normal);
+	--tab-text-color: var(--text-normal);
+	--tab-text-color-active: var(--tab-text-color);
+	--tab-text-color-focused: var(--tab-text-color);
+	--tab-text-color-focused-active: var(--tab-text-color);
 	--tab-container-background: var(--i-2);
 }
 .mod-left-split .workspace-tab-header.has-active-menu,
@@ -422,6 +420,33 @@ body {
 }
 .markdown-rendered table {
 	margin: 0;
+}
+
+/* Embedded search results */
+.internal-query {
+	border: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
+	border-radius: var(--radius-m);
+	--background-modifier-border: hsla(var(--i-secondary-accent-hsl), 0.45);
+}
+.internal-query .internal-query-header {
+	padding: 0.85em 1em;
+	gap: 0.65em;
+	border-radius: var(--radius-m) var(--radius-m) 0 0;
+	background-color: hsla(var(--i-secondary-accent-hsl), 0.1);
+	line-height: 1.3;
+}
+.internal-query .search-result-container {
+	border: 0;
+	border-radius: 0 0 var(--radius-m) var(--radius-m);
+	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
+	background-color: transparent;
+}
+.internal-query .internal-query-header-icon {
+	color: var(--search-icon-color);
+	margin: 0;
+}
+.el-pre .internal-query {
+	margin: var(--p-spacing) 0;
 }
 
 /* Audio */
@@ -454,72 +479,83 @@ audio::-webkit-media-controls-enclosure {
 
 /* Highlight headings */
 .i-highlight-headings :is(
-	.markdown-rendered h1, .inline-title h1, .cm-header-1,
-	.markdown-rendered h2, .inline-title h2, .cm-header-2,
-	.markdown-rendered h3, .inline-title h3, .cm-header-3,
-	.markdown-rendered h4, .inline-title h4, .cm-header-4,
-	.markdown-rendered h5, .inline-title h5, .cm-header-5,
-	.markdown-rendered h6, .inline-title h6, .cm-header-6) {
+	.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
+	.cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6) {
 	border-radius: var(--radius-s);
 	padding-left: 0.3em;
 	padding-right: 0.3em;
 	width: fit-content;
 }
-.theme-light.i-highlight-headings :is(.markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 75%, 0.35);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.35);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.35);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.35);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.35);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 75%, 0.35);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h1, .inline-title h1, .cm-header-1) {background-color: hsla(0, 100%, 70%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h2, .inline-title h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h3, .inline-title h3, .cm-header-3) {background-color: hsla(120, 100%, 70%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h4, .inline-title h4, .cm-header-4) {background-color: hsla(180, 100%, 60%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h5, .inline-title h5, .cm-header-5) {background-color: hsla(240, 100%, 80%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h6, .inline-title h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.3);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.3);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.3);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.3);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.3);}
+.theme-light.i-highlight-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.3);}
 
-/* Smaller headings */
-.i-smaller-headings {
-	--h1-size: 1.5em;
-	--h2-size: 1.4em;
-	--h3-size: 1.3em;
-	--h4-size: 1.2em;
-	--h5-size: 1.1em;
+.theme-dark.i-highlight-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.25);}
+.theme-dark.i-highlight-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
+
+/* Iridium headings */
+.i-iridium-headings {
+	--i-heading-size: 0.5em;
 	--h1-line-height: var(--line-height-normal);
 	--h2-line-height: var(--line-height-normal);
 	--h3-line-height: var(--line-height-normal);
 	--h4-line-height: var(--line-height-normal);
+	--h1-size: calc(1em + var(--i-heading-size));
+	--h2-size: calc(1em + var(--i-heading-size) * 0.8);
+	--h3-size: calc(1em + var(--i-heading-size) * 0.6);
+	--h4-size: calc(1em + var(--i-heading-size) * 0.4);
+	--h5-size: calc(1em + var(--i-heading-size) * 0.2);
+	--h6-size: 1em;
 	--h1-weight: 600;
 }
+.i-iridium-headings :is(h1, h2, h3, h4, h5, h6,
+.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
+.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6, 
+.inline-title h1, .inline-title h2, .inline-title h3, .inline-title h4, .inline-title h5, .inline-title h6, 
+.HyperMD-list-line .cm-header-1, .HyperMD-list-line .cm-header-2, .HyperMD-list-line .cm-header-3,
+.HyperMD-list-line .cm-header-4, .HyperMD-list-line .cm-header-5, .HyperMD-list-line .cm-header-6) {
+	letter-spacing: 0;
+}
 
-/* Iridium heading and paragraph spacing */
+/* Iridium spacing */
 .i-iridium-spacing {
-	--i-heading-spacing: 0.2rem;
-	--p-spacing: calc(var(--line-height-normal) * var(--font-text-size));
+	--i-heading-spacing-below: 0.3rem;
+	--heading-spacing: var(--p-spacing);
 	--h1-line-height: var(--line-height-normal);
 	--h2-line-height: var(--line-height-normal);
 	--h3-line-height: var(--line-height-normal);
 	--h4-line-height: var(--line-height-normal);
 	--h1-weight: 600;
+	--p-spacing: 1.5rem;
 }
-.i-iridium-spacing .cm-s-obsidian .cm-line.HyperMD-header {
-	padding-top: var(--i-heading-spacing);
-}
-.i-iridium-spacing .cm-content .cm-line:first-child,
-.i-iridium-spacing .cm-content div[contenteditable="false"] + .cm-line {
+.i-iridium-spacing .cm-content .cm-line:first-of-type,
+.i-iridium-spacing .cm-content > div[contenteditable=false] + .cm-line {
 	padding-top: 0;
 }
-.i-iridium-spacing .markdown-rendered :is(p,pre,table,ul,ol) + :is(h1,h2,h3,h4,h5,h6),
-.i-iridium-spacing .markdown-rendered div:is(.el-p,.el-pre,.el-table,.el-ul,.el-ol) + div > :is(h1,h2,h3,h4,h5,h6) {
-	margin-top: calc(var(--i-heading-spacing) + var(--p-spacing));
+.i-iridium-spacing .cm-s-obsidian .cm-line.HyperMD-header {
+    padding-top: 0;
+	padding-bottom: var(--i-heading-spacing-below);
 }
-.i-iridium-spacing :is(h1,h2,h3,h4,h5,h6) {
-	margin-block-start: var(--i-heading-spacing);
-	margin-block-end: 0;
+.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :not(h1,h2,h3,h4,h5,h6,table),
+.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-table {
+	margin-top: var(--i-heading-spacing-below);
 }
-.i-iridium-spacing .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + :is(p,pre,table,ul,ol),
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :is(p,pre,table,ul,ol) {
+.i-iridium-spacing .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	margin-top: 0;
+    margin-bottom: var(--i-heading-spacing-below);
+}
+.i-iridium-spacing .markdown-rendered hr {
+    margin: calc(var(--p-spacing) * 1.5 - 1px) 0;
+}
+.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > hr {
+	margin-top: calc((var(--p-spacing) / 2 - 1px) + var(--i-heading-spacing-below));
 }
 
 /* @settings
@@ -531,13 +567,6 @@ settings:
 		title: Secondary accent color
 		type: variable-themed-color
 		format: hsl-split
-		default-light: '#'
-		default-dark: '#'
-	-
-		id: text-normal
-		title: Text color
-		type: variable-themed-color
-		format: hex
 		default-light: '#'
 		default-dark: '#'
 	-
@@ -559,9 +588,24 @@ settings:
 				label: Highlight headings
 				value: i-highlight-headings
 	-
-		id: i-smaller-headings
-		title: Smaller headings
+		id: i-heading-sizes
+		title: Heading sizes
+		type: heading
+		level: 2
+	-
+		id: i-iridium-headings
+		title: Iridium headings
 		type: class-toggle
+		default: true
+	-
+		id: i-heading-size
+		title: 'Iridium headings: Heading sizes'
+		type: variable-number-slider
+		default: 0.5
+		min: 0
+        max: 0.8
+        step: 0.05
+		format: em
 	-
 		id: i-heading-and-paragraph-spacing
 		title: Heading and paragraph spacing
@@ -569,15 +613,18 @@ settings:
 		level: 2
 	-
 		id: i-iridium-spacing
-		title: Iridium heading and paragraph spacing
+		title: Iridium spacing
 		type: class-toggle
 		default: true
 	-
-		id: i-heading-spacing
-		title: Spacing above headings
-		description: Above toggle must be enabled.
-		type: variable-text
-		default: '0.2rem'
+		id: i-heading-spacing-below
+		title: 'Iridium spacing: Spacing below headings (rem)'
+		type: variable-number-slider
+		default: 0.3
+		min: 0
+        max: 1.5
+        step: 0.1
+		format: rem
 	-
 		id: i-light-mode
 		title: Light mode
