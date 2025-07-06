@@ -51,6 +51,9 @@ body {
 	/* Modals */
 	--modal-border-color: var(--background-modifier-border);
 
+	/* Multi-select pills */
+	--pill-color-remove-hover: var(--i-secondary-text-accent);
+
 	/* Prompts */
 	--prompt-border-color: var(--background-modifier-border);
 
@@ -96,8 +99,8 @@ body {
 	--i-7: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 18%));
 	--i-8: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 22%));
 	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) - 10%));
-	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 30%);
-	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 20%);
+	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(34% - var(--i-light-l) * 4%));
+	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(24% - var(--i-light-l) * 4%));
 
 	--color-base-05: hsl(var(--accent-h), var(--accent-s), 99%) !important;
 	--color-base-10: hsl(var(--accent-h), var(--accent-s), 98%) !important;
@@ -116,8 +119,8 @@ body {
 	--text-muted: hsl(0, 0%, calc(40% - var(--i-light-l) * 4%));
 	--text-faint: hsl(0, 0%, calc(71% - var(--i-light-l) * 4%));
 	--text-selection: hsla(var(--i-secondary-accent-hsl), 0.2);
-	--text-accent: hsl(var(--accent-h), var(--accent-s), 30%);
-	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), 20%);
+	--text-accent: hsl(var(--accent-h), var(--accent-s), calc(34% - var(--i-light-l) * 4%));
+	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(24% - var(--i-light-l) * 4%));
 	--interactive-hover: var(--i-1);
 	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 10%));
 }
@@ -134,8 +137,10 @@ body {
 	--i-7: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 18%));
 	--i-8: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 22%));
 	--i-secondary-accent-2: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(var(--i-secondary-accent-l) + 10%));
-	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
-	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
+	--i-secondary-text-accent: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s),
+	calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 4% + (100% - var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%) * 0.66));
+	--i-secondary-text-accent-hover: hsl(var(--i-secondary-accent-h), var(--i-secondary-accent-s),
+	calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 4% + (100% - var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%) * 0.66 + 10%));
 
 	--color-base-00: hsl(var(--accent-h), var(--accent-s), 12%) !important;
 	--color-base-05: hsl(var(--accent-h), var(--accent-s), 13%) !important;
@@ -161,8 +166,10 @@ body {
 	--text-muted: hsl(0, 0%, calc(55% + var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
 	--text-faint: hsl(0, 0%, calc(25% + var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%));
 	--text-selection: hsla(var(--i-secondary-accent-hsl), 0.25);
-	--text-accent: hsl(var(--accent-h), var(--accent-s), calc(75% + 0.25 * var(--i-dark-background-primary-l)));
-	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(85% + 0.15 * var(--i-dark-background-primary-l)));
+	--text-accent: hsl(var(--accent-h), var(--accent-s),
+	calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 4% + (100% - var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%) * 0.66));
+	--text-accent-hover: hsl(var(--accent-h), var(--accent-s),
+	calc(var(--i-dark-background-primary-l) + var(--i-dark-l) * 4% + (100% - var(--i-dark-background-primary-l) + var(--i-dark-l) * 4%) * 0.66 + 10%));
 	--interactive-normal: var(--i-2);
 	--interactive-hover: var(--background-modifier-hover);
 	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
@@ -219,9 +226,6 @@ body {
 .markdown-source-view.mod-cm6 .callout-content .callout {
 	margin: var(--p-spacing) 0;
 }
-.callout-content .callout {
-	margin-top: var(--p-spacing);
-}
 .callout-content {
 	border-top: var(--callout-border-width) dashed rgba(var(--callout-color), var(--callout-border-opacity));
 }
@@ -272,8 +276,7 @@ body {
 .markdown-embed:not(.canvas-node-content) {
 	border-radius: var(--radius-m);
 }
-.markdown-embed:not(.canvas-node-content) .markdown-preview-view,
-.markdown-reading-view .markdown-embed:not(.canvas-node-content) .markdown-preview-view {
+.internal-embed.markdown-embed .markdown-embed-content {
 	padding: 1em;
 	border-top: 1px dashed hsla(var(--i-secondary-accent-hsl), 0.45);
 }
@@ -348,7 +351,10 @@ body {
 }
 .metadata-properties-heading {
 	padding: 0;
-	margin-bottom: 6px;
+	margin-bottom: 0;
+}
+.metadata-content {
+	margin-top: var(--size-2-3);
 }
 .metadata-property {
 	border-left: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
@@ -415,9 +421,6 @@ body {
 	--table-drag-handle-color: var(--i-secondary-accent);
 	--table-add-button-border-color: var(--table-border-color);
 }
-.el-table {
-	margin: var(--p-spacing) 0;
-}
 
 /* Embedded search results */
 .internal-query {
@@ -474,8 +477,8 @@ audio::-webkit-media-controls-enclosure {
 	--h6-color: hsl(300, 100%, 80%);
 }
 
-/* Highlight headings */
-.i-highlight-headings :is(
+/* Highlighted headings */
+.i-highlighted-headings :is(
 	.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
 	.cm-header-1, .cm-header-2, .cm-header-3, .cm-header-4, .cm-header-5, .cm-header-6) {
 	border-radius: var(--radius-s);
@@ -483,19 +486,36 @@ audio::-webkit-media-controls-enclosure {
 	padding-right: 0.3em;
 	width: fit-content;
 }
-.theme-light.i-highlight-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.3);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.3);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.3);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.3);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.3);}
-.theme-light.i-highlight-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.3);}
+.theme-light.i-highlighted-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.3);}
 
-.theme-dark.i-highlight-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.25);}
-.theme-dark.i-highlight-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(0, 100%, 72%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(60, 100%, 50%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(120, 100%, 67%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(180, 100%, 62%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(240, 100%, 77%, 0.25);}
+.theme-dark.i-highlighted-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
+
+/* Colored inline title */
+.theme-light.i-colored-inline-title .inline-title:not([data-level]) {
+	color: hsla(var(--i-secondary-accent-h), var(--i-secondary-accent-s), 39%);
+}
+.theme-dark.i-colored-inline-title .inline-title:not([data-level]) {
+	color: var(--i-secondary-text-accent);
+}
+
+/* Highlighted inline title */
+.i-highlighted-inline-title .inline-title:not([data-level]) {
+	border-radius: var(--radius-s);
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	width: fit-content;
+	background-color: hsla(var(--i-secondary-accent-hsl), 0.25);
+}
 
 /* Iridium headings */
 .i-iridium-headings {
@@ -540,9 +560,11 @@ audio::-webkit-media-controls-enclosure {
     padding-top: 0;
 	padding-bottom: var(--i-heading-spacing-below);
 }
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :not(h1,h2,h3,h4,h5,h6,table),
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-table {
+.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :not(h1,h2,h3,h4,h5,h6) {
 	margin-top: var(--i-heading-spacing-below);
+}
+.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > table {
+	margin-top: calc(var(--size-4-4) + var(--i-heading-spacing-below));
 }
 .i-iridium-spacing .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	margin-top: 0;
@@ -553,6 +575,31 @@ audio::-webkit-media-controls-enclosure {
 }
 .i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > hr {
 	margin-top: calc((var(--p-spacing) / 2 - 1px) + var(--i-heading-spacing-below));
+}
+.i-iridium-spacing .inline-title:not([data-level]) {
+	margin-bottom: var(--i-heading-spacing-below);
+}
+.i-iridium-spacing .inline-title:not([data-level]) + .metadata-container {
+	margin-top: var(--p-spacing);
+}
+.i-iridium-spacing .markdown-source-view.mod-cm6 .inline-title:not([data-level]) + .metadata-container {
+	margin-top: calc(var(--p-spacing) - var(--i-heading-spacing-below));
+}
+.i-iridium-spacing .modal-container {
+	--p-spacing: 1rem;
+}
+.i-iridium-spacing .el-table {
+	margin: var(--p-spacing) 0;
+}
+.i-iridium-spacing .markdown-rendered table {
+	margin: var(--size-4-4) 0;
+}
+.i-iridium-spacing .callout-content .callout {
+	margin-top: var(--p-spacing);
+}
+.i-iridium-spacing .markdown-rendered pre {
+    padding: calc(var(--code-size) * var(--line-height-normal)) var(--size-4-4);
+	line-height: calc(var(--code-size) * var(--line-height-normal));
 }
 
 /* @settings
@@ -572,8 +619,8 @@ settings:
 		type: heading
 		level: 1
 	-
-		id: i-rainbow-headings
-		title: Rainbow headings
+		id: i-colorful-headings
+		title: Colorful headings
 		type: class-select
 		allowEmpty: true
 		default: none
@@ -582,8 +629,21 @@ settings:
 				label: Colored headings
 				value: i-colored-headings
 			-
-				label: Highlight headings
-				value: i-highlight-headings
+				label: Highlighted headings
+				value: i-highlighted-headings
+	-
+		id: i-colorful-inline-title
+		title: Colorful inline title
+		type: class-select
+		allowEmpty: true
+		default: none
+		options:
+			-
+				label: Colored inline title
+				value: i-colored-inline-title
+			-
+				label: Highlighted inline title
+				value: i-highlighted-inline-title
 	-
 		id: i-heading-sizes
 		title: Heading sizes
