@@ -269,7 +269,7 @@ body {
 	line-height: 1.3;
 	border-radius: var(--radius-m) var(--radius-m) 0 0;
 }
-.markdown-embed {
+.markdown-embed:not(.canvas-node-content) {
 	border-radius: var(--radius-m);
 }
 .markdown-embed:not(.canvas-node-content) .markdown-preview-view,
