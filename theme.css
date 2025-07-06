@@ -418,9 +418,6 @@ body {
 .el-table {
 	margin: var(--p-spacing) 0;
 }
-.markdown-rendered table {
-	margin: 0;
-}
 
 /* Embedded search results */
 .internal-query {
