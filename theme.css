@@ -29,7 +29,7 @@ body {
 
 	/* Icons */
 	--icon-color: var(--text-normal);
-  	--icon-color-hover: var(--icon-color);
+	--icon-color-hover: var(--icon-color);
 	--icon-color-active: var(--icon-color);
 	--icon-opacity: 1;
 
@@ -320,7 +320,6 @@ a:hover {
 
 /* Metadata */
 body {
-	--metadata-padding: 0;
 	--metadata-gap: 0;
 	--metadata-property-radius: 0;
 	--metadata-property-radius-hover: var(--metadata-property-radius);
@@ -329,7 +328,7 @@ body {
 	--metadata-label-background-hover: var(--metadata-label-background);
 	--metadata-label-background-active: var(--metadata-label-background);
 	--metadata-label-text-color: var(--text-normal);
-  	--metadata-label-text-color-hover: var(--metadata-label-text-color);
+	--metadata-label-text-color-hover: var(--metadata-label-text-color);
 	--metadata-input-background-active: var(--metadata-input-background);
 }
 .markdown-source-view .metadata-container,
@@ -350,11 +349,11 @@ body {
 	margin-top: 3px;
 }
 .metadata-properties-heading {
-	padding: 0;
+	padding: var(--size-4-1) 0 var(--size-2-3) 0;
 	margin-bottom: 0;
 }
-.metadata-content {
-	margin-top: var(--size-2-3);
+.metadata-container.is-collapsed {
+	margin-bottom: calc(1rem + var(--size-2-3));
 }
 .metadata-property {
 	border-left: 1px solid hsla(var(--i-secondary-accent-hsl), 0.45);
@@ -517,88 +516,80 @@ audio::-webkit-media-controls-enclosure {
 	background-color: hsla(var(--i-secondary-accent-hsl), 0.25);
 }
 
-/* Iridium headings */
-.i-iridium-headings {
-	--i-heading-size: 0.5em;
-	--h1-line-height: var(--line-height-normal);
-	--h2-line-height: var(--line-height-normal);
-	--h3-line-height: var(--line-height-normal);
-	--h4-line-height: var(--line-height-normal);
-	--h1-size: calc(1em + var(--i-heading-size));
-	--h2-size: calc(1em + var(--i-heading-size) * 0.8);
-	--h3-size: calc(1em + var(--i-heading-size) * 0.6);
-	--h4-size: calc(1em + var(--i-heading-size) * 0.4);
-	--h5-size: calc(1em + var(--i-heading-size) * 0.2);
-	--h6-size: 1em;
-	--h1-weight: 600;
+/* Improved headings and spacing */
+.i-headings-and-spacing {
+	--i-heading-sizes: 0.5em;
+	--i-spacing-below-headings: 0.3rem;
 }
-.i-iridium-headings :is(h1, h2, h3, h4, h5, h6,
-.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6,
-.HyperMD-header-1, .HyperMD-header-2, .HyperMD-header-3, .HyperMD-header-4, .HyperMD-header-5, .HyperMD-header-6, 
-.inline-title h1, .inline-title h2, .inline-title h3, .inline-title h4, .inline-title h5, .inline-title h6, 
-.HyperMD-list-line .cm-header-1, .HyperMD-list-line .cm-header-2, .HyperMD-list-line .cm-header-3,
-.HyperMD-list-line .cm-header-4, .HyperMD-list-line .cm-header-5, .HyperMD-list-line .cm-header-6) {
-	letter-spacing: 0;
-}
-
-/* Iridium spacing */
-.i-iridium-spacing {
-	--i-heading-spacing-below: 0.3rem;
+.i-headings-and-spacing .app-container {
 	--heading-spacing: var(--p-spacing);
 	--h1-line-height: var(--line-height-normal);
 	--h2-line-height: var(--line-height-normal);
 	--h3-line-height: var(--line-height-normal);
 	--h4-line-height: var(--line-height-normal);
+	--h1-size: calc(1em + var(--i-heading-sizes));
+	--h2-size: calc(1em + var(--i-heading-sizes) * 0.8);
+	--h3-size: calc(1em + var(--i-heading-sizes) * 0.6);
+	--h4-size: calc(1em + var(--i-heading-sizes) * 0.4);
+	--h5-size: calc(1em + var(--i-heading-sizes) * 0.2);
 	--h1-weight: 600;
+	--inline-title-line-height: var(--h1-line-height);
+	--inline-title-size: var(--h1-size);
+	--inline-title-weight: var(--h1-weight);
+	--metadata-padding: 0;
 	--p-spacing: 1.5rem;
 }
-.i-iridium-spacing .cm-content .cm-line:first-of-type,
-.i-iridium-spacing .cm-content > div[contenteditable=false] + .cm-line {
+.i-headings-and-spacing .app-container :is(
+.HyperMD-header-1, .inline-title h1, .HyperMD-list-line .cm-header-1, h1, .markdown-rendered h1,
+.HyperMD-header-2, .inline-title h2, .HyperMD-list-line .cm-header-2, h2, .markdown-rendered h2,
+.HyperMD-header-3, .inline-title h3, .HyperMD-list-line .cm-header-3, h3, .markdown-rendered h3,
+.HyperMD-header-4, .inline-title h4, .HyperMD-list-line .cm-header-4, h4, .markdown-rendered h4,
+.HyperMD-header-5, .inline-title h5, .HyperMD-list-line .cm-header-5, h5, .markdown-rendered h5,
+.HyperMD-header-6, .inline-title h6, .HyperMD-list-line .cm-header-6, h6, .markdown-rendered h6) {
+	letter-spacing: 0;
+}
+.i-headings-and-spacing .app-container .cm-content .cm-line:first-of-type,
+.i-headings-and-spacing .app-container .cm-content > div[contenteditable=false] + .cm-line {
 	padding-top: 0;
 }
-.i-iridium-spacing .cm-s-obsidian .cm-line.HyperMD-header {
-    padding-top: 0;
-	padding-bottom: var(--i-heading-spacing-below);
+.i-headings-and-spacing .app-container .cm-s-obsidian .cm-line.HyperMD-header {
+	padding-top: 0;
+	padding-bottom: var(--i-spacing-below-headings);
 }
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :not(h1,h2,h3,h4,h5,h6) {
-	margin-top: var(--i-heading-spacing-below);
+.i-headings-and-spacing .app-container .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > :not(h1,h2,h3,h4,h5,h6) {
+	margin-top: var(--i-spacing-below-headings);
 }
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > table {
-	margin-top: calc(var(--size-4-4) + var(--i-heading-spacing-below));
+.i-headings-and-spacing .app-container .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > table {
+	margin-top: calc(var(--size-4-4) + var(--i-spacing-below-headings));
 }
-.i-iridium-spacing .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
+.i-headings-and-spacing .app-container .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	margin-top: 0;
-    margin-bottom: var(--i-heading-spacing-below);
+	margin-bottom: var(--i-spacing-below-headings);
 }
-.i-iridium-spacing .markdown-rendered hr {
-    margin: calc(var(--p-spacing) * 1.5 - 1px) 0;
+.i-headings-and-spacing .app-container .markdown-rendered hr {
+	margin: calc(var(--p-spacing) * 1.5 - 1px) 0;
 }
-.i-iridium-spacing .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > hr {
-	margin-top: calc((var(--p-spacing) / 2 - 1px) + var(--i-heading-spacing-below));
+.i-headings-and-spacing .app-container .markdown-rendered div:is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + div > hr {
+	margin-top: calc((var(--p-spacing) / 2 - 1px) + var(--i-spacing-below-headings));
 }
-.i-iridium-spacing .inline-title:not([data-level]) {
-	margin-bottom: var(--i-heading-spacing-below);
+.i-headings-and-spacing .app-container .inline-title:not([data-level]) {
+	margin-bottom: var(--i-spacing-below-headings);
 }
-.i-iridium-spacing .inline-title:not([data-level]) + .metadata-container {
+.i-headings-and-spacing .app-container .inline-title:not([data-level]) + .metadata-container,
+.i-headings-and-spacing .app-container .callout-content .callout {
 	margin-top: var(--p-spacing);
 }
-.i-iridium-spacing .markdown-source-view.mod-cm6 .inline-title:not([data-level]) + .metadata-container {
-	margin-top: calc(var(--p-spacing) - var(--i-heading-spacing-below));
+.i-headings-and-spacing .app-container .markdown-source-view.mod-cm6 .inline-title:not([data-level]) + .metadata-container {
+	margin-top: calc(var(--p-spacing) - var(--i-spacing-below-headings));
 }
-.i-iridium-spacing .modal-container {
-	--p-spacing: 1rem;
-}
-.i-iridium-spacing .el-table {
+.i-headings-and-spacing .app-container .el-table {
 	margin: var(--p-spacing) 0;
 }
-.i-iridium-spacing .markdown-rendered table {
+.i-headings-and-spacing .app-container .el-table table {
 	margin: var(--size-4-4) 0;
 }
-.i-iridium-spacing .callout-content .callout {
-	margin-top: var(--p-spacing);
-}
-.i-iridium-spacing .markdown-rendered pre {
-    padding: calc(var(--code-size) * var(--line-height-normal)) var(--size-4-4);
+.i-headings-and-spacing .app-container .markdown-rendered pre {
+	padding: calc(var(--code-size) * var(--line-height-normal)) var(--size-4-4);
 	line-height: calc(var(--code-size) * var(--line-height-normal));
 }
 
@@ -645,42 +636,33 @@ settings:
 				label: Highlighted inline title
 				value: i-highlighted-inline-title
 	-
-		id: i-heading-sizes
-		title: Heading sizes
+		id: i-improved-headings-and-spacing
+		title: Improved headings and spacing
 		type: heading
 		level: 2
 	-
-		id: i-iridium-headings
-		title: Iridium headings
+		id: i-headings-and-spacing
+		title: Improved headings and spacing
+		description: Makes heading and paragraph spacing more consistent between Live Preview and Reading View. Enable to adjust heading sizes and spacing below headings.
 		type: class-toggle
 		default: true
 	-
-		id: i-heading-size
-		title: 'Iridium headings: Heading sizes'
+		id: i-heading-sizes
+		title: Heading sizes
 		type: variable-number-slider
 		default: 0.5
 		min: 0
-        max: 0.8
-        step: 0.05
+		max: 0.8
+		step: 0.05
 		format: em
 	-
-		id: i-heading-and-paragraph-spacing
-		title: Heading and paragraph spacing
-		type: heading
-		level: 2
-	-
-		id: i-iridium-spacing
-		title: Iridium spacing
-		type: class-toggle
-		default: true
-	-
-		id: i-heading-spacing-below
-		title: 'Iridium spacing: Spacing below headings (rem)'
+		id: i-spacing-below-headings
+		title: Spacing below headings (rem)
 		type: variable-number-slider
 		default: 0.3
 		min: 0
-        max: 1.5
-        step: 0.1
+		max: 1.5
+		step: 0.1
 		format: rem
 	-
 		id: i-light-mode
