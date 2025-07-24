@@ -75,6 +75,7 @@ body {
 	--i-light-s: 25%;
 	--i-light-l: 1;
 
+	--i-0: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 2%));
 	--i-1: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 3%));
 	--i-2: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 6%));
 	--i-3: hsl(var(--accent-h), var(--i-light-s), calc(100% - var(--i-light-l) * 10%));
@@ -115,6 +116,7 @@ body {
 	--i-dark-bg-l: 12%;
 	--i-dark-l: 1;
 
+	--i-0: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 1%));
 	--i-1: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 2%));
 	--i-2: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 4%));
 	--i-3: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 8%));
@@ -156,6 +158,10 @@ body {
 	--interactive-normal: var(--i-2);
 	--interactive-hover: var(--i-3);
 	--interactive-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
+}
+
+body:not(.is-mobile) .workspace {
+	transition: none;
 }
 
 /* Blockquotes */
@@ -226,7 +232,7 @@ body {
 }
 .theme-dark .cm-s-obsidian span.cm-inline-code,
 .theme-dark .markdown-rendered code {
-	--code-background: hsla(var(--accent-h), var(--i-dark-s), var(--accent-l), 0.25);
+	--code-background: hsla(var(--accent-h), var(--i-dark-s), var(--accent-l), 0.2);
 }
 .cm-s-obsidian span.cm-inline-code,
 .markdown-rendered code {
@@ -502,12 +508,12 @@ audio::-webkit-media-controls-enclosure {
 .theme-dark.i-highlighted-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(300, 100%, 70%, 0.25);}
 
 /* Highlighted: From accent color */
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(var(--accent-h), 100%, 65%, 0.3);}
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(calc(var(--accent-h) + 60), 100%, 65%, 0.3);}
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(calc(var(--accent-h) + 120), 100%, 65%, 0.3);}
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(calc(var(--accent-h) + 180), 100%, 65%, 0.3);}
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(calc(var(--accent-h) + 240), 100%, 65%, 0.3);}
-.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(calc(var(--accent-h) + 300), 100%, 65%, 0.3);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(var(--accent-h), 100%, 65%, 0.28);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(calc(var(--accent-h) + 60), 100%, 65%, 0.28);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h3, .cm-header-3) {background-color: hsla(calc(var(--accent-h) + 120), 100%, 65%, 0.28);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h4, .cm-header-4) {background-color: hsla(calc(var(--accent-h) + 180), 100%, 65%, 0.28);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h5, .cm-header-5) {background-color: hsla(calc(var(--accent-h) + 240), 100%, 65%, 0.28);}
+.theme-light.i-highlighted-accent-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(calc(var(--accent-h) + 300), 100%, 65%, 0.28);}
 
 .theme-dark.i-highlighted-accent-headings :is(.markdown-rendered h1, .cm-header-1) {background-color: hsla(var(--accent-h), 100%, 65%, 0.25);}
 .theme-dark.i-highlighted-accent-headings :is(.markdown-rendered h2, .cm-header-2) {background-color: hsla(calc(var(--accent-h) + 60), 100%, 65%, 0.25);}
@@ -526,7 +532,7 @@ audio::-webkit-media-controls-enclosure {
 
 /* Highlighted inline title */
 .theme-light.i-highlighted-inline-title .inline-title:not([data-level]) {
-	background-color: hsla(var(--color-accent-hsl), 0.3);
+	background-color: hsla(var(--color-accent-hsl), 0.28);
 }
 .theme-dark.i-highlighted-inline-title .inline-title:not([data-level]) {
 	background-color: hsla(var(--color-accent-hsl), 0.25);
@@ -609,33 +615,401 @@ audio::-webkit-media-controls-enclosure {
 	line-height: calc(var(--code-size) * var(--line-height-normal));
 }
 
+/* Card layout */
+.i-card-layout:not(.is-mobile) {
+	--ribbon-background: var(--i-4);
+	--ribbon-background-collapsed: var(--ribbon-background);
+	--ribbon-width: 35px;
+	--ribbon-padding: 10px 0 10px;
+	--titlebar-background: var(--i-0);
+}
+.i-card-layout:not(.is-mobile) .workspace {
+	padding: 5px;
+}
+.i-card-layout:not(.is-mobile).theme-light {
+	--background-modifier-hover: var(--i-2);
+	--background-modifier-border: var(--i-8);
+}
+.i-card-layout:not(.is-mobile).theme-dark {
+	--background-modifier-border: var(--i-7);
+}
+.i-card-layout:not(.is-mobile) .workspace-ribbon {
+	--background-modifier-hover: var(--i-2);
+}
+.i-card-layout:not(.is-mobile) .workspace,
+.i-card-layout:not(.is-mobile) .workspace-split.mod-left-split,
+.i-card-layout:not(.is-mobile) .workspace-split.mod-right-split,
+.i-card-layout:not(.is-mobile) .workspace-split.mod-vertical > *,
+.i-card-layout:not(.is-mobile).is-grabbing .workspace-split,
+.i-card-layout:not(.is-mobile):not(.is-hidden-frameless) .titlebar {
+	background-color: var(--i-4);
+}
+.i-card-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
+	background-color: var(--background-primary);
+}
+.i-card-layout:not(.is-mobile) .workspace-tab-header-container {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px 8px 0 0;
+	margin: 3px 3px 0;
+	--background-modifier-hover: var(--i-3);
+}
+.i-card-layout:not(.is-mobile) .mod-left-split .workspace-tab-header.has-active-menu,
+.i-card-layout:not(.is-mobile) .mod-right-split .workspace-tab-header.has-active-menu,
+.i-card-layout:not(.is-mobile) .mod-left-split .workspace-tab-header.is-active,
+.i-card-layout:not(.is-mobile) .mod-right-split .workspace-tab-header.is-active {
+	--background-modifier-hover: var(--i-4);
+}
+.i-card-layout:not(.is-mobile) .workspace-tab-container {
+	border: 1px solid var(--background-modifier-border);
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	margin: 0 3px 3px;
+}
+.i-card-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container,
+.i-card-layout:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container {
+	border-bottom-style: dashed;
+}
+.i-card-layout:not(.is-mobile) .workspace-leaf-resize-handle {
+	border-color: transparent;
+}
+.i-card-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 0 0 8px 8px;
+	border-top-style: dashed;
+	margin: 0 3px 3px;
+	width: auto;
+	background-color: var(--background-primary);
+}
+.i-card-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
+	margin-bottom: 0;
+	border-radius: 0;
+	border-bottom: 0;
+}
+.i-card-layout:not(.is-mobile) .workspace-ribbon {
+	border: 0;
+}
+.i-card-layout:not(.is-mobile,.show-ribbon) {
+	--ribbon-width: 0px;
+}
+.i-card-layout:not(.is-mobile) .workspace-ribbon.mod-left:before {
+	display: none;
+}
+.i-card-layout:not(.is-mobile) .workspace-ribbon.mod-left {
+	margin-top: 0;
+}
+.i-card-layout:not(.is-mobile) .sidebar-toggle-button {
+	height: auto;
+	padding: 7px 0;
+}
+.i-card-layout:is(.mod-macos:not(.is-hidden-frameless),.mod-windows,.mod-linux) .workspace-ribbon .sidebar-toggle-button {
+	position: relative;
+	height: auto;
+	padding: 0 0 2px 0;
+	width: auto;
+}
+
+/* MacOS */
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+	padding-left: calc(var(--frame-left-space) - 1px);
+}
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
+	margin-top: 40px;
+}
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
+	position: relative;
+	padding-right: 0;
+}
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
+	padding-right: 8px;
+}
+
+/* Windows and Linux */
+.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless {
+	--frame-right-space: 120px;
+}
+.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right {
+	right: 9px;
+	top: 9px;
+	height: 38px;
+	border-top-right-radius: 8px;
+}
+.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right .titlebar-button:last-child {
+	border-top-right-radius: 7px;
+}
+.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button {
+	padding: 0 14px;
+}
+.i-card-layout:is(.mod-windows,.mod-linux):not(.is-hidden-frameless) .titlebar-button.mod-logo {
+	--ribbon-width: 44px;
+}
+.i-card-layout:is(.mod-windows,.mod-linux):not(.is-hidden-frameless,.show-ribbon) .titlebar-button.mod-logo {
+	--ribbon-width: 0;
+}
+
+/* Iridium window control buttons */
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless {
+	--frame-right-space: 81px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right {
+	height: 26px;
+	right: 7px;
+	top: 7px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 5px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused .titlebar-button-container.mod-right {
+	background-color: var(--background-primary);
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right .titlebar-button {
+	padding: 0 6px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right .titlebar-button:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right .titlebar-button:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+	height: 26px;
+	right: 7px;
+	top: 7px;
+	width: 74px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.i-card-layout .titlebar-button-container.mod-right {
+	height: 25px;
+	right: 16px;
+	top: 16px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.i-card-layout .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+	height: 25px;
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused.i-card-layout .titlebar-button-container.mod-right {
+	background-color: var(--i-3);
+}
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.i-card-layout .titlebar-button:not(.mod-close):hover {
+	background-color: var(--background-primary);
+}
+
+/* Iridium tab titlebar */
+.i-tab-titlebar:not(.is-mobile) .view-header {
+	border: 0;
+	min-height: 40px;
+	height: auto;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-left,
+.i-tab-titlebar:not(.is-mobile) .view-actions {
+	height: 40px;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title-container {
+	flex-direction: column-reverse;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title {
+	flex-basis: auto;
+	padding: 13.5px 0 2px;
+	line-height: 1;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title-parent {
+	font-size: 12.5px;
+	color: var(--text-accent);
+	align-items: center;
+	height: 0;
+	transition: 100ms ease-in-out 300ms;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator {
+	font-size: 12px;
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
+	display: none;
+}
+.i-tab-titlebar:not(.is-mobile).is-focused .workspace-leaf.mod-active .view-header-title {
+	font-weight: var(--font-medium);
+}
+.i-tab-titlebar:not(.is-mobile) .view-header-title-container:hover .view-header-title-parent {
+	height: 28px;
+}
+
+/* File path only */
+.i-tab-titlebar-path:not(.is-mobile) .view-header {
+	border: 0;
+	min-height: 40px;
+}
+.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent {
+	font-size: 12.5px;
+	color: var(--text-accent);
+	align-items: center;
+}
+.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator {
+	font-size: 12px;
+}
+.i-tab-titlebar-path:not(.is-mobile) .view-header-title,
+.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
+	display: none;
+}
+
+/* Smaller tab text */
+.i-smaller-tab-text:not(.is-mobile) {
+	--tab-font-size: 12.5px;
+}
+
+/* Hide vault profile */
+.i-hide-vault-profile:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+	display: none;
+}
+.i-hide-vault-profile:not(.is-mobile).i-card-layout .workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
+	margin-bottom: 3px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	border-radius: 0 0 8px 8px;
+}
+
+/* Hide status bar */
+.i-hide-status-bar:not(.is-mobile) .status-bar {
+	display: none;
+}
+
+/* Autohide status bar */
+.i-autohide-status-bar:not(.is-mobile) .status-bar {
+	opacity: 0;
+	transition: 100ms ease-in-out;
+}
+.i-autohide-status-bar:not(.is-mobile) .status-bar:hover {
+	opacity: 1;
+}
+
+/* Hide tab titlebar buttons */
+.i-hide-tab-titlebar-buttons:not(.is-mobile) .view-header-left,
+.i-hide-tab-titlebar-buttons:not(.is-mobile) .view-actions {
+	display: none;
+}
+
+/* Autohide tab titlebar buttons */
+.i-autohide-tab-titlebar-buttons:not(.is-mobile) .view-header-left,
+.i-autohide-tab-titlebar-buttons:not(.is-mobile) .view-actions {
+	opacity: 0;
+	transition: 100ms ease-in-out;
+}
+.i-autohide-tab-titlebar-buttons:not(.is-mobile) .view-header-left:hover,
+.i-autohide-tab-titlebar-buttons:not(.is-mobile) .view-actions:hover {
+	opacity: 1;
+}
+
+/* Smaller table text */
+.i-smaller-table-text {
+	--table-text-size: var(--font-small);
+}
+
 /* @settings
 name: Iridium
 id: iridium
 settings:
 	-
-		id: i-headings
-		title: Headings
+		id: i-desktop
+		title: Desktop
 		type: heading
 		level: 1
 	-
-		id: i-colorful-headings
-		title: Colorful headings
+		id: i-card-layout
+		title: Card layout
+		type: class-toggle
+		default: true
+	-
+		id: i-tab-title-bar
+		title: Iridium tab titlebar
+		description: Shows only the tab title when unhovered and reveals the file path when hovered.
 		type: class-select
 		allowEmpty: true
 		default: none
 		options:
 			-
+				label: Default
+				value: i-tab-titlebar
+			-
+				label: File path only
+				value: i-tab-titlebar-path
+	-
+		id: i-smaller-tab-text
+		title: Smaller tab text
+		type: class-toggle
+	-
+		id: i-hide-autohide-ui-elements
+		title: Hide/autohide UI elements
+		type: heading
+		level: 2
+	-
+		id: i-tab-titlebar-buttons
+		title: Tab titlebar buttons
+		type: class-select
+		allowEmpty: true
+		default: none
+		options:
+			-
+				label: Hide tab titlebar buttons
+				value: i-hide-tab-titlebar-buttons
+			-
+				label: Autohide tab titlebar buttons
+				value: i-autohide-tab-titlebar-buttons
+	-
+		id: i-status-bar
+		title: Status bar
+		type: class-select
+		allowEmpty: true
+		default: none
+		options:
+			-
+				label: Hide status bar
+				value: i-hide-status-bar
+			-
+				label: Autohide status bar
+				value: i-autohide-status-bar
+	-
+		id: i-hide-vault-profile
+		title: Hide vault profile
+		type: class-toggle
+	-
+		id: i-windows-and-linux
+		title: Windows and Linux
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: i-window-control-buttons
+		title: Iridium window control buttons
+		type: class-toggle
+		default: true
+	-
+		id: i-other
+		title: Other
+		type: heading
+		level: 1
+	-
+		id: i-smaller-table-text
+		title: Smaller table text
+		type: class-toggle
+*/
+
+/* @settings
+name: 'Iridium: Headings'
+id: i-headings
+settings:
+	-
+		id: i-rainbow-headings
+		title: Rainbow headings
+		type: class-select
+		allowEmpty: true
+		default: i-colored-accent-headings
+		options:
+			-
 				label: Colored
 				value: i-colored-headings
 			-
-				label: 'Colored: From accent color'
+				label: 'Colored: from accent color'
 				value: i-colored-accent-headings
 			-
 				label: Highlighted
 				value: i-highlighted-headings
 			-
-				label: 'Highlighted: From accent color'
+				label: 'Highlighted: from accent color'
 				value: i-highlighted-accent-headings
 	-
 		id: i-colorful-inline-title
@@ -654,7 +1028,7 @@ settings:
 		id: i-improved-headings-and-spacing
 		title: Improved headings and spacing
 		type: heading
-		level: 2
+		level: 1
 	-
 		id: i-headings-and-spacing
 		title: Improved headings and spacing
@@ -679,11 +1053,12 @@ settings:
 		max: 1.5
 		step: 0.1
 		format: rem
-	-
-		id: i-light-mode
-		title: Light mode
-		type: heading
-		level: 1
+*/
+
+/* @settings
+name: 'Iridium: Light mode'
+id: i-light-mode
+settings:
 	-
 		id: i-light-s
 		title: Saturation (%)
@@ -701,11 +1076,12 @@ settings:
 		min: 0.5
 		max: 1.5
 		step: 0.05
-	-
-		id: i-dark-mode
-		title: Dark mode
-		type: heading
-		level: 1
+*/
+
+/* @settings
+name: 'Iridium: Dark mode'
+id: i-dark-mode
+settings:
 	-
 		id: i-dark-s
 		title: Saturation (%)
