@@ -1,6 +1,5 @@
 # Iridium
 ![](Images/cover.png)
-![](Images/light.png)
-![](Images/dark.png)
-![](Images/light-purple.png)
-![](Images/dark-purple.png)
+![](Images/default.png)
+![](Images/style-settings.png)
+![](Images/saturation-lightness.png)
