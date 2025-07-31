@@ -51,13 +51,6 @@ body {
 	--status-bar-background: var(--titlebar-background);
 	--status-bar-text-color: var(--text-normal);
 
-	/* Tags */
-	--tag-color: var(--text-normal);
-	--tag-color-hover: var(--tag-color);
-	--tag-background: hsla(var(--color-accent-hsl), 0.2);
-	--tag-padding-x: 0.5em;
-	--tag-radius: var(--radius-s);
-
 	/* Window frame */
 	--titlebar-background: var(--i-2);
 	--titlebar-background-focused: var(--titlebar-background);
@@ -161,6 +154,15 @@ body {
 
 body:not(.is-mobile) .workspace {
 	transition: none;
+}
+
+.is-mobile.theme-dark {
+	--color-base-00: hsl(var(--accent-h), var(--i-dark-s), var(--i-dark-bg-l));
+	--color-base-10: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 2%));
+	--color-base-20: hsl(var(--accent-h), var(--i-dark-s), calc(var(--i-dark-bg-l) + var(--i-dark-l) * 3%));
+	--background-modifier-form-field: var(--i-4);
+	--background-modifier-hover: var(--i-3);
+	--background-modifier-message: var(--i-5);
 }
 
 /* Blockquotes */
@@ -294,7 +296,8 @@ body {
 .theme-dark {
 	--link-unresolved-decoration-color: hsla(var(--accent-h), var(--accent-s), calc(var(--i-dark-bg-l) + (100% - var(--i-dark-bg-l)) * 0.7), 0.3);
 }
-a:hover {
+a:hover,
+.metadata-link-inner:hover {
 	background-color: hsla(var(--color-accent-hsl), 0.1);
 	border-radius: var(--radius-s);
 }
@@ -313,6 +316,7 @@ body {
 	--metadata-label-background-hover: var(--metadata-label-background);
 	--metadata-label-background-active: var(--metadata-label-background);
 	--metadata-label-text-color: var(--text-normal);
+	--metadata-input-height: 2em;
 	--metadata-input-background-active: var(--metadata-input-background);
 }
 .markdown-source-view .metadata-container,
@@ -330,60 +334,70 @@ body {
 }
 .metadata-container .metadata-show-source-button,
 .metadata-container .metadata-add-button {
-	margin-top: 3px;
+	margin-top: 0.25em;
 }
-.metadata-properties-heading {
-	padding: var(--size-4-1) 0 var(--size-2-3) 0;
+.metadata-container:not(.is-collapsed) .metadata-properties-heading {
+	padding: var(--size-4-1) 0 0.5em;
 	margin-bottom: 0;
 }
-.metadata-container.is-collapsed {
-	margin-bottom: calc(1rem + var(--size-2-3));
+.metadata-container.is-collapsed .metadata-properties-heading {
+	padding: var(--size-4-1) 0;
+}
+.metadata-properties {
+	border: 1px solid hsla(var(--color-accent-hsl), 0.45);
+	border-radius: 7px;
 }
 .metadata-property {
-	border-left: 1px solid hsla(var(--color-accent-hsl), 0.45);
-	border-right: 1px solid hsla(var(--color-accent-hsl), 0.45);
 	border-bottom: 1px dashed hsla(var(--color-accent-hsl), 0.45);
 }
-.metadata-property:first-child {
-	border-top: 1px solid hsla(var(--color-accent-hsl), 0.45);
-	border-top-left-radius: 7px;
-	border-top-right-radius: 7px;
-}
 .metadata-property:last-child {
-	border-bottom: 1px solid hsla(var(--color-accent-hsl), 0.45);
-	border-bottom-left-radius: 7px;
-	border-bottom-right-radius: 7px;
+	border: none;
 }
 .metadata-property-icon {
 	--icon-size: 16px;
+	width: 2.25em;
+	justify-content: center;
+	flex-shrink: 0;
 }
 .metadata-property-key {
 	align-items: center;
-	min-height: 2em;
-}
-.metadata-property-value {
-	min-height: 2em;
 }
 .metadata-property-icon:before {
-	width: var(--size-4-2);
+	display: none;
+}
+input.metadata-property-key-input {
+	padding-left: 0;
+}
+@container (width < 250px) {
+	.metadata-property .metadata-property-value {
+		margin-top: 0;
+		padding-inline-start: calc(2.25em - var(--size-4-2));
+	}
 }
 .metadata-property .multi-select-pill-content {
-	line-height: 1.3;
+	line-height: var(--line-height-tight);
 }
 .metadata-property .multi-select-pill-remove-button {
 	margin-inline-end: 0.25em;
 }
 .metadata-property[data-property-key="tags"],
 .metadata-property:not([data-property-key="tags"]) {
-    --pill-color-remove: var(--text-faint);
-    --pill-color-remove-hover: var(--text-muted);
-    --pill-padding-y: 0.15em;
+	--pill-color-remove: var(--text-faint);
+	--pill-color-remove-hover: var(--text-muted);
+	--pill-padding-y: 0.15em;
 	--pill-background-hover: var(--pill-background);
-    --pill-padding-x: var(--tag-padding-x);
-    --pill-radius: var(--tag-radius);
+	--pill-padding-x: var(--tag-padding-x);
+	--pill-radius: var(--tag-radius);
 }
-.metadata-property:not([data-property-key="tags"]) {
-    --pill-background: hsla(var(--color-accent-hsl), 0.1);
+.theme-light .metadata-property:not([data-property-key="tags"]) {
+	--pill-background: hsla(var(--color-accent-hsl), 0.1);
+}
+.theme-dark .metadata-property:not([data-property-key="tags"]) {
+	--pill-background: hsla(var(--color-accent-hsl), 0.15);
+}
+.metadata-property .multi-select-container {
+	padding: 0.34em var(--size-4-2);
+	gap: 0.34em;
 }
 
 /* PDF view */
@@ -419,6 +433,22 @@ body {
 	--table-selection-border-radius: 0;
 	--table-drag-handle-color: var(--color-accent);
 	--table-add-button-border-color: var(--table-border-color);
+}
+
+/* Tags */
+body {
+	--tag-color: var(--text-normal);
+	--tag-color-hover: var(--tag-color);
+	--tag-background-hover: var(--tag-background);
+	--tag-padding-x: 0.5em;
+	--tag-radius: var(--radius-s);
+}
+.theme-light {
+	--tag-background: hsla(var(--color-accent-hsl), 0.2);
+}
+.theme-dark,
+.is-mobile.theme-dark {
+	--tag-background: hsla(var(--color-accent-hsl), 0.25);
 }
 
 /* Embedded search results */
@@ -625,6 +655,9 @@ audio::-webkit-media-controls-enclosure {
 .i-headings-and-spacing:not(.show-inline-title) .app-container .markdown-reading-view .inline-title:not([data-level]) + .metadata-container {
 	margin-top: 0;
 }
+.i-headings-and-spacing .metadata-container.is-collapsed .metadata-properties-heading {
+	margin-bottom: 0;
+}
 .i-headings-and-spacing .app-container .el-table {
 	margin: var(--p-spacing) 0;
 }
@@ -815,59 +848,59 @@ audio::-webkit-media-controls-enclosure {
 }
 
 /* Iridium tab titlebar */
-.i-tab-titlebar:not(.is-mobile) .view-header {
+:is(.i-tab-titlebar, .i-tab-titlebar-autohide.is-mobile, .i-tab-titlebar-path) {
+	--file-header-font-size: 12.5px;
+}
+:is(.i-tab-titlebar, .i-tab-titlebar-autohide, .i-tab-titlebar-path) .view-header {
 	border: 0;
+}
+:is(.i-tab-titlebar, .i-tab-titlebar-autohide, .i-tab-titlebar-path) .view-header-title-parent {
+	color: var(--text-accent);
+	align-items: center;
+}
+:is(.i-tab-titlebar, .i-tab-titlebar-autohide, .i-tab-titlebar-path) .view-header-title-parent .view-header-breadcrumb-separator {
+	font-size: 12px;
+}
+:is(.i-tab-titlebar.is-focused, .i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide.is-focused, .i-tab-titlebar-autohide.is-mobile) .workspace-leaf.mod-active .view-header-title {
+	font-weight: 500;
+}
+.i-tab-titlebar-path .view-header-title,
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide, .i-tab-titlebar-path) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
+	display: none;
+}
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide) .view-header-title-container {
+	flex-direction: column-reverse;
+}
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide.is-mobile) .view-header-title-container {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide.is-mobile) .view-header-title {
+	color: var(--text-normal);
+}
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide.is-mobile, .i-tab-titlebar-path.is-mobile) .view-header-title-parent,
+:is(.i-tab-titlebar.is-mobile, .i-tab-titlebar-autohide.is-mobile) .view-header-title {
+	opacity: 1;
+}
+.i-tab-titlebar-autohide:not(.is-mobile) .view-header {
 	min-height: 40px;
 	height: auto;
 }
-.i-tab-titlebar:not(.is-mobile) .view-header-left,
-.i-tab-titlebar:not(.is-mobile) .view-actions {
+.i-tab-titlebar-autohide:not(.is-mobile) .view-header-left,
+.i-tab-titlebar-autohide:not(.is-mobile) .view-actions {
 	height: 40px;
 }
-.i-tab-titlebar:not(.is-mobile) .view-header-title-container {
-	flex-direction: column-reverse;
-}
-.i-tab-titlebar:not(.is-mobile) .view-header-title {
+.i-tab-titlebar-autohide:not(.is-mobile) .view-header-title {
 	flex-basis: auto;
 	padding: 13.5px 0 2px;
 	line-height: 1;
 }
-.i-tab-titlebar:not(.is-mobile) .view-header-title-parent {
-	font-size: 12.5px;
-	color: var(--text-accent);
-	align-items: center;
+.i-tab-titlebar-autohide:not(.is-mobile) .view-header-title-parent {
 	height: 0;
 	transition: 100ms ease-in-out 400ms;
 }
-.i-tab-titlebar:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator {
-	font-size: 12px;
-}
-.i-tab-titlebar:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
-	display: none;
-}
-.i-tab-titlebar:not(.is-mobile).is-focused .workspace-leaf.mod-active .view-header-title {
-	font-weight: var(--font-medium);
-}
-.i-tab-titlebar:not(.is-mobile) .view-header-title-container:hover .view-header-title-parent {
+.i-tab-titlebar-autohide:not(.is-mobile) .view-header-title-container:hover .view-header-title-parent {
 	height: 28px;
-}
-
-/* File path only */
-.i-tab-titlebar-path:not(.is-mobile) .view-header {
-	border: 0;
-	min-height: 40px;
-}
-.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent {
-	font-size: 12.5px;
-	color: var(--text-accent);
-	align-items: center;
-}
-.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator {
-	font-size: 12px;
-}
-.i-tab-titlebar-path:not(.is-mobile) .view-header-title,
-.i-tab-titlebar-path:not(.is-mobile) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
-	display: none;
 }
 
 /* Smaller tab text */
@@ -926,40 +959,37 @@ name: Iridium
 id: iridium
 settings:
 	-
-		id: i-desktop
+		id: desktop
 		title: Desktop
+		description: Card layout, tab text, tab titlebar buttons, status bar, vault profile, window control buttons
 		type: heading
 		level: 1
+		collapsed: true
+	-
+		id: desktop-miscellaneous
+		title: Miscellaneous
+		description: Card layout, smaller tab text
+		type: heading
+		level: 2
+		collapsed: true
 	-
 		id: i-card-layout
 		title: Card layout
 		type: class-toggle
 		default: true
 	-
-		id: i-tab-title-bar
-		title: Iridium tab titlebar
-		description: Shows only the tab title when unhovered and reveals the file path when hovered.
-		type: class-select
-		allowEmpty: true
-		default: none
-		options:
-			-
-				label: Default
-				value: i-tab-titlebar
-			-
-				label: File path only
-				value: i-tab-titlebar-path
-	-
 		id: i-smaller-tab-text
 		title: Smaller tab text
 		type: class-toggle
 	-
-		id: i-hide-autohide-ui-elements
+		id: hide-autohide-ui-elements
 		title: Hide/autohide UI elements
+		description: Tab titlebar buttons, status bar, vault profile
 		type: heading
 		level: 2
+		collapsed: true
 	-
-		id: i-tab-titlebar-buttons
+		id: tab-titlebar-buttons
 		title: Tab titlebar buttons
 		type: class-select
 		allowEmpty: true
@@ -972,7 +1002,7 @@ settings:
 				label: Autohide tab titlebar buttons
 				value: i-autohide-tab-titlebar-buttons
 	-
-		id: i-status-bar
+		id: status-bar
 		title: Status bar
 		type: class-select
 		allowEmpty: true
@@ -989,8 +1019,9 @@ settings:
 		title: Hide vault profile
 		type: class-toggle
 	-
-		id: i-windows-and-linux
+		id: windows-and-linux
 		title: Windows and Linux
+		description: Iridium window control buttons
 		type: heading
 		level: 2
 		collapsed: true
@@ -1000,22 +1031,21 @@ settings:
 		type: class-toggle
 		default: true
 	-
-		id: i-other
-		title: Other
+		id: headings-and-spacing
+		title: Headings and spacing
+		description: Rainbow headings, colorful inline title, improved spacing in editing and reading views, heading sizes, spacing below headings
 		type: heading
 		level: 1
+		collapsed: true
 	-
-		id: i-smaller-table-text
-		title: Smaller table text
-		type: class-toggle
-*/
-
-/* @settings
-name: 'Iridium: Headings'
-id: i-headings
-settings:
+		id: colorful-headings-and-inline-title
+		title: Colorful headings and inline title
+		description: Colored/highlighted rainbow headings and colorful inline title
+		type: heading
+		level: 2
+		collapsed: true
 	-
-		id: i-rainbow-headings
+		id: rainbow-headings
 		title: Rainbow headings
 		type: class-select
 		allowEmpty: true
@@ -1034,7 +1064,7 @@ settings:
 				label: 'Highlighted: from accent color'
 				value: i-highlighted-accent-headings
 	-
-		id: i-colorful-inline-title
+		id: colorful-inline-title
 		title: Colorful inline title
 		type: class-select
 		allowEmpty: true
@@ -1047,14 +1077,16 @@ settings:
 				label: Highlighted inline title
 				value: i-highlighted-inline-title
 	-
-		id: i-improved-headings-and-spacing
+		id: improved-headings-and-spacing
 		title: Improved headings and spacing
+		description: More consistent spacing between views, heading sizes, spacing below headings
 		type: heading
-		level: 1
+		level: 2
+		collapsed: true
 	-
 		id: i-headings-and-spacing
 		title: Improved headings and spacing
-		description: Makes heading and paragraph spacing more consistent between Live Preview and Reading View. Enable to adjust heading sizes and spacing below headings.
+		description: Makes heading and paragraph spacing more consistent between Live Preview and Reading View. Also gives all headings the same line height, weight and letter spacing. Enable to adjust heading sizes and spacing below headings.
 		type: class-toggle
 		default: true
 	-
@@ -1075,15 +1107,43 @@ settings:
 		max: 1.5
 		step: 0.1
 		format: rem
-*/
-
-/* @settings
-name: 'Iridium: Light mode'
-id: i-light-mode
-settings:
+	-
+		id: miscellaneous
+		title: Miscellaneous
+		description: Iridium tab titlebar, smaller table text
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: iridium-tab-titlebar
+		title: Iridium tab titlebar
+		type: class-select
+		allowEmpty: true
+		default: i-tab-titlebar
+		options:
+			-
+				label: Default
+				value: i-tab-titlebar
+			-
+				label: Autohide file path
+				value: i-tab-titlebar-autohide
+			-
+				label: File path only
+				value: i-tab-titlebar-path
+	-
+		id: smaller-table-text
+		title: Smaller table text
+		type: class-toggle
+	-
+		id: light-mode
+		title: Light mode
+		description: Background saturation, background lightness multiplier
+		type: heading
+		level: 1
+		collapsed: true
 	-
 		id: i-light-s
-		title: Saturation (%)
+		title: Background saturation (%)
 		type: variable-number-slider
 		default: 25
 		min: 0
@@ -1092,21 +1152,22 @@ settings:
 		format: '%'
 	-
 		id: i-light-l
-		title: Lightness
+		title: Background lightness multiplier
 		type: variable-number-slider
 		default: 1
 		min: 0.5
 		max: 1.5
 		step: 0.05
-*/
-
-/* @settings
-name: 'Iridium: Dark mode'
-id: i-dark-mode
-settings:
+	-
+		id: dark-mode
+		title: Dark mode
+		description: Background saturation, background lightness, background lightness multiplier
+		type: heading
+		level: 1
+		collapsed: true
 	-
 		id: i-dark-s
-		title: Saturation (%)
+		title: Background saturation (%)
 		type: variable-number-slider
 		default: 12
 		min: 0
@@ -1124,7 +1185,7 @@ settings:
 		format: '%'
 	-
 		id: i-dark-l
-		title: Lightness
+		title: Background lightness multiplier
 		type: variable-number-slider
 		default: 1
 		min: 0.5
