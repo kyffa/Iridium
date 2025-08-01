@@ -350,8 +350,12 @@ body {
 .metadata-property {
 	border-bottom: 1px dashed hsla(var(--color-accent-hsl), 0.45);
 }
+.metadata-property:first-child {
+	border-radius: 7px 7px 0 0;
+}
 .metadata-property:last-child {
 	border: none;
+	border-radius: 0 0 7px 7px;
 }
 .metadata-property-icon {
 	--icon-size: 16px;
