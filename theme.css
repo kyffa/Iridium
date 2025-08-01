@@ -1135,7 +1135,7 @@ settings:
 				label: File path only
 				value: i-tab-titlebar-path
 	-
-		id: smaller-table-text
+		id: i-smaller-table-text
 		title: Smaller table text
 		type: class-toggle
 	-
