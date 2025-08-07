@@ -265,6 +265,9 @@ body {
 .internal-embed .embed-title:empty + .markdown-embed-content {
 	border: 0;
 }
+.markdown-source-view.mod-cm6 .cm-embed-block:not(.cm-table-widget):hover {
+	border-radius: 0;
+}
 
 /* Graphs */
 body {
@@ -584,11 +587,11 @@ audio::-webkit-media-controls-enclosure {
 .theme-dark.i-highlighted-accent-headings :is(.markdown-rendered h6, .cm-header-6) {background-color: hsla(calc(var(--accent-h) + 300), 100%, 65%, 0.25);}
 
 /* Colored inline title */
-.theme-light.i-colored-inline-title .inline-title:not([data-level]) {
-	color: hsl(var(--accent-h), var(--accent-s), 33%);
+.theme-light.i-colored-inline-title {
+	--inline-title-color: hsl(var(--accent-h), var(--accent-s), 33%);
 }
-.theme-dark.i-colored-inline-title .inline-title:not([data-level]) {
-	color: hsl(var(--accent-h), var(--accent-s), 80%);
+.theme-dark.i-colored-inline-title {
+	--inline-title-color: hsl(var(--accent-h), var(--accent-s), 80%);
 }
 
 /* Highlighted inline title */
@@ -604,7 +607,7 @@ audio::-webkit-media-controls-enclosure {
 	--i-heading-sizes: 0.5em;
 	--i-spacing-below-headings: 0.3rem;
 }
-.i-headings-and-spacing .app-container {
+.i-headings-and-spacing:not(.modal-container) {
 	--heading-spacing: var(--p-spacing);
 	--h1-line-height: var(--line-height-normal);
 	--h2-line-height: var(--line-height-normal);
@@ -621,7 +624,7 @@ audio::-webkit-media-controls-enclosure {
 	--metadata-padding: 0;
 	--p-spacing: 1.5rem;
 }
-.i-headings-and-spacing .app-container :is(
+.i-headings-and-spacing:not(.modal-container) :is(
 .HyperMD-header-1, .inline-title h1, .HyperMD-list-line .cm-header-1, h1, .markdown-rendered h1,
 .HyperMD-header-2, .inline-title h2, .HyperMD-list-line .cm-header-2, h2, .markdown-rendered h2,
 .HyperMD-header-3, .inline-title h3, .HyperMD-list-line .cm-header-3, h3, .markdown-rendered h3,
@@ -630,51 +633,53 @@ audio::-webkit-media-controls-enclosure {
 .HyperMD-header-6, .inline-title h6, .HyperMD-list-line .cm-header-6, h6, .markdown-rendered h6) {
 	letter-spacing: 0;
 }
-.i-headings-and-spacing .app-container .cm-s-obsidian .cm-line.HyperMD-header {
+.i-headings-and-spacing:not(.modal-container) .cm-s-obsidian .cm-line.HyperMD-header {
 	padding: 0 0 var(--i-spacing-below-headings);
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	margin-bottom: var(--i-spacing-below-headings);
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6,.el-p,.el-blockquote,.el-ul,.el-ol,.el-pre,.el-div) > *,
-.i-headings-and-spacing .app-container .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + :is(h1,h2,h3,h4,h5,h6,p,blockquote,ul,ol,pre,.callout,.internal-query) {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6,.el-p,.el-blockquote,.el-ul,.el-ol) > *,
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-pre :is(pre,.internal-query),
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-div .callout,
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + :is(h1,h2,h3,h4,h5,h6,p,blockquote,ul,ol,pre,.callout,.internal-query) {
 	margin-top: 0;
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(blockquote,pre,.el-table),
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(blockquote,pre,.el-table),
 .markdown-source-view.mod-cm6 .callout-content .callout {
 	margin: var(--p-spacing) 0;
 }
-.i-headings-and-spacing .app-container .markdown-rendered hr {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered hr {
 	margin: calc(var(--p-spacing) * 1.5 - var(--hr-thickness) / 2) 0;
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-hr hr,
-.i-headings-and-spacing .app-container .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + hr {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-hr hr,
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + hr {
 	margin-top: calc(var(--p-spacing) * 1.5 - var(--hr-thickness) / 2 + var(--i-spacing-below-headings));
 }
-.i-headings-and-spacing .app-container .markdown-rendered .el-hr + .el-hr hr,
-.i-headings-and-spacing .app-container .markdown-rendered hr + hr {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered .el-hr + .el-hr hr,
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered hr + hr {
 	margin-top: calc(var(--p-spacing) * 2 - var(--hr-thickness));
 }
-.i-headings-and-spacing .app-container .markdown-rendered pre {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered pre {
 	padding: calc(var(--code-size) * var(--line-height-normal)) var(--size-4-4);
 	line-height: calc(var(--code-size) * var(--line-height-normal));
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-table table {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-table table {
 	margin-top: calc(var(--size-4-4) + var(--i-spacing-below-headings));
 }
-.i-headings-and-spacing .app-container .markdown-rendered .el-table table {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered .el-table table {
 	margin: var(--size-4-4) 0;
 }
-.i-headings-and-spacing .app-container .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + table {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + table {
 	margin-top: calc(var(--size-4-4) + var(--p-spacing) + var(--i-spacing-below-headings));
 }
-.i-headings-and-spacing .app-container .markdown-rendered table + table {
+.i-headings-and-spacing:not(.modal-container) .markdown-rendered table + table {
 	margin-top: calc(var(--p-spacing) + var(--size-4-8));
 }
-.i-headings-and-spacing.show-inline-title .app-container .metadata-container {
+.i-headings-and-spacing.show-inline-title:not(.modal-container) .metadata-container {
 	padding-top: calc(var(--p-spacing) - var(--inline-title-margin-bottom) - var(--size-4-1));
 }
-.i-headings-and-spacing .app-container .metadata-container.is-collapsed .metadata-properties-heading {
+.i-headings-and-spacing:not(.modal-container) .metadata-container.is-collapsed .metadata-properties-heading {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
