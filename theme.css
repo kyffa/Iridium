@@ -204,9 +204,35 @@ audio::-webkit-media-controls-enclosure {
 }
 
 /* Bases */
+body {
+	--bases-table-header-weight: var(--bold-weight);
+	--bases-table-header-color: var(--text-normal);
+}
 .workspace-leaf-content[data-type="markdown"] :is(.block-language-base,.bases-embed) .bases-view {
 	--bases-table-header-background-hover: var(--i-2);
 	--bases-embed-border-color: var(--bases-table-border-color);
+}
+.bases-table-cell .multi-select-container .multi-select-pill-remove-button {
+	margin-inline-end: 0.25em;
+}
+.bases-table-cell .multi-select-container .multi-select-pill {
+	--pill-color-remove-hover: var(--text-muted);
+	--pill-padding-x: 0.5em;
+	--pill-padding-y: 0.15em;
+	--pill-radius: var(--radius-s);
+	--pill-background-hover: var(--pill-background);
+}
+.bases-table-cell .multi-select-container {
+	gap: 0.34em;
+}
+.theme-light .bases-table-cell .multi-select-container .multi-select-pill {
+	--pill-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
+}
+.theme-dark .bases-table-cell .multi-select-container .multi-select-pill {
+	--pill-background: var(--i-3);
+}
+.bases-table-header-label {
+	font-size: var(--font-smallest);
 }
 
 /* Blockquotes */
@@ -321,22 +347,36 @@ body {
 	--i-pattern-line-width: 1px;
 	--i-pattern-width: 10px;
 	--i-pattern-height: 10px;
-	--i-pattern-color: var(--i-1);
+	--i-pattern-lt-l: 3%;
+	--i-pattern-dk-l: 3%;
+}
+.theme-light {
+	--i-pattern-color: hsl(var(--accent-h), var(--i-lt-s), calc(100% - var(--i-lt-l-multiplier) * var(--i-pattern-lt-l)));
+}
+.theme-dark {
+	--i-pattern-color: hsl(var(--accent-h), var(--i-dk-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * var(--i-pattern-dk-l)));
 }
 :is(.i-lined-bg,.i-grid-bg,.i-dotted-bg) .workspace-split.mod-root .view-content {
 	background-size: var(--i-pattern-width) var(--i-pattern-height);
-	background-position-x: center;
+}
+:is(.i-lined-bg,.i-grid-bg):is(.i-tab-titlebar-border-solid,.i-tab-titlebar-border-dashed) .workspace-split.mod-root .view-content {
+	background-position-y: calc(var(--i-pattern-line-width) * -1);
+}
+.i-dotted-bg:is(.i-tab-titlebar-border-solid,.i-tab-titlebar-border-dashed) .workspace-split.mod-root .view-content {
+	background-position-y: calc(var(--i-pattern-width) / 2 - var(--i-pattern-line-width));
 }
 .i-lined-bg .workspace-split.mod-root .view-content {
-	background-image: linear-gradient(var(--i-pattern-color), var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
+	background-image: linear-gradient(var(--i-pattern-color) var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
 }
 .i-grid-bg .workspace-split.mod-root .view-content {
+	background-position-x: calc(50% - var(--i-pattern-line-width) / 2);
 	background-image:
-		linear-gradient(var(--i-pattern-color), var(--i-pattern-line-width), transparent var(--i-pattern-line-width)),
-		linear-gradient(to right, var(--i-pattern-color), var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
+		linear-gradient(var(--i-pattern-color) var(--i-pattern-line-width), transparent var(--i-pattern-line-width)),
+		linear-gradient(to right, var(--i-pattern-color) var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
 }
 .i-dotted-bg .workspace-split.mod-root .view-content {
-	background-image: radial-gradient(var(--i-pattern-color), var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
+	background-position-x: center;
+	background-image: radial-gradient(var(--i-pattern-color) var(--i-pattern-line-width), transparent var(--i-pattern-line-width));
 }
 
 /* Embeds */
@@ -1000,7 +1040,7 @@ a:hover,
 .cm-s-obsidian span.cm-formatting-link.cm-url:hover,
 .cm-s-obsidian span.cm-url:hover,
 .markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
-  .markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
+.markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
 	background-color: var(--i-2);
 	border-radius: var(--radius-s);
 }
@@ -1051,7 +1091,6 @@ a:hover,
 	--metadata-property-radius: 0;
 	--metadata-property-radius-hover: var(--metadata-property-radius);
 	--metadata-property-radius-focus: var(--metadata-property-radius);
-	--metadata-label-background: hsla(var(--color-accent-hsl), 0.1);
 	--metadata-label-background-hover: var(--metadata-label-background);
 	--metadata-label-background-active: var(--metadata-label-background);
 	--metadata-label-text-color: var(--text-normal);
@@ -1060,6 +1099,30 @@ a:hover,
 	--metadata-divider-width: 0;
 	--metadata-property-box-shadow-hover: none;
 	--metadata-property-box-shadow-focus: none;
+}
+.theme-light .metadata-container {
+	--metadata-label-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
+}
+.theme-dark .metadata-container {
+	--metadata-label-background: var(--i-2);
+}
+.theme-light .metadata-container .metadata-properties {
+	border: 1px solid hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 20%));
+}
+.theme-dark .metadata-container .metadata-properties {
+	border: 1px solid var(--i-8);
+}
+.theme-light .metadata-container .metadata-property:not(:last-child) {
+	border-bottom: 1px dashed hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 20%));
+}
+.theme-dark .metadata-container .metadata-property:not(:last-child) {
+	border-bottom: 1px dashed var(--i-8);
+}
+.theme-light .metadata-container .metadata-property:not([data-property-key="tags"]) .metadata-property-value .multi-select-pill {
+	--pill-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
+}
+.theme-dark .metadata-container .metadata-property:not([data-property-key="tags"]) .metadata-property-value .multi-select-pill {
+	--pill-background: var(--i-3);
 }
 .markdown-source-view .metadata-container,
 .markdown-preview-view .metadata-container {
@@ -1082,12 +1145,8 @@ a:hover,
 	padding: var(--size-4-1) 0;
 }
 .metadata-container .metadata-properties {
-	border: 1px solid hsla(var(--color-accent-hsl), 0.45);
 	border-radius: 7px;
 	overflow: hidden;
-}
-.metadata-container .metadata-property:not(:last-child) {
-	border-bottom: 1px dashed hsla(var(--color-accent-hsl), 0.45);
 }
 .metadata-container .metadata-property-icon {
 	--icon-size: 16px;
@@ -1126,14 +1185,12 @@ a:hover,
 	line-height: var(--line-height-tight);
 }
 .metadata-container .metadata-property:not([data-property-key="tags"]) .metadata-property-value .multi-select-pill {
-	--pill-background: hsla(var(--color-accent-hsl), 0.1);
 	--pill-background-hover: var(--pill-background);
 }
 .metadata-container .metadata-property .multi-select-container {
 	padding: 0.34em var(--size-4-2);
 	gap: 0.34em;
 }
-.i-hide-properties-heading .metadata-container .metadata-properties-heading,
 .i-hide-add-property-button .metadata-container .metadata-add-button,
 .i-hide-property-icons .metadata-container .metadata-property-icon {
 	display: none;
@@ -2370,6 +2427,24 @@ settings:
 				label: Dotted
 				value: i-dotted-bg
 	-
+		id: i-pattern-lt-l
+		title: 'Light mode: Pattern lightness'
+		type: variable-number-slider
+		default: 3
+		min: 1
+		max: 25
+		step: 1
+		format: '%'
+	-
+		id: i-pattern-dk-l
+		title: 'Dark mode: Pattern lightness'
+		type: variable-number-slider
+		default: 3
+		min: 1
+		max: 25
+		step: 1
+		format: '%'
+	-
 		id: i-pattern-color
 		title: Pattern color
 		type: variable-themed-color
@@ -3368,10 +3443,6 @@ settings:
 		title: Properties input font size
 		type: variable-text
 		default: ''
-	-
-		id: i-hide-properties-heading
-		title: Hide 'Properties' heading
-		type: class-toggle
 	-
 		id: i-hide-add-property-button
 		title: Hide 'Add property' button
