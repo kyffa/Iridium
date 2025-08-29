@@ -417,6 +417,7 @@ body {
 	--nav-item-background-selected: var(--i-4);
 	--nav-indentation-guide-color: var(--i-4);
 }
+
 /* Colored folders */
 body {
 	--i-folder-rainbow-1-lt-h: 0;
@@ -654,7 +655,7 @@ body {
 	--i-dk-highlighted-l: 70%;
 	--i-dk-highlighted-a: 25%;
 }
-:is(.i-lt-normal-highlighted-headings,.i-lt-accent-highlighted-headings,.i-dk-normal-highlighted-headings,.i-dk-accent-highlighted-headings) :is(
+:is(.theme-light.i-lt-normal-highlighted-headings,.theme-light.i-lt-accent-highlighted-headings,.theme-dark.i-dk-normal-highlighted-headings,.theme-dark.i-dk-accent-highlighted-headings) :is(
 .markdown-rendered h1,.markdown-rendered h2,.markdown-rendered h3,.markdown-rendered h4,.markdown-rendered h5,.markdown-rendered h6,
 .cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6) {
 	border-radius: var(--radius-s);
@@ -780,12 +781,45 @@ body {
 }
 
 /* Layouts */
+body {
+	--i-lt-layout-color: hsl(var(--accent-h), var(--i-lt-layout-s), var(--i-lt-layout-l));
+	--i-lt-layout-s: var(--i-lt-s);
+	--i-lt-layout-l: calc(100% - var(--i-lt-l-multiplier) * 12%);
+	--i-dk-layout-color: hsl(var(--accent-h), var(--i-dk-layout-s), var(--i-dk-layout-l));
+	--i-dk-layout-s: var(--i-dk-s);
+	--i-dk-layout-l: calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 10%);
+	--i-lt-custom-layout-s: 25%;
+	--i-lt-custom-layout-l: 88%;
+	--i-dk-custom-layout-s: 12%;
+	--i-dk-custom-layout-l: 22%;
+}
+.theme-light {
+	--i-layout-color: var(--i-lt-layout-color);
+	--i-layout-border-color: hsl(var(--accent-h), var(--i-lt-layout-s), calc(var(--i-lt-layout-l) - 8%));
+}
+.theme-dark {
+	--i-layout-color: var(--i-dk-layout-color);
+	--i-layout-border-color: hsl(var(--accent-h), var(--i-dk-layout-s), calc(var(--i-dk-layout-l) + 8%));
+}
+.i-lt-layout-s {
+	--i-lt-layout-s: var(--i-lt-custom-layout-s);
+}
+.i-lt-layout-l {
+	--i-lt-layout-l: var(--i-lt-custom-layout-l);
+}
+.i-dk-layout-s {
+	--i-dk-layout-s: var(--i-dk-custom-layout-s);
+}
+.i-dk-layout-l {
+	--i-dk-layout-l: var(--i-dk-custom-layout-l);
+}
+
 /* Card layout */
 body {
 	--i-card-radius: 8px;
 }
 .i-card-layout:not(.is-mobile) {
-	--ribbon-background: var(--i-4);
+	--ribbon-background: var(--i-layout-color);
 	--ribbon-background-collapsed: var(--ribbon-background);
 	--ribbon-width: 35px;
 	--ribbon-padding: 10px 0 10px;
@@ -812,13 +846,15 @@ body {
 .i-card-layout:not(.is-mobile) .workspace-split.mod-vertical > *,
 .i-card-layout:not(.is-mobile).is-grabbing .workspace-split,
 .i-card-layout:not(.is-mobile):not(.is-hidden-frameless) .titlebar {
-	background-color: var(--i-4);
+	background-color: var(--i-layout-color);
 }
 .i-card-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
 	background-color: var(--background-primary);
 }
 .i-card-layout:not(.is-mobile) .workspace-tab-header-container {
-	border: 1px solid var(--background-modifier-border);
+	border-top: 1px solid var(--i-layout-border-color);
+	border-left: 1px solid var(--i-layout-border-color);
+	border-right: 1px solid var(--i-layout-border-color);
 	border-radius: var(--i-card-radius) var(--i-card-radius) 0 0;
 	margin: 3px 3px 0;
 	--background-modifier-hover: var(--i-3);
@@ -830,22 +866,22 @@ body {
 	--background-modifier-hover: var(--i-4);
 }
 .i-card-layout:not(.is-mobile) .workspace-tab-container {
-	border: 1px solid var(--background-modifier-border);
+	border: 1px solid var(--i-layout-border-color);
 	border-top: 0;
 	border-radius: 0 0 var(--i-card-radius) var(--i-card-radius);
 	margin: 0 3px 3px;
 }
 .i-card-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-tab-header-container,
 .i-card-layout:not(.is-mobile) .workspace-split.mod-right-split .workspace-tab-header-container {
-	border-bottom-style: dashed;
+	border-bottom: 1px dashed var(--background-modifier-border);
 }
 .i-card-layout:not(.is-mobile) .workspace-leaf-resize-handle {
 	border-color: transparent;
 }
 .i-card-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
-	border: 1px solid var(--background-modifier-border);
+	border: 1px solid var(--i-layout-border-color);
 	border-radius: 0 0 var(--i-card-radius) var(--i-card-radius);
-	border-top-style: dashed;
+	border-top: 1px dashed var(--background-modifier-border);
 	margin: 0 3px 3px;
 	width: calc(100% - 6px);
 	background-color: var(--background-primary);
@@ -881,7 +917,7 @@ body {
 	padding-left: calc(var(--frame-left-space) - 1px);
 }
 .i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
-	margin-top: 21px;
+	margin-top: 26px;
 }
 .i-card-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
 	position: relative;
@@ -913,6 +949,9 @@ body {
 }
 
 /* Border layout */
+body {
+	--i-border-radius: 8px;
+}
 .i-border-layout:not(.is-mobile) {
 	--ribbon-background: var(--background-primary);
 	--ribbon-background-collapsed: var(--ribbon-background);
@@ -925,19 +964,19 @@ body {
 }
 .i-border-layout:not(.is-mobile) .app-container {
 	padding: 8px;
-	background-color: var(--i-4);
+	background-color: var(--i-layout-color);
 }
 .i-border-layout:not(.is-mobile) .workspace {
-	border-radius: 8px;
+	border-radius: var(--i-border-radius);
 }
 .theme-light.i-border-layout:not(.is-mobile) .workspace {
-	border: 1px solid var(--i-9);
+	border: 1px solid hsl(var(--accent-h), var(--i-lt-layout-s), calc(var(--i-lt-layout-l) - 10%));
 }
 .theme-dark.i-border-layout:not(.is-mobile) .workspace {
-	border: 1px solid var(--i-8);
+	border: 1px solid hsl(var(--accent-h), var(--i-dk-layout-s), calc(var(--i-dk-layout-l) + 10%));
 }
 .i-border-layout:not(.is-mobile):not(.is-hidden-frameless) .titlebar {
-	background-color: var(--i-4);
+	background-color: var(--i-layout-color);
 }
 .i-border-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
 	background-color: var(--background-primary);
@@ -978,7 +1017,7 @@ body {
 .i-border-layout.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left:before {
 	left: 9px;
 	top: 9px;
-	border-top-left-radius: 8px;
+	border-top-left-radius: var(--i-border-radius);
 }
 .i-border-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
 	padding-left: calc(var(--frame-left-space) - 1px);
@@ -998,7 +1037,7 @@ body {
 	right: 9px;
 	top: 9px;
 	height: 39px;
-	border-top-right-radius: 8px;
+	border-top-right-radius: var(--i-border-radius);
 }
 .i-border-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button-container.mod-right .titlebar-button:last-child {
 	border-top-right-radius: 7px;
@@ -1177,6 +1216,7 @@ a:hover,
 	--pill-focus-width: 100%;
 	--pill-focus-left-adjust: 0;
 	line-height: var(--line-height-tight);
+	max-width: 100%;
 }
 .theme-light .metadata-property-value .multi-select-pill {
 	--pill-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
@@ -1193,6 +1233,10 @@ a:hover,
 .metadata-property-value .multi-select-container {
 	padding: 0.34em var(--size-4-2);
 	gap: 0.34em;
+}
+.is-mobile .metadata-container .multi-select-pill,
+.is-mobile .metadata-container .multi-select-pill-content {
+	max-width: calc(100% - var(--pill-padding-x) - 0.25em - var(--icon-xs));
 }
 
 /* PDFs */
@@ -1597,9 +1641,6 @@ body {
 	width: 66px;
 	background-color: var(--background-primary);
 }
-.i-window-control-buttons-macos.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
-	margin-top: 26px;
-}
 
 /* Community plugins */
 .theme-light {
@@ -1614,10 +1655,9 @@ body {
 /* Calendar */
 :is(.i-calendar-desktop:not(.is-mobile),.i-calendar-mobile.is-mobile) #calendar-container.container {
 	--color-text-today: var(--text-normal);
-	padding: 0;
 }
-:is(.i-calendar-desktop:not(.is-mobile),.i-calendar-mobile.is-mobile) #calendar-container.container:not(.i-card-layout) {
-	--interactive-hover: var(--i-3)
+:is(.i-calendar-desktop:not(.is-mobile,.i-card-layout,.i-border-layout),.i-calendar-mobile.is-mobile) #calendar-container.container {
+	--interactive-hover: var(--i-3);
 }
 :is(.i-calendar-desktop:not(.is-mobile),.i-calendar-mobile.is-mobile) #calendar-container .calendar {
 	table-layout: fixed;
@@ -1669,6 +1709,9 @@ body {
 }
 .i-calendar-desktop:not(.is-mobile) #calendar-container :is(.day,.week-num) {
 	padding: 4px 0;
+}
+.i-calendar-remove-padding.i-calendar-desktop:not(.is-mobile) #calendar-container.container {
+	padding: 0;
 }
 
 /* Dataview */
@@ -1745,6 +1788,43 @@ name: Iridium
 id: iridium
 settings:
 	-
+		id: layout
+		title: Layout
+		type: heading
+		level: 1
+		collapsed: true
+	-
+		id: layout-desktop-only
+		title: Layout (desktop only)
+		type: class-select
+		allowEmpty: true
+		default: i-card-layout
+		options:
+			-
+				label: Card layout
+				value: i-card-layout
+			-
+				label: Border layout
+				value: i-border-layout
+	-
+		id: i-card-radius
+		title: 'Card layout: Radius (px)'
+		type: variable-number-slider
+		default: 8
+		min: 0
+		max: 12
+		step: 1
+		format: px
+	-
+		id: i-border-radius
+		title: 'Border layout: Radius (px)'
+		type: variable-number-slider
+		default: 8
+		min: 0
+		max: 12
+		step: 1
+		format: px
+	-
 		id: light-mode
 		title: Light mode
 		type: heading
@@ -1767,6 +1847,37 @@ settings:
 		min: 0.5
 		max: 1.5
 		step: 0.05
+	-
+		id: light-mode-card-and-border-layouts
+		title: Card and border layouts
+		type: heading
+		level: 2
+	-
+		id: i-lt-layout-s
+		title: Enable custom border saturation
+		type: class-toggle
+	-
+		id: i-lt-custom-layout-s
+		title: Custom border saturation (%)
+		type: variable-number-slider
+		default: 25
+		min: 0
+		max: 100
+		step: 1
+		format: '%'
+	-
+		id: i-lt-layout-l
+		title: Enable custom border lightness
+		type: class-toggle
+	-
+		id: i-lt-custom-layout-l
+		title: Custom border lightness (%)
+		type: variable-number-slider
+		default: 88
+		min: 0
+		max: 100
+		step: 1
+		format: '%'
 	-
 		id: dark-mode
 		title: Dark mode
@@ -1807,6 +1918,37 @@ settings:
 		min: 0.5
 		max: 1.5
 		step: 0.05
+	-
+		id: dark-mode-card-and-border-layouts
+		title: Card and border layouts
+		type: heading
+		level: 2
+	-
+		id: i-dk-layout-s
+		title: Enable custom border saturation
+		type: class-toggle
+	-
+		id: i-dk-custom-layout-s
+		title: Custom border saturation (%)
+		type: variable-number-slider
+		default: 12
+		min: 0
+		max: 100
+		step: 1
+		format: '%'
+	-
+		id: i-dk-layout-l
+		title: Enable custom border lightness
+		type: class-toggle
+	-
+		id: i-dk-custom-layout-l
+		title: Custom border lightness (%)
+		type: variable-number-slider
+		default: 22
+		min: 0
+		max: 100
+		step: 1
+		format: '%'
 	-
 		id: editor
 		title: Editor
@@ -2751,7 +2893,7 @@ settings:
 		default: '#ff00ff'
 	-
 		id: highlighted-light-mode-sla
-		title: Saturation and lightness
+		title: Saturation, lightness, and opacity
 		description: "Affects 'Highlighted' and 'Highlighted: From accent color' headings."
 		type: heading
 		level: 6
@@ -2886,7 +3028,7 @@ settings:
 		default: '#ff00ff'
 	-
 		id: highlighted-dark-mode-sla
-		title: Saturation and lightness
+		title: Saturation, lightness, and opacity
 		description: "Affects 'Highlighted' and 'Highlighted: From accent color' headings."
 		type: heading
 		level: 6
@@ -3517,7 +3659,7 @@ settings:
 	-
 		id: i-spacing
 		title: Improved spacing
-		description: Makes heading and paragraph spacing more consistent between Live Preview and Reading View. Enable to adjust spacing below headings.
+		description: Makes heading and paragraph spacing more consistent between Live Preview and Reading View. For both views, the extra spacing above headings is removed and the spacing below them is made the same (adjustable below if this is turned on).
 		type: class-toggle
 		default: true
 	-
@@ -3656,34 +3798,6 @@ settings:
 		type: heading
 		level: 1
 		collapsed: true
-	-
-		id: layout
-		title: Layout
-		type: heading
-		level: 2
-		collapsed: true
-	-
-		id: layout-desktop-only
-		title: Layout (desktop only)
-		type: class-select
-		allowEmpty: true
-		default: i-card-layout
-		options:
-			-
-				label: Card layout
-				value: i-card-layout
-			-
-				label: Border layout
-				value: i-border-layout
-	-
-		id: i-card-radius
-		title: 'Card layout: Card radius (px)'
-		type: variable-number-slider
-		default: 8
-		min: 0
-		max: 12
-		step: 1
-		format: px
 	-
 		id: Sidebar
 		title: Sidebar
@@ -4303,6 +4417,10 @@ settings:
 		title: 'Calendar: Desktop'
 		type: class-toggle
 		default: true
+	-
+		id: i-calendar-remove-padding
+		title: 'Calendar: Remove side padding'
+		type: class-toggle
 	-
 		id: i-calendar-mobile
 		title: 'Calendar: Mobile'
