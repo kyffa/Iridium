@@ -18,11 +18,6 @@ body {
 	--indentation-guide-color: var(--i-6);
 	--indentation-guide-color-active: var(--i-9);
 
-	/* Lists */
-	--list-indent: 2.25em;
-	--list-marker-color: var(--color-accent);
-	--list-marker-color-hover: var(--interactive-accent-hover);
-
 	/* Modals */
 	--modal-border-color: var(--background-modifier-border);
 
@@ -134,6 +129,16 @@ body {
 body:not(.is-mobile) .workspace {
 	transition: none;
 }
+.theme-light.i-lt-default-text-accent {
+	--text-accent: var(--color-accent);
+	--text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 10%));
+	--link-unresolved-decoration-color: hsla(var(--color-accent-hsl), 0.3);
+}
+.theme-dark.i-dk-default-text-accent {
+	--text-accent: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15));
+	--text-accent-hover: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15 + 10%));
+	--link-unresolved-decoration-color: hsla(var(--color-accent-hsl), 0.3);
+}
 
 /* Active line highlight */
 body {
@@ -224,8 +229,14 @@ body {
 .i-bases-hide-table-header-icons {
 	--bases-table-header-icon-display: none;
 }
-.i-bases-hide-tab-titlebar:not(.is-mobile) .workspace-leaf-content[data-type="bases"] .view-header {
+.i-bases-hide-tab-titlebar:not(.is-mobile) .workspace-leaf-content[data-type="bases"] .view-header,
+.i-bases-hide-add-note-button .query-toolbar .query-toolbar-item.mod-add-note,
+.i-bases-hide-toolbar-labels .query-toolbar .query-toolbar-item:not(.mod-views,.bases-toolbar-result-count) .text-button-label,
+.i-bases-hide-toolbar-icons:not(.is-mobile) .query-toolbar .query-toolbar-item:not(.mod-views,.bases-toolbar-result-count) .text-button-icon {
 	display: none;
+}
+.i-bases-hide-toolbar-icons:not(.is-mobile) .query-toolbar .query-toolbar-item:not(.mod-views,.bases-toolbar-result-count) .text-button-label {
+	padding-inline-start: var(--size-2-1);
 }
 .i-bases-highlight-active-row {
 	--bases-table-row-background-hover: hsla(var(--accent-h), var(--i-s), 50%, 0.05);
@@ -552,26 +563,10 @@ body {
 
 /* Graph view */
 body {
-	--i-lt-graph-line-lightness: calc(100% - var(--i-lt-l-multiplier) * 17%);
-	--i-dk-graph-line-lightness: calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 13%);
-	--i-lt-custom-graph-line-lightness: 83%;
-	--i-dk-custom-graph-line-lightness: 25%;
 	--graph-line: var(--color-base-35);
 	--graph-node: var(--color-base-70);
 	--graph-node-unresolved: var(--color-base-50);
 	--graph-node-focused: var(--color-accent);
-}
-.theme-light {
-	--graph-line: hsl(var(--accent-h), var(--i-lt-s), var(--i-lt-graph-line-lightness));
-}
-.theme-dark {
-	--graph-line: hsl(var(--accent-h), var(--i-dk-s), var(--i-dk-graph-line-lightness));
-}
-.i-lt-graph-line-lightness {
-	--i-lt-graph-line-lightness: var(--i-lt-custom-graph-line-lightness);
-}
-.i-dk-graph-line-lightness {
-	--i-dk-graph-line-lightness: var(--i-dk-custom-graph-line-lightness);
 }
 
 /* Headings */
@@ -782,11 +777,8 @@ body {
 .theme-dark.i-highlighted-inline-title .inline-title:not([data-level]) {
 	background-color: hsla(var(--color-accent-hsl), 25%);
 }
-.theme-light.i-colored-inline-title {
-	--inline-title-color: hsl(var(--accent-h), var(--accent-s), 30%);
-}
-.theme-dark.i-colored-inline-title {
-	--inline-title-color: hsl(var(--accent-h), var(--accent-s), 80%);
+.i-colored-inline-title {
+	--inline-title-color: var(--text-accent);
 }
 
 /* Layouts */
@@ -1127,6 +1119,39 @@ a:hover,
 	text-underline-offset: var(--i-link-decoration-offset);
 }
 
+/* Lists */
+body {
+	--i-bullet-color: var(--color-accent);
+	--i-bullet-color-hover: var(--interactive-accent-hover);
+	--i-bullet-color-collapsed: var(--text-accent);
+	--list-indent: 2.25em;
+	--list-marker-color: var(--color-accent);
+	--list-marker-color-hover: var(--interactive-accent-hover);
+}
+ul > li::marker,
+.list-bullet::after {
+	--list-marker-color: var(--i-bullet-color);
+}
+.list-collapse-indicator:hover ~ .list-bullet::after,
+.cm-fold-indicator:hover ~ .list-bullet::after,
+.list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet::after,
+.cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet::after {
+	--list-marker-color-hover: var(--i-bullet-color-hover);
+}
+ul > li.is-collapsed::marker,
+li.is-collapsed .list-bullet::after,
+.is-collapsed ~ .cm-formatting-list .list-bullet::after,
+li.is-collapsed .list-collapse-indicator:hover ~ .list-bullet::after,
+li.is-collapsed .cm-fold-indicator:hover ~ .list-bullet::after,
+.list-collapse-indicator:hover.is-collapsed ~ .list-bullet::after,
+.cm-fold-indicator:hover.is-collapsed ~ .list-bullet::after,
+li.is-collapsed .list-collapse-indicator:hover ~ .cm-formatting-list .list-bullet::after,
+li.is-collapsed .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet::after,
+.list-collapse-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet::after,
+.cm-fold-indicator:hover.is-collapsed ~ .cm-formatting-list .list-bullet::after {
+	--list-marker-color-collapsed: var(--i-bullet-color-collapsed);
+}
+
 /* Metadata */
 .metadata-container {
 	--metadata-gap: 0;
@@ -1145,20 +1170,32 @@ a:hover,
 .theme-light .metadata-container {
 	--metadata-label-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
 }
+.theme-light.i-lt-properties-background .metadata-container,
 .theme-dark .metadata-container {
 	--metadata-label-background: var(--i-2);
+}
+.theme-dark.i-dk-properties-accent .metadata-container {
+	--metadata-label-background: hsl(var(--accent-h), var(--accent-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 4%));
 }
 .theme-light .metadata-container .metadata-properties {
 	border: 1px solid hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 20%));
 }
+.theme-light.i-lt-properties-background .metadata-container .metadata-properties,
 .theme-dark .metadata-container .metadata-properties {
 	border: 1px solid var(--i-8);
+}
+.theme-dark.i-dk-properties-accent .metadata-container .metadata-properties {
+	border: 1px solid hsl(var(--accent-h), var(--accent-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 18%));
 }
 .theme-light .metadata-container .metadata-property:not(:last-child) {
 	border-bottom: 1px dashed hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 20%));
 }
+.theme-light.i-lt-properties-background .metadata-property:not(:last-child),
 .theme-dark .metadata-container .metadata-property:not(:last-child) {
 	border-bottom: 1px dashed var(--i-8);
+}
+.theme-dark.i-dk-properties-accent .metadata-property:not(:last-child) {
+	border-bottom: 1px dashed hsl(var(--accent-h), var(--accent-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 18%));;
 }
 .markdown-source-view .metadata-container,
 .markdown-preview-view .metadata-container {
@@ -1230,10 +1267,17 @@ a:hover,
 .theme-light .metadata-property-value .multi-select-pill {
 	--pill-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
 }
+.theme-light.i-lt-properties-background .metadata-property-value .multi-select-pill {
+	--pill-background: var(--i-2);
+}
 .theme-dark .metadata-property-value .multi-select-pill {
 	--pill-background: var(--i-3);
 }
-.metadata-property[data-property-key="tags"] .multi-select-pill {
+.theme-dark.i-dk-properties-accent .metadata-property-value .multi-select-pill {
+	--pill-background: hsl(var(--accent-h), var(--accent-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 8%));
+}
+.metadata-property[data-property-key="tags"] .multi-select-pill,
+:is(.i-lt-properties-background,.i-dk-properties-accent) .metadata-property[data-property-key="tags"] .multi-select-pill {
 	--pill-background: var(--tag-background);
 }
 .metadata-property-value .multi-select-pill .multi-select-pill-remove-button {
@@ -1617,7 +1661,7 @@ body {
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
 	height: 26px;
 	right: 7px;
 	top: 7px;
@@ -1628,7 +1672,7 @@ body {
 	right: 16px;
 	top: 16px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .workspace-tabs.mod-top-right-space .workspace-tab-header-container:after {
+.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
 	height: 25px;
 }
 .i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused.i-card-layout .titlebar-button-container.mod-right {
@@ -1853,6 +1897,11 @@ settings:
 		max: 1.5
 		step: 0.05
 	-
+		id: i-lt-default-text-accent
+		title: Default text accent color
+		description: Use the default theme's text accent color for links, file path, accent colored inline title, etc.
+		type: class-toggle
+	-
 		id: light-mode-card-and-border-layouts
 		title: Card and border layouts
 		type: heading
@@ -1923,6 +1972,11 @@ settings:
 		min: 0.5
 		max: 1.5
 		step: 0.05
+	-
+		id: i-dk-default-text-accent
+		title: Default text accent color
+		description: Use the default theme's text accent color for links, file path, accent colored inline title, etc.
+		type: class-toggle
 	-
 		id: dark-mode-card-and-border-layouts
 		title: Card and border layouts
@@ -3614,6 +3668,39 @@ settings:
 		step: 0.005
 		format: em
 	-
+		id: bulleted-lists
+		title: Bulleted lists
+		type: heading
+		level: 3
+		collapsed: true
+	-
+		id: i-bullet-color
+		title: Bullet color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: i-bullet-color-hover
+		title: Hovered bullet color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: i-bullet-color-collapsed
+		title: Collapsed bullet color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: checklists
+		title: Checklists
+		type: heading
+		level: 3
+		collapsed: true
+	-
 		id: checkbox-radius
 		title: Checkbox radius (%)
 		type: variable-number-slider
@@ -3654,6 +3741,16 @@ settings:
 	-
 		id: i-hide-property-icons
 		title: Hide property icons
+		type: class-toggle
+	-
+		id: i-lt-properties-background
+		title: 'Light mode: Use background saturation'
+		description: Also affects pills in Bases.
+		type: class-toggle
+	-
+		id: i-dk-properties-accent
+		title: 'Dark mode: Use accent color saturation'
+		description: Also affects pills in Bases.
 		type: class-toggle
 	-
 		id: spacing
@@ -3971,12 +4068,29 @@ settings:
 		level: 3
 		collapsed: true
 	-
-		id: i-bases-hide-table-header-icons
-		title: Hide table header icons
-		type: class-toggle
-	-
 		id: i-bases-hide-tab-titlebar
 		title: Hide tab titlebar (desktop only)
+		type: class-toggle
+	-
+		id: hide-toolbar-labels-icons
+		title: Hide toolbar labels/icons
+		type: class-select
+		allowEmpty: true
+		default: none
+		options:
+			-
+				label: Hide toolbar labels
+				value: i-bases-hide-toolbar-labels
+			-
+				label: Hide toolbar icons (desktop only)
+				value: i-bases-hide-toolbar-icons
+	-
+		id: i-bases-hide-add-note-button
+		title: Hide '+ New' button
+		type: class-toggle
+	-
+		id: i-bases-hide-table-header-icons
+		title: Hide table header icons
 		type: class-toggle
 	-
 		id: i-bases-table-header-font-size
@@ -3992,6 +4106,10 @@ settings:
 		max: 900
 		step: 100
 	-
+		id: i-bases-highlight-active-row
+		title: Highlight active row
+		type: class-toggle
+	-
 		id: bases-table-text-size
 		title: Table body font size
 		type: variable-text
@@ -4001,10 +4119,6 @@ settings:
 		title: Table row height
 		type: variable-text
 		default: 30px
-	-
-		id: i-bases-highlight-active-row
-		title: Highlight active row
-		type: class-toggle
 	-
 		id: files
 		title: Files
@@ -4396,52 +4510,22 @@ settings:
 		level: 3
 		collapsed: true
 	-
-		id: graph-view-light-mode
-		title: Light mode
-		type: heading
-		level: 4
-		collapsed: true
-	-
-		id: i-lt-graph-line-lightness
-		title: Enable custom line lightness
-		type: class-toggle
-	-
-		id: i-lt-custom-graph-line-lightness
-		title: Custom line lightness (%)
-		type: variable-number-slider
-		default: 83
-		min: 0
-		max: 100
-		step: 1
-		format: '%'
-	-
-		id: graph-view-dark-mode
-		title: Dark mode
-		type: heading
-		level: 4
-		collapsed: true
-	-
-		id: i-dk-graph-line-lightness
-		title: Enable custom line lightness
-		type: class-toggle
-	-
-		id: i-dk-custom-graph-line-lightness
-		title: Custom line lightness (%)
-		type: variable-number-slider
-		default: 25
-		min: 0
-		max: 100
-		step: 1
-		format: '%'
-	-
-		id: graph-view-general
-		title: General
-		type: heading
-		level: 4
-		collapsed: true
-	-
 		id: graph-line
 		title: Line color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: graph-node
+		title: Node color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: graph-node-unresolved
+		title: Unresolved node color
 		type: variable-themed-color
 		format: hex
 		default-light: '#'
