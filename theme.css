@@ -1169,10 +1169,12 @@ li.is-collapsed .cm-fold-indicator:hover ~ .cm-formatting-list .list-bullet::aft
 }
 .theme-light .metadata-container {
 	--metadata-label-background: hsl(var(--accent-h), var(--accent-s), calc(100% - var(--i-lt-l-multiplier) * 6%));
+  --metadata-property-background-hover: var(--i-2);
 }
 .theme-light.i-lt-properties-background .metadata-container,
 .theme-dark .metadata-container {
 	--metadata-label-background: var(--i-2);
+  --metadata-property-background-hover: var(--i-2);
 }
 .theme-dark.i-dk-properties-accent .metadata-container {
 	--metadata-label-background: hsl(var(--accent-h), var(--accent-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 4%));
