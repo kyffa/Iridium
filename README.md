@@ -7,6 +7,44 @@ Iridium is a pretty, comfortable, and customizable theme that emphasizes your ac
 ![](Images/dark.png)
 ![](Images/gray.png)
 
+## Alternate checkboxes
+![](Images/checkboxes.png)
+
+```
+- [ ] to-do
+- [/] incomplete
+- [x] done
+- [-] canceled
+- [>] forwarded
+- [<] scheduling
+- [?] question
+- [!] important
+- [*] star
+- ["] quote
+- [l] location
+- [b] bookmark
+- [i] information
+- [S] savings
+- [I] idea
+- [p] pros
+- [c] cons
+- [f] fire
+- [k] key
+- [w] win
+- [u] up
+- [d] down
+
+- [1] empty heart
+- [2] half full heart
+- [3] full heart
+- [4] plus
+- [5] minus
+- [6] cross
+- [n] pin
+- [t] target
+- [a] book
+```
+
 ## Installation
 Iridium is available on the community themes list in Obsidian. To install: 
 1. Go to **Settings** > **Appearance**
