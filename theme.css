@@ -1674,11 +1674,11 @@ body {
 .i-full-width-status-bar.i-border-layout:not(.is-mobile,.i-autohide-status-bar) .status-bar {
 	border-color: var(--i-layout-border-color);
 }
-.i-full-width-status-bar.i-border-layout:not(.is-mobile,.i-autohide-status-bar,.i-hide-status-bar,.i-focus-mode.i-focus-mode-status-bar) .workspace {
+.i-full-width-status-bar.i-border-layout:not(.is-mobile,.i-autohide-status-bar,.i-hide-status-bar,.i-focus-mode.i-focus-mode-status-bar,.is-popout-window) .workspace {
 	border-radius: var(--i-border-radius) var(--i-border-radius) 0 0;
 	border-bottom-color: var(--background-modifier-border);
 }
-.i-full-width-status-bar.i-card-layout:not(.is-mobile,.i-autohide-status-bar,.i-hide-status-bar,.i-focus-mode.i-focus-mode-status-bar) .workspace {
+.i-full-width-status-bar.i-card-layout:not(.is-mobile,.i-autohide-status-bar,.i-hide-status-bar,.i-focus-mode.i-focus-mode-status-bar,.is-popout-window) .workspace {
 	padding-bottom: 3px;
 }
 .i-focus-mode.i-focus-mode-main:not(.is-mobile) .status-bar {
