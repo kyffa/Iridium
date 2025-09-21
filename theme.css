@@ -1847,7 +1847,7 @@ body {
 }
 
 /* Vault profile */
-.i-hide-vault-profile:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+.i-hide-vault-profile:not(.is-mobile,.i-focus-mode-main.i-focus-mode) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
 	display: none;
 }
 :is(.i-hide-vault-profile,.i-autohide-vault-profile):not(.is-mobile).i-card-layout .workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
@@ -1855,7 +1855,7 @@ body {
 	border-bottom: 1px solid var(--i-layout-border-color);
 	border-radius: 0 0 var(--i-card-radius) var(--i-card-radius);
 }
-.i-autohide-vault-profile:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+.i-autohide-vault-profile:not(.is-mobile,.i-focus-mode-main.i-focus-mode) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
 	position: absolute;
 	z-index: 1;
 	bottom: 0;
