@@ -758,6 +758,9 @@ body {
 .i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .titlebar-button-container.mod-right {
 	background-color: var(--i-layout-color);
 }
+.theme-dark.i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .titlebar-button:not(.mod-close):hover {
+	background-color: var(--background-primary);
+}
 .i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.is-fullscreen) .horizontal-main-container {
 	padding-top: 16px;
 }
@@ -2002,9 +2005,11 @@ body {
 .i-notebook-navigator .nn-desktop.nn-single-pane .nn-file:hover .nn-file-content {
 	background-color: var(--background-modifier-hover);
 }
+.i-notebook-navigator .nn-icon-button {
+	opacity: 1;
+}
 .i-notebook-navigator .mod-sidedock .workspace-leaf-content[data-type="notebook-navigator"] .nn-icon-button {
 	padding: 0 6px;
-	opacity: 1;
 }
 .i-notebook-navigator .mod-sidedock .workspace-leaf-content[data-type="notebook-navigator"] .nn-header-actions button.nn-icon-button {
 	padding: 0 6px;
