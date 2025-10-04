@@ -25,16 +25,12 @@ body {
 	/* Prompts */
 	--prompt-border-color: var(--background-modifier-border-hover);
 
-	/* Search */
-	--search-icon-color: var(--icon-color);
-
 	/* Window frame */
 	--titlebar-background: var(--i-2);
 	--titlebar-background-focused: var(--titlebar-background);
 
 	/* Backgrounds */
 	--background-secondary: var(--i-1);
-	--background-modifier-hover: var(--i-3);
 	--background-modifier-active-hover: var(--i-4);
 }
 .theme-light {
@@ -64,6 +60,7 @@ body {
 	--color-base-100: hsl(var(--accent-h), var(--i-lt-s), calc(100% - var(--i-lt-l-multiplier) * 87%));
 	--color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) * 1.075));
 	--color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) * 1.15));
+	--background-modifier-hover: hsla(var(--accent-h), var(--i-lt-s), calc(100% - var(--i-lt-l-multiplier) * 12%), 0.65);
 	--background-modifier-border: hsl(var(--accent-h), var(--i-lt-s), calc(100% - var(--i-lt-l-multiplier) * var(--i-lt-border-l)));
 	--text-normal: #222222;
 	--text-muted: #5c5c5c;
@@ -105,6 +102,7 @@ body {
 	--color-base-100: hsl(var(--accent-h), var(--i-dk-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * 73%));
 	--color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) * 1.15));
 	--color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) * 1.29));
+	--background-modifier-hover: var(--i-3);
 	--background-modifier-border: hsl(var(--accent-h), var(--i-dk-s), calc(var(--i-dk-l) + var(--i-dk-l-multiplier) * var(--i-dk-border-l)));
 	--background-modifier-form-field: var(--background-primary);
 	--text-normal: hsl(0, 0%, calc(var(--i-dk-l) + 73% * var(--i-dk-text-l-multiplier)));
@@ -721,8 +719,8 @@ body {
 	bottom: 0;
 	background-color: var(--background-modifier-hover);
 	border-radius: 0 50% 0 0;
-	border-top: 1px solid var(--background-modifier-border);
-	border-right: 1px solid var(--background-modifier-border);
+	border-top: 1px solid var(--color-base-30);
+	border-right: 1px solid var(--color-base-30);
 	width: 36px;
 	height: 36px;
 	z-index: 16;
@@ -757,9 +755,6 @@ body {
 }
 .i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .titlebar-button-container.mod-right {
 	background-color: var(--i-layout-color);
-}
-.theme-dark.i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout) .titlebar-button:not(.mod-close):hover {
-	background-color: var(--background-primary);
 }
 .i-focus-mode-main.i-focus-mode:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.is-fullscreen) .horizontal-main-container {
 	padding-top: 16px;
@@ -916,8 +911,7 @@ body {
 body {
 	--i-hr-style: solid;
 }
-.markdown-source-view.mod-cm6 hr,
-.markdown-rendered hr {
+:is(.markdown-source-view.mod-cm6,.markdown-rendered) hr {
 	border-width: var(--hr-thickness) 0 0;
 	border-style: var(--i-hr-style);
 }
@@ -989,32 +983,33 @@ body {
 .i-dk-layout-s {
 	--i-dk-layout-s: var(--i-dk-custom-layout-s);
 }
+.theme-light:is(.i-card-layout,.i-border-layout) {
+	--background-modifier-hover: var(--i-2);
+	--background-modifier-active-hover: var(--i-3);
+}
 
 /* Card layout */
 body {
 	--i-card-radius: 8px;
 }
+.theme-light {
+	--i-card-layout-border: var(--i-7);
+}
+.theme-dark {
+	--i-card-layout-border: var(--i-5);
+}
 .i-card-layout:not(.is-mobile) {
 	--ribbon-background: var(--i-layout-color);
 	--ribbon-background-collapsed: var(--ribbon-background);
-	--ribbon-width: 35px;
-	--ribbon-padding: 10px 0 10px;
+	--ribbon-padding: 8px 0 12px;
 	--tab-outline-color: var(--i-card-layout-border);
 	--titlebar-background: var(--i-0);
 }
 .i-card-layout:not(.is-mobile) .workspace {
 	padding: 5px;
 }
-.i-card-layout:not(.is-mobile).theme-light {
-	--i-card-layout-border: var(--i-7);
-	--background-modifier-hover: var(--i-2);
-	--background-modifier-active-hover: var(--i-3);
-}
-.i-card-layout:not(.is-mobile).theme-dark {
-	--i-card-layout-border: var(--i-5);
-}
-.i-card-layout:not(.is-mobile) .workspace-ribbon {
-	--background-modifier-hover: var(--i-2);
+.i-card-layout:not(.is-mobile).theme-dark .side-dock-ribbon-action:hover {
+	background-color: var(--i-2);
 }
 .i-card-layout:not(.is-mobile) .app-container,
 .i-card-layout:not(.is-mobile) .workspace,
@@ -1022,7 +1017,7 @@ body {
 .i-card-layout:not(.is-mobile) .workspace-split.mod-right-split,
 .i-card-layout:not(.is-mobile) .workspace-split.mod-vertical > *,
 .i-card-layout:not(.is-mobile).is-grabbing .workspace-split,
-.i-card-layout:not(.is-mobile):not(.is-hidden-frameless) .titlebar {
+.i-card-layout:not(.is-mobile,.is-hidden-frameless) .titlebar {
 	background-color: var(--i-layout-color);
 }
 .i-card-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
@@ -1036,8 +1031,8 @@ body {
 	margin: 3px 3px 0;
 	--background-modifier-hover: var(--i-3);
 }
-.i-card-layout:not(.is-mobile) :is(.mod-left-split,.mod-right-split) .workspace-tab-header:is(.has-active-menu,.is-active) {
-	--background-modifier-hover: var(--i-4);
+.i-card-layout:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active {
+	background-color: var(--i-4);
 }
 .i-card-layout:not(.is-mobile) .workspace-tab-container {
 	border: 1px solid var(--i-layout-border-color);
@@ -1045,7 +1040,7 @@ body {
 	border-radius: 0 0 var(--i-card-radius) var(--i-card-radius);
 	margin: 0 3px 3px;
 }
-.i-card-layout:not(.is-mobile) .workspace-split:is(.mod-left-split,.mod-right-split) .workspace-tab-header-container {
+.i-card-layout:not(.is-mobile) .mod-sidedock .workspace-tab-header-container {
 	border-bottom: 1px dashed var(--i-card-layout-border);
 }
 .i-card-layout:not(.is-mobile) .workspace-leaf-resize-handle {
@@ -1066,59 +1061,43 @@ body {
 }
 .i-card-layout:not(.is-mobile) .workspace-ribbon {
 	border: 0;
-}
-.i-card-layout:not(.is-mobile,.show-ribbon) {
-	--ribbon-width: 0px;
-}
-.i-card-layout:not(.is-mobile,.i-window-control-buttons-macos.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen)) .workspace-ribbon.mod-left:before {
-	display: none;
-}
-.i-card-layout:not(.is-mobile) .workspace-ribbon.mod-left {
-	margin-top: 0;
+	flex: 0 0 34px;
+	margin-right: 1px;
 }
 .i-card-layout:not(.is-mobile) .sidebar-toggle-button {
-	height: auto;
-	padding: 7px 0;
+	padding: 7px 0 8px;
+}
+.i-card-layout:is(.mod-macos:is(.is-hidden-frameless.is-fullscreen,:not(.is-hidden-frameless)),.mod-windows,.mod-linux) .workspace-ribbon.mod-left:before {
+	display: none;
 }
 .i-card-layout:is(.mod-macos:not(.is-hidden-frameless),.mod-windows,.mod-linux) .workspace-ribbon .sidebar-toggle-button {
-	position: relative;
-	height: auto;
-	padding: 0 0 2px 0;
-	width: auto;
+	top: 9px;
 }
-.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
-	padding-left: calc(var(--frame-left-space) - 1px);
+.i-card-layout:is(.mod-macos:not(.is-hidden-frameless),.mod-windows,.mod-linux) .workspace-ribbon.mod-left {
+	margin-top: 34px;
 }
-.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
-	margin-top: 26px;
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left:before {
+	top: 8px;
+	left: 8px;
+	border: 1px solid var(--i-layout-border-color);
+	border-radius: var(--i-card-radius);
+	height: 25px;
+	width: 66px;
+	background-color: var(--background-primary);
 }
 .i-card-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
-	position: relative;
-	padding-right: 0;
-}
-.i-card-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
-	padding-right: 8px;
-}
-.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless {
-	--frame-right-space: 120px;
-}
-.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
-	right: 9px;
 	top: 9px;
-	height: 38px;
-	border-top-right-radius: var(--i-card-radius);
+	right: 9px;
+	background-color: transparent;
 }
-.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right .titlebar-button:last-child {
-	border-top-right-radius: calc(var(--i-card-radius) - 1px);
+.i-card-layout.mod-macos.is-hidden-frameless:is(:not(.show-ribbon),.is-popout-window):not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+	padding-left: calc(var(--frame-left-space) - 1px);
 }
-.i-card-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button {
-	padding: 0 14px;
+.i-card-layout.mod-macos.is-hidden-frameless.is-fullscreen .workspace-ribbon.mod-left {
+	margin-top: 2px;
 }
-.i-card-layout:is(.mod-windows,.mod-linux):not(.is-hidden-frameless) .titlebar-button.mod-logo {
-	--ribbon-width: 44px;
-}
-.i-card-layout:is(.mod-windows,.mod-linux):not(.is-hidden-frameless,.show-ribbon) .titlebar-button.mod-logo {
-	--ribbon-width: 0;
+.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
+	margin-top: 28px;
 }
 
 /* Border layout */
@@ -1130,10 +1109,6 @@ body {
 	--ribbon-background-collapsed: var(--ribbon-background);
 	--titlebar-background: var(--background-primary);
 }
-.theme-light.i-border-layout:not(.is-mobile) {
-	--background-modifier-hover: var(--i-2);
-	--background-modifier-active-hover: var(--i-3);
-}
 .i-border-layout:not(.is-mobile) .app-container {
 	padding: 8px;
 	background-color: var(--i-layout-color);
@@ -1142,44 +1117,27 @@ body {
 	border-radius: var(--i-border-radius);
 	border: 1px solid var(--i-layout-border-color);
 }
-.i-border-layout:not(.is-mobile):not(.is-hidden-frameless) .titlebar {
+.i-border-layout:not(.is-mobile,.is-hidden-frameless) .titlebar {
 	background-color: var(--i-layout-color);
 }
 .i-border-layout:not(.is-mobile) .workspace-tabs .workspace-leaf {
 	background-color: var(--background-primary);
 }
-.theme-light.i-border-layout:not(.is-mobile) .workspace-tab-header-container {
-	--background-modifier-hover: var(--i-2);
-}
-.theme-dark.i-border-layout:not(.is-mobile) .workspace-tab-header-container,
-.theme-light.i-border-layout:not(.is-mobile) :is(.mod-left-split,.mod-right-split) :is(.workspace-tab-header.has-active-menu,.workspace-tab-header.is-active) {
-	--background-modifier-hover: var(--i-3);
-}
-.theme-dark.i-border-layout:not(.is-mobile) :is(.mod-left-split,.mod-right-split) :is(.workspace-tab-header.has-active-menu,.workspace-tab-header.is-active) {
-	--background-modifier-hover: var(--i-4);
+.i-border-layout:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active {
+	background-color: var(--background-modifier-active-hover);
 }
 .i-border-layout:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
 	width: 100%;
 	background-color: var(--background-primary);
 }
 .i-border-layout:not(.is-mobile) .sidebar-toggle-button {
-	height: auto;
 	padding: 7px 0;
 }
-.i-border-layout:is(.mod-macos:is(.is-hidden-frameless.is-fullscreen,:not(.is-hidden-frameless)),.mod-windows,.mod-linux) .workspace-ribbon.mod-left:before {
-	display: none;
+.i-border-layout:not(.is-mobile) .workspace-ribbon .sidebar-toggle-button {
+	top: 9px;
+	left: 9px;
 }
-.i-border-layout:is(.mod-macos:not(.is-hidden-frameless),.mod-windows,.mod-linux) .workspace-ribbon.mod-left {
-	margin-top: 0;
-	padding-top: 0;
-	gap: 0;
-}
-.i-border-layout:is(.mod-macos:not(.is-hidden-frameless),.mod-windows,.mod-linux) .workspace-ribbon .sidebar-toggle-button {
-	position: relative;
-	width: auto;
-	padding-bottom: 6px;
-}
-.i-border-layout.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left:before {
+.i-border-layout:not(.is-mobile) .workspace-ribbon.mod-left:before {
 	left: 9px;
 	top: 9px;
 	border-top-left-radius: var(--i-border-radius);
@@ -1188,30 +1146,9 @@ body {
 	padding-left: calc(var(--frame-left-space) - 1px);
 }
 .i-border-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
-	position: relative;
-	padding-right: 0;
-}
-.i-border-layout.mod-macos.is-hidden-frameless:not(.is-popout-window) .workspace .workspace-tabs.mod-top-right-space .workspace-tab-header-container {
-	padding-right: 8px;
-}
-.i-border-layout.mod-macos.is-hidden-frameless.is-fullscreen .workspace-ribbon.mod-left {
-	margin-top: 0;
-	padding-top: 7px;
-}
-.i-border-layout:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
-	right: 9px;
 	top: 9px;
-	height: 39px;
+	right: 9px;
 	border-top-right-radius: var(--i-border-radius);
-}
-.i-border-layout:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right .titlebar-button:last-child {
-	border-top-right-radius: calc(var(--i-border-radius) - 1px);
-}
-.i-border-layout:is(.mod-windows,.mod-linux).is-hidden-frameless {
-	--frame-right-space: 120px;
-}
-.i-border-layout:is(.mod-windows,.mod-linux).is-hidden-frameless .titlebar-button {
-	padding: 0 14px;
 }
 .i-border-layout:is(.mod-windows,.mod-linux):not(.is-hidden-frameless) .titlebar-button.mod-logo {
 	position: absolute;
@@ -1679,47 +1616,35 @@ body {
 	--tab-text-color-focused-active: var(--tab-text-color);
 	--tab-container-background: var(--titlebar-background);
 }
-:is(.mod-left-split,.mod-right-split) .workspace-tab-header:is(.has-active-menu,.is-active) {
-	--background-modifier-hover: var(--i-5);
+body:not(.i-card-layout,.i-border-layout) .mod-sidedock .workspace-tab-header.is-active {
+	background-color: var(--i-5);
 }
-.workspace-tab-header-container {
+body:not(.i-card-layout,.i-border-layout) .workspace-tab-header-container {
 	--background-modifier-hover: var(--i-4);
 }
 
 /* Tab titlebar */
-:is(.i-tab-titlebar,.i-tab-titlebar-autohide.is-mobile,.i-tab-titlebar-path) {
-	--file-header-font-size: 12.5px;
-}
-:is(.i-tab-titlebar,.i-tab-titlebar-autohide,.i-tab-titlebar-path) {
+body {
 	--file-header-border: 0;
 }
-:is(.i-tab-titlebar,.i-tab-titlebar-autohide,.i-tab-titlebar-path) .view-header-title-parent {
+.is-phone {
+	--file-header-font-size: 12.5px;
+}
+.is-phone .view-header-title {
+	color: var(--text-normal);
+}
+.view-header-title-parent {
 	color: var(--text-accent);
 	align-items: center;
 }
-:is(.i-tab-titlebar,.i-tab-titlebar-autohide,.i-tab-titlebar-path) .view-header-title-parent .view-header-breadcrumb-separator {
-	font-size: 12px;
-}
-:is(.i-tab-titlebar.is-focused,.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide.is-focused,.i-tab-titlebar-autohide.is-mobile) .workspace-leaf.mod-active .view-header-title {
+:is(.is-focused,.is-phone) .workspace-leaf.mod-active .view-header-title {
 	font-weight: 500;
 }
-.i-tab-titlebar-path .view-header-title,
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide,.i-tab-titlebar-path) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
+:is(.i-tab-titlebar-autohide:not(.is-mobile),.is-phone) .view-header-title-parent .view-header-breadcrumb-separator:last-child {
 	display: none;
 }
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide) .view-header-title-container {
+:is(.i-tab-titlebar-autohide:not(.is-mobile),.is-phone) .view-header-title-container {
 	flex-direction: column-reverse;
-}
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide.is-mobile) .view-header-title-container {
-	padding-top: 8px;
-	padding-bottom: 8px;
-}
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide.is-mobile) .view-header-title {
-	color: var(--text-normal);
-}
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide.is-mobile,.i-tab-titlebar-path.is-mobile) .view-header-title-parent,
-:is(.i-tab-titlebar.is-mobile,.i-tab-titlebar-autohide.is-mobile) .view-header-title {
-	opacity: 1;
 }
 .i-tab-titlebar-autohide:not(.is-mobile) .view-header-title-parent {
 	position: absolute;
@@ -1755,16 +1680,17 @@ body {
 }
 .i-autohide-tab-titlebar-buttons:not(.is-mobile) :is(.view-header-left,.view-actions) {
 	opacity: 0;
-	transition: 100ms ease-in-out;
+	transition: opacity 100ms ease-in-out;
 }
-.i-autohide-tab-titlebar-buttons:not(.is-mobile) :is(.view-header-left,.view-actions):hover {
+.i-autohide-tab-titlebar-buttons:not(.is-mobile) :is(.view-header-left,.view-actions):hover,
+.is-phone :is(.view-header-title-parent:not(:empty),.view-header-title) {
 	opacity: 1;
 }
 .i-tab-titlebar-border-solid {
-	--file-header-border: 1px solid var(--background-modifier-border);
+	--file-header-border: 1px solid var(--color-base-30);
 }
 .i-tab-titlebar-border-dashed {
-	--file-header-border: 1px dashed var(--background-modifier-border);
+	--file-header-border: 1px dashed var(--color-base-30);
 }
 
 /* Tags */
@@ -1823,61 +1749,48 @@ body {
 }
 
 /* Window control buttons */
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) {
 	--frame-right-space: 81px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
 	height: 26px;
 	right: 7px;
 	top: 7px;
-	border: 1px solid var(--background-modifier-border);
+	border: 1px solid var(--color-base-30);
 	border-radius: 5px;
+	overflow: hidden;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode).i-card-layout .titlebar-button-container.mod-right {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode).i-card-layout .titlebar-button-container.mod-right {
 	border: 1px solid var(--i-card-layout-border);
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
+:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
 	background-color: var(--background-primary);
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right .titlebar-button {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button {
 	padding: 0 6px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right .titlebar-button:first-child {
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right .titlebar-button:last-child {
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-}
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
 	height: 26px;
 	right: 7px;
 	top: 7px;
 	width: 74px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
 	height: 25px;
 	right: 16px;
 	top: 16px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.i-focus-mode-main.i-focus-mode) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
+:is(.mod-windows,.mod-linux).is-hidden-frameless:is(.i-card-layout,.i-border-layout):not(.i-focus-mode-main.i-focus-mode) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
 	height: 25px;
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused.i-card-layout:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
+:is(.mod-windows,.mod-linux).is-hidden-frameless.is-focused.i-card-layout:not(.i-focus-mode-main.i-focus-mode) .titlebar-button-container.mod-right {
 	background-color: var(--i-3);
 }
-.i-window-control-buttons:is(.mod-windows,.mod-linux).is-hidden-frameless.i-card-layout:not(.i-focus-mode-main.i-focus-mode) .titlebar-button:not(.mod-close):hover {
+:is(.mod-windows,.mod-linux).is-hidden-frameless.i-card-layout:not(.i-focus-mode-main.i-focus-mode) .titlebar-button:not(.mod-close):hover {
 	background-color: var(--background-primary);
 }
-.i-window-control-buttons-macos.i-card-layout.mod-macos.is-hidden-frameless:not(.is-fullscreen,.i-focus-mode-main.i-focus-mode) .workspace-ribbon.mod-left:before {
-	top: 8px;
-	left: 8px;
-	border: 1px solid var(--i-layout-border-color);
-	border-radius: var(--i-card-radius);
-	height: 25px;
-	width: 66px;
-	background-color: var(--background-primary);
+.theme-dark:is(.mod-windows,.mod-linux):not(.is-hidden-frameless:not(.i-focus-mode-main.i-focus-mode)):is(.i-card-layout,.i-border-layout) .titlebar-button:not(.mod-close):hover {
+	background-color: var(--i-2);
 }
 
 /* Community plugins */
@@ -1891,127 +1804,122 @@ body {
 }
 
 /* Calendar */
-.i-calendar #calendar-container.container {
+body:not(.i-calendar-off) #calendar-container.container {
 	--color-text-today: var(--text-normal);
 }
-.i-calendar:not(.i-card-layout,.i-border-layout) #calendar-container.container {
+.theme-light:not(.i-calendar-off,.i-card-layout,.i-border-layout) #calendar-container.container {
 	--interactive-hover: var(--i-3);
 }
-.i-calendar #calendar-container .calendar {
+body:not(.i-calendar-off) #calendar-container .calendar {
 	table-layout: fixed;
 }
-.i-calendar #calendar-container .right-nav {
+body:not(.i-calendar-off) #calendar-container .right-nav {
 	align-items: center;
 }
-.i-calendar #calendar-container .today {
+body:not(.i-calendar-off) #calendar-container .today {
 	background-color: var(--background-modifier-active-hover);
 }
-.i-calendar #calendar-container :is(.day:active,.active,.active.today) {
+body:not(.i-calendar-off) #calendar-container :is(.day:active,.active,.active.today) {
 	color: var(--text-normal);
 	background-color: var(--i-accent-background);
 }
-.i-calendar #calendar-container .day.active:hover {
+body:not(.i-calendar-off) #calendar-container .day.active:hover {
 	background-color: var(--i-accent-background-hover);
 }
-.i-calendar.is-mobile #calendar-container .reset-button {
+body:not(.i-calendar-off).is-mobile #calendar-container .reset-button {
 	display: unset;
 }
-.i-calendar:not(.is-mobile) #calendar-container .title {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .title {
 	font-size: 1.1em;
 	line-height: 1.3;
 }
-.i-calendar:not(.is-mobile) #calendar-container .arrow {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .arrow {
 	width: 20px;
 	height: 20px;
 	border-radius: 4px;
 	transition: background-color 0.1s ease-in, color 0.1s ease-in;
 }
-.i-calendar:not(.is-mobile) #calendar-container .arrow:hover {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .arrow:hover {
 	background-color: var(--background-modifier-hover);
 }
-.i-calendar:not(.is-mobile) #calendar-container .arrow svg {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .arrow svg {
 	height: 12px;
 	width: 12px;
 }
-.i-calendar:not(.is-mobile) #calendar-container .reset-button {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .reset-button {
 	font-size: 0.6em;
 	letter-spacing: 0;
 	margin: 0;
 }
-.i-calendar:not(.is-mobile) #calendar-container .nav {
+body:not(.i-calendar-off,.is-mobile) #calendar-container .nav {
 	padding: 0 0 0 6px;
 }
-.i-calendar:not(.is-mobile) #calendar-container th {
+body:not(.i-calendar-off,.is-mobile) #calendar-container th {
 	letter-spacing: 0;
 	padding: 4px 0;
 }
-.i-calendar:not(.is-mobile) #calendar-container :is(.day,.week-num) {
+body:not(.i-calendar-off,.is-mobile) #calendar-container :is(.day,.week-num) {
 	padding: 4px 0;
 }
-.i-calendar-remove-padding.i-calendar:not(.is-mobile) #calendar-container.container {
+.i-calendar-remove-padding:not(.is-mobile) #calendar-container.container {
 	padding: 0;
 }
 
 /* Dataview */
-.i-dataview .dataview.table-view-table > thead > tr > th {
+body:not(.i-dataview-off) .dataview.table-view-table > thead > tr > th {
 	font-weight: var(--table-header-weight);
 	font-size: var(--table-header-size);
 	border: var(--table-border-width) solid var(--table-border-color);
 }
-.i-dataview .dataview.table-view-table > tbody > tr > td {
+body:not(.i-dataview-off) .dataview.table-view-table > tbody > tr > td {
 	border: var(--table-border-width) solid var(--table-border-color);
 }
-.i-dataview .dataview.small-text {
+body:not(.i-dataview-off) .dataview.small-text {
 	font-size: var(--table-header-size);
 	font-weight: var(--font-normal);
 	color: var(--text-normal);
 	margin-left: 0.3em;
 }
-.i-dataview .dataview.table-view-table,
-.i-dataview .markdown-rendered .callout .dataview.table-view-table {
+body:not(.i-dataview-off) .dataview.table-view-table,
+body:not(.i-dataview-off) .markdown-rendered .callout .dataview.table-view-table {
 	margin: 0;
 }
-.i-dataview .el-pre .block-language-dataview,
-.i-dataview .markdown-rendered .callout .block-language-dataview {
+body:not(.i-dataview-off) .el-pre .block-language-dataview,
+body:not(.i-dataview-off) .markdown-rendered .callout .block-language-dataview {
 	margin: var(--p-spacing) 0;
 }
-.i-dataview.i-spacing:not(.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-pre .block-language-dataview,
-.i-dataview.i-spacing:not(.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + .block-language-dataview {
+.i-spacing:not(.i-dataview-off,.modal-container) .markdown-rendered :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + .el-pre .block-language-dataview,
+.i-spacing:not(.i-dataview-off,.modal-container) .markdown-rendered :is(h1,h2,h3,h4,h5,h6) + .block-language-dataview {
 	margin-top: 0;
 }
 
 /* Notebook Navigator */
-.i-notebook-navigator {
+body:not(.i-notebook-navigator-off) {
 	--nn-theme-navitem-chevron-color: var(--nav-collapse-icon-color);
-	--nn-theme-navitem-selected-bg: var(--background-modifier-active-hover);
-	--nn-theme-list-header-search-active-bg: var(--background-primary);
+	--nn-theme-navitem-selected-bg: var(--background-modifier-hover);
 	--nn-theme-file-tag-color: var(--tag-color);
 	--nn-theme-file-tag-bg: var(--tag-background);
 	--nn-theme-file-tag-border-radius: var(--tag-radius);
-	--nn-theme-file-selected-bg: var(--background-modifier-active-hover);
 	--nn-theme-quick-actions-bg: var(--background-primary);
-	--nn-theme-header-button-active-bg: var(--background-modifier-active-hover);
 	--nn-theme-mobile-toolbar-button-icon-color: var(--interactive-accent);
 	--nn-theme-mobile-toolbar-button-active-icon-color: var(--interactive-accent);
 }
-.i-notebook-navigator:is(.i-card-layout,.i-border-layout):not(.is-mobile) {
+:not(.i-notebook-navigator-off,.is-mobile):is(.i-card-layout,.i-border-layout) {
 	--nn-theme-nav-bg: var(--background-primary);
-	--nn-theme-nav-header-bg: var(--background-primary);
 }
-.i-notebook-navigator .nn-desktop .nn-navitem:hover::after {
+body:not(.i-notebook-navigator-off) .nn-desktop .nn-navitem:hover::after {
 	z-index: 0;
 }
-.i-notebook-navigator .nn-desktop .nn-file:hover .nn-file-content,
-.i-notebook-navigator .nn-desktop.nn-single-pane .nn-file:hover .nn-file-content {
+body:not(.i-notebook-navigator-off) .nn-desktop .nn-file:hover .nn-file-content {
 	background-color: var(--background-modifier-hover);
 }
-.i-notebook-navigator .nn-icon-button {
+body:not(.i-notebook-navigator-off) .nn-icon-button {
 	opacity: 1;
 }
-.i-notebook-navigator .mod-sidedock .workspace-leaf-content[data-type="notebook-navigator"] .nn-icon-button {
+body:not(.i-notebook-navigator-off) .mod-sidedock .nn-icon-button {
 	padding: 0 6px;
 }
-.i-notebook-navigator .mod-sidedock .workspace-leaf-content[data-type="notebook-navigator"] .nn-header-actions button.nn-icon-button {
+body:not(.i-notebook-navigator-off) .mod-sidedock .nn-header-actions button.nn-icon-button {
 	padding: 0 6px;
 	min-width: 30px;
 }
@@ -2020,48 +1928,48 @@ body {
 }
 
 /* Style Settings */
-.i-style-settings .style-settings-collapse-indicator > svg {
+body:not(.i-style-settings-off) .style-settings-collapse-indicator > svg {
 	color: var(--nav-collapse-icon-color);
 	stroke-width: 4px;
 	width: 10px;
 	height: 10px;
 	transition: transform 100ms ease-in-out;
 }
-.i-style-settings.theme-light .style-settings-heading[data-level="1"] .setting-item-name {color: hsl(var(--accent-h), 80%, 30%);}
-.i-style-settings.theme-light .style-settings-heading[data-level="2"] .setting-item-name {color: hsl(calc(var(--accent-h) + 60), 80%, 30%);}
-.i-style-settings.theme-light .style-settings-heading[data-level="3"] .setting-item-name {color: hsl(calc(var(--accent-h) + 120), 80%, 30%);}
-.i-style-settings.theme-light .style-settings-heading[data-level="4"] .setting-item-name {color: hsl(calc(var(--accent-h) + 180), 80%, 30%);}
-.i-style-settings.theme-light .style-settings-heading[data-level="5"] .setting-item-name {color: hsl(calc(var(--accent-h) + 240), 80%, 30%);}
-.i-style-settings.theme-light .style-settings-heading[data-level="6"] .setting-item-name {color: hsl(calc(var(--accent-h) + 300), 80%, 30%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="1"] .setting-item-name {color: hsl(var(--accent-h), 80%, 80%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="2"] .setting-item-name {color: hsl(calc(var(--accent-h) + 60), 80%, 80%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="3"] .setting-item-name {color: hsl(calc(var(--accent-h) + 120), 80%, 80%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="4"] .setting-item-name {color: hsl(calc(var(--accent-h) + 180), 80%, 80%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="5"] .setting-item-name {color: hsl(calc(var(--accent-h) + 240), 80%, 80%);}
-.i-style-settings.theme-dark .style-settings-heading[data-level="6"] .setting-item-name {color: hsl(calc(var(--accent-h) + 300), 80%, 80%);}
-.i-style-settings:not(.is-phone) .style-settings-container input[type='range'] {
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="1"] .setting-item-name {color: hsl(var(--accent-h), 80%, 30%);}
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="2"] .setting-item-name {color: hsl(calc(var(--accent-h) + 60), 80%, 30%);}
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="3"] .setting-item-name {color: hsl(calc(var(--accent-h) + 120), 80%, 30%);}
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="4"] .setting-item-name {color: hsl(calc(var(--accent-h) + 180), 80%, 30%);}
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="5"] .setting-item-name {color: hsl(calc(var(--accent-h) + 240), 80%, 30%);}
+.theme-light:not(.i-style-settings-off) .style-settings-heading[data-level="6"] .setting-item-name {color: hsl(calc(var(--accent-h) + 300), 80%, 30%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="1"] .setting-item-name {color: hsl(var(--accent-h), 80%, 80%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="2"] .setting-item-name {color: hsl(calc(var(--accent-h) + 60), 80%, 80%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="3"] .setting-item-name {color: hsl(calc(var(--accent-h) + 120), 80%, 80%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="4"] .setting-item-name {color: hsl(calc(var(--accent-h) + 180), 80%, 80%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="5"] .setting-item-name {color: hsl(calc(var(--accent-h) + 240), 80%, 80%);}
+.theme-dark:not(.i-style-settings-off) .style-settings-heading[data-level="6"] .setting-item-name {color: hsl(calc(var(--accent-h) + 300), 80%, 80%);}
+body:not(.i-style-settings-off,.is-phone) .style-settings-container input[type='range'] {
 	width: 120px;
 }
-.i-style-settings .style-settings-container .themed-color-wrapper {
+body:not(.i-style-settings-off) .style-settings-container .themed-color-wrapper {
 	display: flex;
 	gap: 6px;
 }
-.i-style-settings .style-settings-container .themed-color-wrapper > div + div {
+body:not(.i-style-settings-off) .style-settings-container .themed-color-wrapper > div + div {
 	margin-top: 0;
 }
-.i-style-settings .style-settings-container .themed-color-wrapper > div {
+body:not(.i-style-settings-off) .style-settings-container .themed-color-wrapper > div {
 	padding: 6px;
 	border-radius: 8px;
 	border: 1px solid var(--color-base-40);
 	background-color: var(--color-base-35);
 }
-.i-style-settings .style-settings-container .pickr .pcr-button {
+body:not(.i-style-settings-off) .style-settings-container .pickr .pcr-button {
 	border-radius: 50%;
 	overflow: hidden;
 	width: 26px;
 	padding: 0;
 }
-.i-style-settings .style-settings-container .themed-color-wrapper .pickr-reset > button {
+body:not(.i-style-settings-off) .style-settings-container .themed-color-wrapper .pickr-reset > button {
 	margin-left: 6px;
 	padding: 4px;
 	height: 26px;
@@ -2069,27 +1977,33 @@ body {
 	box-shadow: none;
 	background-color: transparent;
 }
-.i-style-settings .style-settings-container .themed-color-wrapper .pickr-reset > button:hover {
+body:not(.i-style-settings-off) .style-settings-container .themed-color-wrapper .pickr-reset > button:hover {
 	background-color: var(--i-3);
 }
-.i-style-settings .view-content .style-settings-container .setting-item:not(.setting-item-heading) {
+body:not(.i-style-settings-off) .view-content .style-settings-container .setting-item:not(.setting-item-heading) {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
 /* Vertical Tabs */
-.i-vertical-tabs .obsidian-vertical-tabs-container .is-group-slot .tree-item-self {
+body:not(.i-vertical-tabs-off) .obsidian-vertical-tabs-container .tree-item.is-tab.is-highlighted .tree-item-self {
+	background-color: var(--background-modifier-hover);
+}
+body:not(.i-vertical-tabs-off) .obsidian-vertical-tabs-container .is-group-slot .tree-item-self {
 	margin-top: 2px;
 }
-.i-vertical-tabs .obsidian-vertical-tabs-container .tree-item-icon svg.svg-icon.right-triangle {
+body:not(.i-vertical-tabs-off) .obsidian-vertical-tabs-container .tree-item-icon svg.svg-icon.right-triangle {
 	stroke-width: 4px;
 	color: var(--nav-collapse-icon-color);
 }
-.i-vertical-tabs.theme-light:not(.is-mobile) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button {
-	--background-modifier-hover: var(--i-5);
+.theme-light:not(.i-vertical-tabs-off,.is-mobile) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button:hover {
+	background-color: var(--i-5);
 }
-.i-vertical-tabs.theme-dark:not(.is-mobile) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button {
-	--background-modifier-hover: var(--i-8);
+.theme-light:not(.i-vertical-tabs-off,.is-mobile):is(.i-card-layout,.i-border-layout) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button:hover {
+	background-color: var(--i-4);
+}
+.theme-dark:not(.i-vertical-tabs-off,.is-mobile) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button:hover {
+	background-color: var(--i-7);
 }
 
 /* @settings
@@ -4323,21 +4237,14 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: iridium-tab-titlebar
-		title: Iridium tab titlebar
-		type: class-select
-		allowEmpty: true
-		default: i-tab-titlebar
-		options:
-			-
-				label: Default
-				value: i-tab-titlebar
-			-
-				label: Autohide file path
-				value: i-tab-titlebar-autohide
-			-
-				label: File path only
-				value: i-tab-titlebar-path
+		id: i-tab-titlebar-autohide
+		title: Autohide file path (desktop only)
+		type: class-toggle
+	-
+		id: file-header-font-size
+		title: Tab titlebar font size
+		type: variable-text
+		default: ''
 	-
 		id: tab-titlebar-buttons
 		title: Tab titlebar buttons (desktop only)
@@ -4410,22 +4317,6 @@ settings:
 			-
 				label: Autohide
 				value: i-autohide-vault-profile
-	-
-		id: window-control-buttons
-		title: Window control buttons
-		type: heading
-		level: 2
-		collapsed: true
-	-
-		id: i-window-control-buttons
-		title: Windows and Linux
-		type: class-toggle
-		default: true
-	-
-		id: i-window-control-buttons-macos
-		title: MacOS (for card layout with ribbon enabled)
-		type: class-toggle
-		default: true
 	-
 		id: plugins
 		title: Plugins
@@ -5108,46 +4999,32 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: i-dataview
-		title: Dataview
+		id: i-calendar-off
+		title: 'Calendar: Disable styling'
 		type: class-toggle
-		default: true
-	-
-		id: i-style-settings
-		title: Style Settings
-		type: class-toggle
-		default: true
-	-
-		id: i-vertical-tabs
-		title: Vertical Tabs
-		type: class-toggle
-		default: true
-	-
-		id: calendar
-		title: Calendar
-		type: heading
-		level: 3
-	-
-		id: i-calendar
-		title: Calendar
-		type: class-toggle
-		default: true
 	-
 		id: i-calendar-remove-padding
-		title: Remove side padding (desktop only)
+		title: 'Calendar: Remove side padding (desktop only)'
 		type: class-toggle
 	-
-		id: notebook-navigator
-		title: Notebook Navigator
-		type: heading
-		level: 3
+		id: i-dataview-off
+		title: 'Dataview: Disable styling'
+		type: class-toggle
 	-
-		id: i-notebook-navigator
-		title: Notebook Navigator
+		id: i-notebook-navigator-off
+		title: 'Notebook Navigator: Disable styling'
+		type: class-toggle
+	-
+		id: i-notebook-navigator-hide-tab-titlebar
+		title: 'Notebook Navigator: Hide tab titlebar when NN is open in the editor (desktop only)'
 		type: class-toggle
 		default: true
 	-
-		id: i-notebook-navigator-hide-tab-titlebar
-		title: Hide tab titlebar when NN is open in the editor (desktop only)
+		id: i-style-settings-off
+		title: 'Style Settings: Disable styling'
+		type: class-toggle
+	-
+		id: i-vertical-tabs-off
+		title: 'Vertical Tabs: Disable styling'
 		type: class-toggle
 */
