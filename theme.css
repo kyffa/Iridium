@@ -1030,7 +1030,6 @@ body:not(.i-border-layout,.i-default-layout,.is-mobile) {
 	--ribbon-background: var(--i-layout-color);
 	--ribbon-background-collapsed: var(--ribbon-background);
 	--ribbon-padding: 8px 0 12px;
-	--tab-outline-color: var(--i-card-layout-border);
 	--titlebar-background: var(--i-0);
 	.workspace {
 		padding: 5px;
@@ -1936,16 +1935,19 @@ body:not(.i-dataview-off) {
 
 /* Notebook Navigator */
 body:not(.i-notebook-navigator-off) {
+	--nn-theme-nav-bg: transparent;
 	--nn-theme-navitem-chevron-color: var(--nav-collapse-icon-color);
 	--nn-theme-navitem-selected-bg: var(--background-modifier-hover);
+	--nn-theme-list-bg: transparent;
 	--nn-theme-file-tag-color: var(--tag-color);
 	--nn-theme-file-tag-bg: var(--tag-background);
 	--nn-theme-file-tag-border-radius: var(--tag-radius);
+	--nn-theme-file-selected-bg: var(--background-modifier-hover);
 	--nn-theme-quick-actions-bg: var(--background-primary);
 	--nn-theme-mobile-toolbar-button-icon-color: var(--interactive-accent);
 	--nn-theme-mobile-toolbar-button-active-icon-color: var(--interactive-accent);
-	&:not(.i-default-layout,.is-mobile) {
-		--nn-theme-nav-bg: var(--background-primary);
+	.notebook-navigator {
+		background-color: transparent;
 	}
 	.nn-desktop .nn-navitem:hover::after {
 		z-index: 0;
@@ -1962,10 +1964,6 @@ body:not(.i-notebook-navigator-off) {
 	.mod-sidedock .nn-header-actions button.nn-icon-button {
 		padding: 0 6px;
 		min-width: 30px;
-	}
-	&.theme-dark.is-mobile {
-		--nn-theme-mobile-nav-bg: var(--background-secondary);
-		--nn-theme-list-bg: var(--background-secondary);
 	}
 }
 .i-notebook-navigator-hide-tab-titlebar:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] .view-header {
@@ -2056,6 +2054,9 @@ body:not(.i-vertical-tabs-off) {
 	}
 	&.theme-dark:not(.is-mobile) .obsidian-vertical-tabs-container .tree-item .tree-item-flair-outer .action-button:hover {
 		background-color: var(--i-7);
+	}
+	.workspace-tabs.vt-mission-control-view .workspace-tab-container {
+		background-color: var(--background-primary);
 	}
 }
 
