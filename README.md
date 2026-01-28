@@ -34,15 +34,19 @@ Iridium is a pretty, comfortable, and customizable theme that emphasizes your ac
 - [u] up
 - [d] down
 
-- [1] empty heart
-- [2] half full heart
-- [3] full heart
-- [4] plus
-- [5] minus
-- [6] cross
 - [n] pin
 - [t] target
 - [a] book
+- [1] empty heart
+- [2] half-filled heart
+- [3] filled heart
+- [4] plus
+- [5] minus
+- [6] cross
+- [7] red
+- [8] orange
+- [9] yellow
+- [0] green
 ```
 
 ## Installation
