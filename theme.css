@@ -1753,7 +1753,6 @@ body {
 	--file-header-border: 0;
 }
 .is-phone {
-	--file-header-font-size: 12.5px;
 	.view-header-title {
 		color: var(--text-normal);
 	}
@@ -1772,7 +1771,7 @@ body {
 :is(.is-focused, .is-phone) .workspace-leaf.mod-active .view-header-title {
 	font-weight: 500;
 }
-:is(.i-tab-titlebar-autohide:not(.is-mobile), .is-phone) {
+:is(.i-tab-titlebar-autohide:not(.is-mobile)) {
 	.view-header-title-parent .view-header-breadcrumb-separator:last-child {
 		display: none;
 	}
@@ -2140,7 +2139,7 @@ body:not(.i-style-settings-off) {
 }
 .style-settings-heading[data-id=iridium] + .style-settings-container .setting-item[data-id=i-traffic-lights-1-11],
 .i-autohide-status-bar .style-settings-heading[data-id=iridium] + .style-settings-container .setting-item[data-id=i-full-width-status-bar],
-.i-translucent-nav-off .style-settings-heading[data-id=iridium] + .style-settings-container .setting-item[data-id=i-translucent-nav-opacity] {
+body:not(.i-translucent-floating-nav) .style-settings-heading[data-id=iridium] + .style-settings-container .setting-item[data-id=i-translucent-floating-nav-opacity] {
 	display: none;
 }
 :not(.i-border-layout, .i-default-layout).mod-macos.is-hidden-frameless:not(.is-fullscreen).show-ribbon .style-settings-heading[data-id=iridium] + .style-settings-container .setting-item[data-id=i-traffic-lights-1-11] {
@@ -2220,9 +2219,6 @@ body:not(.is-mobile) {
 	--toggle-s-thumb-height: 15px;
 	--toggle-s-thumb-width: 15px;
 }
-.is-phone:not(.i-pre-1-11-tab-titlebar) .workspace-leaf-content[data-type=markdown] .view-action.mod-left-split-toggle {
-	display: none;
-}
 
 /* Inputs */
 .is-mobile {
@@ -2299,18 +2295,10 @@ body:not(.is-mobile) {
 		--raised-background: transparent;
 		--raised-blur: none;
 		--raised-shadow: none;
-		--raised-mask-background: none;
-		--raised-mask: none;
-		--raised-mask-composite: unset;
-		--raised-mask-border-width: 0;
+		--raised-mask-display: none;
 	}
-	&.is-ios:is(.theme-light, .theme-dark) .prompt-input-container {
+	&.is-mobile.is-floating-nav.is-ios .prompt-input-container {
 		--raised-mask-border-width: 0;
-		--shadow-edges: 0 0 transparent;
-		--blur-brightness: 1;
-		&.mod-raised::after {
-			display: none;
-		}
 	}
 }
 
@@ -2372,6 +2360,29 @@ body:not(.is-mobile) {
 	}
 }
 
+/* Tab titlebar */
+.is-phone {
+	.view-header-title {
+		font-size: var(--font-ui-small);
+	}
+	&.show-inline-title:not(.is-floating-nav) .workspace-leaf-content[data-type=markdown] .view-header-title-container {
+		display: flex;
+	}
+	.view-header-breadcrumb:not(:nth-last-child(2)),
+	.view-header-breadcrumb-separator:not(:last-child) {
+		display: none;
+	}
+	.view-header-breadcrumb:nth-last-child(2) {
+		padding-left: 0;
+	}
+	.workspace-leaf-content[data-type=markdown] {
+		--file-header-justify: left;
+		.view-action.mod-left-split-toggle {
+			display: none;
+		}
+	}
+}
+
 /* Workspace drawer tab options */
 .workspace-drawer-tab-options .workspace-tab-header-inner {
 	border-radius: 12px;
@@ -2391,124 +2402,53 @@ body:not(.is-mobile) {
 	padding-top: 10px;
 }
 
-/* Mobile options */
+/* Translucent floating navigation buttons */
 body {
-	--i-translucent-nav-opacity: 92%;
+	--i-translucent-floating-nav-opacity: 92%;
 }
-.is-phone {
-	&.i-pre-1-11-navbar .mobile-navbar,
-	&.i-pre-1-11-tab-titlebar .view-header,
-	&.i-pre-1-11-toolbar .mobile-toolbar,
-	&:not(.i-translucent-nav-off) :is(.mobile-navbar, .view-header) {
-		--raised-background: transparent;
+.is-phone.is-floating-nav.i-translucent-floating-nav {
+	.mobile-navbar,
+	.view-header {
+		--raised-background: oklch(from var(--background-primary) l c h / var(--i-translucent-floating-nav-opacity));
 		--raised-blur: none;
 		--raised-shadow: none;
-		--raised-mask-background: none;
-		--raised-mask: none;
-		--raised-mask-composite: unset;
+		--raised-mask-display: none;
+	}
+	&.is-mobile.is-ios :is(.mobile-navbar, .view-header) {
 		--raised-mask-border-width: 0;
 	}
-	&:not(.i-translucent-nav-off) :is(.mobile-navbar, .view-header) {
-		--raised-background: oklch(from var(--background-primary) l c h / var(--i-translucent-nav-opacity));
-	}
-	&.is-ios:is(.theme-light, .theme-dark) {
-		&.i-pre-1-11-navbar .mobile-navbar,
-		&.i-pre-1-11-tab-titlebar .view-header,
-		&.i-pre-1-11-toolbar .mobile-toolbar,
-		&:not(.i-translucent-nav-off) :is(.mobile-navbar, .view-header) {
-			--raised-mask-border-width: 0;
-			--shadow-edges: 0 0 transparent;
-			--blur-brightness: 1;
-		}
-	}
+}
 
-	/* Pre-1.11 navbar */
-	&.i-pre-1-11-navbar {
-		--navbar-max-width: 100%;
-		--navbar-width: 100%;
-		--navbar-radius: 0;
-		.mobile-navbar {
-			--navbar-bottom-offset: max(var(--safe-area-inset-bottom), 0px);
-			background: var(--background-primary);
-		}
-	}
-
-	/* Remove fade effects */
-	&.i-remove-fade-effects {
-		--view-top-fade-mask: none;
-		--view-bottom-fade-mask: none;
-		--tab-switcher-menubar-background: var(--background-secondary);
-		.mobile-tab-switcher-menubar {
-			z-index: 2;
-		}
-		.is-hidden-nav {
-			--view-top-fade-mask: none;
-			--view-bottom-fade-mask: none;
-		}
+/* Remove fade effects */
+.i-remove-fade-effects {
+	--tab-switcher-menubar-background: var(--tab-switcher-background);
+	&.is-mobile.is-floating-nav {
 		.workspace-drawer .workspace-leaf-content::after,
 		.workspace-drawer .nav-buttons-container::after,
-		.modal.mod-settings .modal-header::after {
+		&.is-phone .workspace-drawer .nav-buttons-container::after {
 			display: none;
 		}
+		.workspace-drawer .nav-buttons-container {
+			background-color: var(--mobile-sidebar-background);
+		}
+	}
+	&.is-phone {
 		.modal.mod-settings .modal-header {
 			background-color: var(--settings-background);
+			&::after {
+				display: none;
+			}
+		}
+		&.is-floating-nav,
+		&.is-hidden-nav {
+			--view-top-fade-mask: linear-gradient(to bottom, #000 0%, #000 1px);
+			--view-bottom-fade-mask: linear-gradient(to top, #000 0%, #000 1px);
 		}
 		.workspace-drawer-tab-options-list {
 			box-shadow: none;
 		}
-	}
-
-	/* Pre-1.11 tab titlebar */
-	&.i-pre-1-11-tab-titlebar {
-		--file-header-background: var(--background-primary);
-		--file-header-background-focused: var(--background-primary);
-		--view-header-height: 50px;
-		.view-header {
-			gap: 8px;
-			align-items: center;
-			.view-actions {
-				height: var(--touch-size-m);
-			}
-			.view-action {
-				height: var(--touch-size-m);
-				width: var(--touch-size-m);
-			}
-		}
-		.view-header-title {
-			font-size: 12.5px;
-			font-weight: 500;
-			flex: 0 0 auto;
-		}
-		.view-header-title-container {
-			gap: 2px;
-		}
-		&.show-inline-title .workspace-leaf-content[data-type=markdown] .view-header-title-container,
-		.view-header-title-parent:not(:empty) {
-			display: flex;
-		}
-		.mod-root .workspace-leaf-content[data-type=markdown] .view-content::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			width: 100%;
-			height: var(--safe-area-inset-top);
-			background-color: var(--background-primary);
-		}
-	}
-
-	/* Pre-1.11 toolbar */
-	&.i-pre-1-11-toolbar {
-		--mobile-toolbar-height: var(--touch-size-m);
-		.mobile-toolbar {
-			box-shadow: none;
-			background-color: var(--background-primary);
-		}
-		.mobile-toolbar-options-container {
-			width: 100%;
-		}
-		.mobile-toolbar-options-list-container,
-		.mobile-toolbar-options-list {
-			border-radius: 0;
+		.workspace-drawer .nav-buttons-container {
+			padding-bottom: 4px;
 		}
 	}
 }
@@ -4664,30 +4604,18 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: i-translucent-nav-off
-		title: Disable translucent navigation buttons
+		id: i-translucent-floating-nav
+		title: Translucent floating navigation buttons
 		type: class-toggle
 	-
-		id: i-translucent-nav-opacity
-		title: Translucent navigation opacity
+		id: i-translucent-floating-nav-opacity
+		title: Translucent floating navigation opacity
 		type: variable-number-slider
 		default: 92
 		min: 0
 		max: 100
 		step: 1
 		format: '%'
-	-
-		id: i-pre-1-11-tab-titlebar
-		title: Anchored tab titlebar
-		type: class-toggle
-	-
-		id: i-pre-1-11-navbar
-		title: Anchored navbar
-		type: class-toggle
-	-
-		id: i-pre-1-11-toolbar
-		title: Anchored toolbar
-		type: class-toggle
 	-
 		id: i-remove-fade-effects
 		title: Remove fade effects
