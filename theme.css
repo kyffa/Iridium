@@ -2453,6 +2453,36 @@ body {
 	}
 }
 
+/* Anchored toolbar */
+.i-anchored-toolbar {
+	&.is-mobile {
+		--mobile-toolbar-height: var(--touch-size-m);
+	}
+	&.is-floating-nav .mobile-toolbar {
+		background-color: var(--background-primary);
+		box-shadow: none;
+	}
+	&.is-floating-nav .mobile-toolbar-options-container {
+		width: 100%;
+	}
+	.mobile-toolbar-options-container{
+		margin-block: 0;
+	}
+	.mobile-toolbar-options-list-container,
+	.mobile-toolbar-options-list {
+		border-radius: 0;
+	}
+	.mobile-toolbar {
+		--raised-background: transparent;
+		--raised-blur: none;
+		--raised-shadow: none;
+		--raised-mask-display: none;
+	}
+	&.is-mobile.is-floating-nav.is-ios .mobile-toolbar {
+		--raised-mask-border-width: 0;
+	}
+}
+
 /* @settings
 name: Iridium
 id: iridium
@@ -4604,6 +4634,14 @@ settings:
 		level: 2
 		collapsed: true
 	-
+		id: i-remove-fade-effects
+		title: Remove fade effects
+		type: class-toggle
+	-
+		id: i-anchored-toolbar
+		title: Anchored toolbar
+		type: class-toggle
+	-
 		id: i-translucent-floating-nav
 		title: Translucent floating navigation buttons
 		type: class-toggle
@@ -4616,10 +4654,6 @@ settings:
 		max: 100
 		step: 1
 		format: '%'
-	-
-		id: i-remove-fade-effects
-		title: Remove fade effects
-		type: class-toggle
 	-
 		id: scrollbars
 		title: Scrollbars
