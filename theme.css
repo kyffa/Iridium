@@ -12,7 +12,6 @@ body {
 	--indentation-guide-color-active: var(--i-editor-border-hover);
 	--modal-border-color: var(--background-modifier-border-hover);
 	--prompt-border-color: var(--background-modifier-border-hover);
-	--titlebar-background: var(--i-2);
 	--titlebar-background-focused: var(--titlebar-background);
 	--background-secondary: var(--i-1);
 }
@@ -219,6 +218,13 @@ body {
 		--bases-embed-radius: 7px;
 	}
 }
+.callout {
+	--bases-table-header-background: var(--background-primary);
+	--bases-table-header-background-hover: var(--i-2);
+	--bases-embed-border-color: var(--bases-table-border-color);
+	--bases-table-border-color: var(--table-border-color);
+	--table-border-color: var(--i-editor-border);
+}
 .bases-toolbar {
 	--background-modifier-active-hover: var(--background-modifier-hover);
 }
@@ -297,13 +303,6 @@ body {
 .mod-rtl, .is-rtl, .rtl {
 	--callout-padding: 0;
 }
-.callout {
-	--bases-table-header-background: var(--background-primary);
-	--bases-table-header-background-hover: var(--i-2);
-	--bases-embed-border-color: var(--bases-table-border-color);
-	--bases-table-border-color: var(--table-border-color);
-	--table-border-color: var(--i-editor-border);
-}
 .callout-title {
 	gap: 0.6em;
 	align-items: center;
@@ -342,7 +341,7 @@ body:not(.i-callout-filled, .i-callout-outlined-filled) {
 	}
 }
 .i-callout-outlined, .i-callout-filled, .i-callout-outlined-filled {
-	--callout-content-padding: 0.1em 1em 1em;
+	--callout-content-padding: calc(var(--p-spacing) - 1em) 1em 1em;
 }
 .i-callout-outlined-filled {
 	&.theme-light .callout {
@@ -768,6 +767,8 @@ body {
 	display: none;
 }
 .i-focus-mode.i-focus-mode-main:not(.is-mobile) {
+	--traffic-lights-offset-x: 30px;
+	--traffic-lights-offset-y: 30px;
 	--status-bar-background: var(--background-primary);
 	.workspace-tab-header-container,
 	.workspace-ribbon,
@@ -810,10 +811,10 @@ body {
 		--titlebar-background: var(--background-primary);
 	}
 	&.mod-macos.is-hidden-frameless.i-default-layout:not(.is-fullscreen) .horizontal-main-container {
-		padding-top: 40px;
+		padding-top: 28px;
 	}
 	&.mod-macos.is-hidden-frameless:not(.is-fullscreen, .i-default-layout) .horizontal-main-container {
-		padding-top: 31px;
+		padding-top: 19px;
 	}
 	&:is(.mod-windows, .mod-linux).is-hidden-frameless {
 		.titlebar-button-container.mod-right {
@@ -1026,14 +1027,12 @@ body {
 	--i-dk-layout-s: var(--i-dk-custom-layout-s);
 }
 body:not(.i-default-layout, .is-mobile) {
+	--traffic-lights-offset-y: 58px;
 	--ribbon-background-collapsed: var(--ribbon-background);
 	&.mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
 		top: 9px;
 		right: 9px;
 		background-color: transparent;
-	}
-	&.mod-macos.is-hidden-frameless:not(.is-fullscreen):is(:not(.i-border-layout):is(:not(.show-ribbon), .is-popout-window), .i-border-layout) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
-		padding-left: calc(var(--frame-left-space) - 1px);
 	}
 	.workspace-tabs .workspace-leaf {
 		background-color: var(--background-primary);
@@ -1046,6 +1045,7 @@ body:not(.i-default-layout, .is-mobile) {
 /* Card layout */
 body {
 	--i-card-radius: 8px;
+	--i-card-radius-macos: 10px;
 }
 .theme-light {
 	--i-card-layout-border: var(--i-7);
@@ -1095,7 +1095,7 @@ body:not(.i-border-layout, .i-default-layout, .is-mobile) {
 		width: calc(100% - 6px);
 		background-color: var(--background-primary);
 	}
-	.workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
+	&:not(.i-hide-vault-profile, .i-autohide-vault-profile) .workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
 		margin-bottom: 0;
 		border-radius: 0;
 		border-bottom: 0;
@@ -1111,34 +1111,49 @@ body:not(.i-border-layout, .i-default-layout, .is-mobile) {
 	.workspace-ribbon.mod-left::before {
 		display: none;
 	}
-	&:is(.mod-macos:not(.is-hidden-frameless), .mod-windows, .mod-linux) .workspace-ribbon .sidebar-toggle-button {
-		top: 9px;
+	&:not(.mod-macos.is-hidden-frameless) .workspace-ribbon {
+		.sidebar-toggle-button {
+			top: 9px;
+		}
+		&.mod-left {
+			margin-top: 34px;
+		}
 	}
-	&:is(.mod-macos:not(.is-hidden-frameless), .mod-windows, .mod-linux) .workspace-ribbon.mod-left {
-		margin-top: 34px;
+	&.mod-macos.is-hidden-frameless {
+		&:not(.is-fullscreen, .show-ribbon) .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+			padding-left: 79px;
+		}
+		.workspace-ribbon.mod-left {
+			margin-top: 37px;
+		}
+		&.is-fullscreen .workspace-ribbon.mod-left {
+			margin-top: 2px;
+		}
 	}
-	&:is(.i-traffic-lights-1-10, .i-traffic-lights-1-11).mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left::before {
-		display: block;
-		top: 8px;
-		left: 8px;
-		border: 1px solid var(--i-layout-border-color);
-		background-color: var(--background-primary);
-	}
-	&.i-traffic-lights-1-10.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left::before {
-		border-radius: var(--i-card-radius);
-		height: 25px;
-		width: 66px;
-	}
-	&.i-traffic-lights-1-11.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left::before {
-		border-radius: 12px;
-		height: 22px;
-		width: 71px;
-	}
-	&.mod-macos.is-hidden-frameless.is-fullscreen .workspace-ribbon.mod-left {
-		margin-top: 2px;
-	}
-	&.mod-macos.is-hidden-frameless:not(.is-fullscreen) .workspace-ribbon.mod-left {
-		margin-top: 28px;
+	&.mod-macos {
+		.mod-left-split .workspace-sidedock-empty-state + .workspace-tabs .workspace-tab-header-container,
+		.mod-left-split.is-sidedock-collapsed + .mod-root .workspace-tab-header-container {
+			border-top-left-radius: var(--i-card-radius-macos);
+		}
+		.mod-left-split .workspace-sidedock-vault-profile,
+		&:is(.i-hide-vault-profile, .i-autohide-vault-profile) .mod-left-split .workspace-tabs:last-of-type .workspace-tab-container,
+		.mod-left-split.is-sidedock-collapsed + .mod-root .workspace-tab-container {
+			border-bottom-left-radius: var(--i-card-radius-macos);
+		}
+		.mod-right-split .workspace-sidedock-empty-state + .workspace-tabs .workspace-tab-header-container,
+		.mod-root:has(+ .mod-right-split.is-sidedock-collapsed) .workspace-tab-header-container {
+			border-top-right-radius: var(--i-card-radius-macos);
+		}
+		.mod-right-split .workspace-tabs:last-of-type .workspace-tab-container,
+		.mod-root:has(+ .mod-right-split.is-sidedock-collapsed) .workspace-tab-container {
+			border-bottom-right-radius: var(--i-card-radius-macos);
+		}
+		&.i-focus-mode.i-focus-mode-main .workspace-tab-container {
+			border-radius: var(--i-card-radius-macos);
+		}
+		&.is-fullscreen {
+			--i-card-radius-macos: var(--i-card-radius);
+		}
 	}
 }
 
@@ -1146,7 +1161,11 @@ body:not(.i-border-layout, .i-default-layout, .is-mobile) {
 body {
 	--i-border-radius: 8px;
 }
+.mod-macos {
+	--i-border-radius: 10px;
+}
 .i-border-layout:not(.is-mobile) {
+	--traffic-lights-offset-x: 58px;
 	--ribbon-background: var(--background-primary);
 	--titlebar-background: var(--background-primary);
 	.app-container {
@@ -1180,6 +1199,11 @@ body {
 		position: absolute;
 		left: 8px;
 	}
+}
+
+/* Default layout */
+.i-default-layout:not(.is-mobile) {
+	--titlebar-background: var(--i-2);
 }
 
 /* Links */
@@ -1869,29 +1893,20 @@ body {
 }
 
 /* Vault profile */
-body:not(.is-mobile) {
-	&.i-hide-vault-profile:not(.i-focus-mode-main.i-focus-mode) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
-		display: none;
-	}
-	&:is(.i-hide-vault-profile, .i-autohide-vault-profile):not(.i-border-layout, .i-default-layout) .workspace-split.mod-left-split .workspace-tabs:last-child .workspace-tab-container {
-		margin-bottom: 3px;
-		border-bottom: 1px solid var(--i-layout-border-color);
-		border-radius: 0 0 var(--i-card-radius) var(--i-card-radius);
-	}
-	&.i-autohide-vault-profile {
-		&:not(.i-focus-mode-main.i-focus-mode) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
-			position: absolute;
-			z-index: 1;
-			bottom: 0;
-			height: 16px;
-			overflow: hidden;
-			transition: height 100ms ease-in-out, opacity 100ms ease-in-out;
-			opacity: 0;
-			&:hover {
-				height: 44px;
-				opacity: 1;
-			}
-		}
+.i-hide-vault-profile:not(.i-focus-mode-main.i-focus-mode) {
+	--vault-profile-display: none;
+}
+.i-autohide-vault-profile:not(.i-focus-mode-main.i-focus-mode, .is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+	position: absolute;
+	z-index: 1;
+	bottom: 0;
+	height: 16px;
+	overflow: hidden;
+	transition: height 100ms ease-in-out, opacity 100ms ease-in-out;
+	opacity: 0;
+	&:hover {
+		height: 44px;
+		opacity: 1;
 	}
 }
 
@@ -2212,13 +2227,9 @@ body:not(.i-style-settings-off) {
 		--dropdown-background: var(--background-primary);
 	}
 }
-.setting-item[data-id=traffic-lights-styling],
 .i-autohide-status-bar .setting-item[data-id=i-full-width-status-bar],
 body:not(.i-translucent-floating-nav) .setting-item[data-id=i-translucent-floating-nav-opacity] {
 	display: none;
-}
-:not(.i-border-layout, .i-default-layout).mod-macos.is-hidden-frameless:not(.is-fullscreen).show-ribbon .setting-item:is([data-id=traffic-lights-styling]) {
-	display: flex;
 }
 
 /* Vertical Tabs */
@@ -2596,21 +2607,6 @@ settings:
 				label: Default layout
 				value: i-default-layout
 	-
-		id: traffic-lights-styling
-		title: Traffic lights styling
-		type: class-select
-		default: none
-		options:
-			-
-				label: None
-				value: none
-			-
-				label: 'Obsidian installer version: 1.11 or above'
-				value: i-traffic-lights-1-11
-			-
-				label: 'Obsidian installer version: below 1.11'
-				value: i-traffic-lights-1-10
-	-
 		id: i-card-radius
 		title: 'Card layout: Radius (px)'
 		type: variable-number-slider
@@ -2621,13 +2617,9 @@ settings:
 		format: px
 	-
 		id: i-border-radius
-		title: 'Border layout: Radius (px)'
-		type: variable-number-slider
-		default: 8
-		min: 0
-		max: 12
-		step: 1
-		format: px
+		title: 'Border layout: Radius'
+		type: variable-text
+		default: ''
 	-
 		id: light-mode
 		title: Light mode
