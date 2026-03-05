@@ -1,4 +1,9 @@
 # Iridium
+
+> [!IMPORTANT]
+> ### macOS users:
+> Please make sure your Obsidian installer version is 1.11.4 or above. You can update your installer by [downloading and installing the latest version of Obsidian from the official website](https://obsidian.md/download).
+
 Iridium is a pretty, comfortable, and customizable theme that emphasizes your accent color.
 
 ![](Images/cover.png)
