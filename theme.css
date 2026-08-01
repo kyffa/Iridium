@@ -1303,15 +1303,15 @@ body:not(.i-callout-outlined, .i-callout-filled, .i-callout-outlined-filled) {
 	--callout-content-padding: 1em;
 
 	.callout-title {
-		background-color: rgb(var(--callout-color), 0.1);
+		background-color: color-mix(in srgb, var(--callout-color) 10%, transparent);
 	}
 
 	&.theme-light .callout-content {
-		border-top: var(--callout-border-width) dashed oklch(from rgb(var(--callout-color)) 0.65 c h / 0.45);
+		border-top: var(--callout-border-width) dashed oklch(from var(--callout-color) 0.65 c h / 0.45);
 	}
 
 	&.theme-dark .callout-content {
-		border-top: var(--callout-border-width) dashed oklch(from rgb(var(--callout-color)) 0.7 c h / 0.35);
+		border-top: var(--callout-border-width) dashed oklch(from var(--callout-color) 0.7 c h / 0.35);
 	}
 }
 
@@ -1325,11 +1325,11 @@ body:not(.i-callout-filled, .i-callout-outlined-filled) {
 	}
 
 	&.theme-light .callout {
-		border-color: oklch(from rgb(var(--callout-color)) 0.65 c h / 0.45);
+		border-color: oklch(from var(--callout-color) 0.65 c h / 0.45);
 	}
 
 	&.theme-dark .callout {
-		border-color: oklch(from rgb(var(--callout-color)) 0.7 c h / 0.35);
+		border-color: oklch(from var(--callout-color) 0.7 c h / 0.35);
 	}
 }
 
@@ -1341,13 +1341,13 @@ body:not(.i-callout-filled, .i-callout-outlined-filled) {
 
 .i-callout-outlined-filled {
 	&.theme-light .callout {
-		background-color: oklch(from rgb(var(--callout-color)) 0.65 c h / 0.06);
-		border-color: oklch(from rgb(var(--callout-color)) 0.65 c h / 0.3);
+		background-color: oklch(from var(--callout-color) 0.65 c h / 0.06);
+		border-color: oklch(from var(--callout-color) 0.65 c h / 0.3);
 	}
 
 	&.theme-dark .callout {
-		background-color: oklch(from rgb(var(--callout-color)) 0.75 c h / 0.08);
-		border-color: oklch(from rgb(var(--callout-color)) 0.75 c h / 0.2);
+		background-color: oklch(from var(--callout-color) 0.75 c h / 0.08);
+		border-color: oklch(from var(--callout-color) 0.75 c h / 0.2);
 	}
 }
 
