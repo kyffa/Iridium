@@ -1,19 +1,132 @@
 # Iridium
+Iridium is a customizable theme for Obsidian based on your accent color.
 
-> [!IMPORTANT]
-> ### macOS users:
-> Please make sure your Obsidian installer version is 1.11.4 or above. You can update your installer by [downloading and installing the latest version of Obsidian from the official website](https://obsidian.md/download).
-
-Iridium is a pretty, comfortable, and customizable theme that emphasizes your accent color.
-
-![](Images/cover.png)
+## Screenshots
 ![](Images/layouts.png)
-![](Images/light.png)
-![](Images/dark.png)
-![](Images/gray.png)
 
-## Alternate checkboxes
-![](Images/checkboxes.png)
+![](Images/color-settings.png)
+
+## Callouts
+### Callout types
+#### Named colors
+![](Images/named-colors.png)
+
+#### Accent-based colors
+![](Images/accent-based-colors.png)
+
+### Callout metadata
+![](Images/callout-metadata.png)
+
+- `no-icon` hides the icon
+- `icon` shows the icon even if the 'Hide icons' setting is enabled
+- `no-title` hides the title
+
+```
+# Callout types
+
+## Named colors
+
+> [!red]
+> Contents
+
+> [!orange]
+> Contents
+
+> [!yellow]
+> Contents
+
+> [!chartreuse]
+> Contents
+
+> [!green]
+> Contents
+
+> [!teal]
+> Contents
+
+> [!cyan]
+> Contents
+
+> [!blue]
+> Contents
+
+> [!indigo]
+> Contents
+
+> [!purple]
+> Contents
+
+> [!magenta]
+> Contents
+
+> [!pink]
+> Contents
+
+> [!gray]
+> Contents
+
+> [!grey]
+> Contents
+
+
+
+## Accent-based colors
+
+> [!accent]
+> Contents
+
+> [!a1]
+> Contents
+
+> [!a2]
+> Contents
+
+> [!a3]
+> Contents
+
+> [!a4]
+> Contents
+
+> [!a5]
+> Contents
+
+> [!a6]
+> Contents
+
+> [!a7]
+> Contents
+
+> [!a8]
+> Contents
+
+> [!a9]
+> Contents
+
+> [!a10]
+> Contents
+
+> [!a11]
+> Contents
+
+> [!a12]
+> Contents
+
+
+
+# Callout metadata
+
+> [!note|no-icon]
+> Contents
+
+> [!note|icon]
+> Contents
+
+> [!note|no-title]
+> Contents
+```
+
+## Alternative checkboxes
+![](Images/alternative-checkboxes.png)
 
 ```
 - [ ] to-do
@@ -54,21 +167,56 @@ Iridium is a pretty, comfortable, and customizable theme that emphasizes your ac
 - [0] green
 ```
 
+## Styled plugins
+- Calendar
+- Notebook Navigator
+- Style Settings
+- Vertical Tabs
+
 ## Installation
-Iridium is available on the community themes list in Obsidian. To install: 
-1. Go to **Settings** > **Appearance**
-2. Under **Themes**, click **Manage**
-3. Search for '**Iridium**'
-4. Click **Install and use**
+1. In Obsidian, open **Settings**
+2. Go to **Appearance**
+3. In **Themes**, click **Manage**
+4. Search for '**Iridium**'
+5. Click **Install and use**
 
 To customize Iridium, you need to install the **Style Settings** plugin.
-1. Go to **Settings** > **Community plugins**
-2. Click **Browse**
-3. Search for '**Style Settings**'
-4. Click **Install**, then click **Enable**, then click **Options**
+1. Open **Settings**
+2. Go to **Community plugins**
+3. Click **Browse**
+4. Search for '**Style Settings**'
+5. Click **Install**, then click **Enable**, then click **Options**
 
 ## Credits
-Inspiration and ideas taken from:
-- [Border](https://github.com/Akifyss/obsidian-border) by Akifyss
-- [Primary](https://github.com/primary-theme/obsidian) by ceciliamay
-- [Minimal](https://github.com/kepano/obsidian-minimal) by kepano
+Since themes tend to borrow a lot of ideas from each other, it's hard to keep track of where specific features come from and credit everyone properly. So instead, I decided to make a list of my favorite themes. Some themes inspired me, while others are just much cooler than my theme and deserve a shoutout. I will keep this list updated. (Do check them out!)
+
+- [Aubade](https://github.com/DuckTapeKiller/obsidian-aubade)
+- [Baseline](https://github.com/aaaaalexis/obsidian-baseline)
+- [blobob](https://github.com/kazi-aidah/blobob)
+- [Border](https://github.com/akifyss/obsidian-border)
+- [Composer](https://github.com/vran-dev/obsidian-composer)
+- [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino)
+- [Elysian](https://github.com/matothetomato/Elysian)
+- [Fancy-a-Story](https://github.com/elsatam/obsidian-fancy-a-story)
+- [flexcyon](https://github.com/bladeacer/flexcyon)
+- [Hidden Grotto](https://github.com/hotandcold245/Hidden-Grotto)
+- [Maple](https://github.com/subframe7536/obsidian-theme-maple)
+- [Minimal](https://github.com/kepano/obsidian-minimal)
+- [Museifu Basic](https://github.com/account-not-relevant/museifu-basic-theme)
+- [Nostromo](https://github.com/gvorbeck/Nostromo)
+- [Planetz Roller](https://github.com/monoooki/obsidian-planetz-roller-theme)
+- [Primary](https://github.com/primary-theme/obsidian)
+- [Prism](https://github.com/damiankorcz/Prism-Theme)
+- [Retroma](https://github.com/emarpiee/Retroma)
+- [TerraFlow](https://github.com/dubefab/obsidian-TerraFlow)
+- [Ultra Lobster](https://github.com/7368697661/Ultra-Lobster)
+- [Underwater](https://github.com/seniblue/Underwater)
+- [Velocity](https://github.com/Gonzalo-D-Sales/obsidian-velocity)
+- [Willemstad](https://github.com/tingmelvin/willemstad-x)
+
+## Links
+- [GitHub repo](https://github.com/kyffa/Iridium)
+- [Release notes](https://github.com/kyffa/Iridium/releases)
+- [Obsidian Community listing](https://community.obsidian.md/themes/iridium)
+
+Last updated: 2026-09-14
