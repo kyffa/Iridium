@@ -191,11 +191,11 @@ To customize Iridium, you need to install the **Style Settings** plugin.
 Since themes tend to borrow a lot of ideas from each other, it's hard to keep track of where specific features come from and credit everyone properly. So instead, I decided to make a list of my favorite themes. Some themes inspired me, while others are just much cooler than my theme and deserve a shoutout. I will keep this list updated. (Do check them out!)
 
 - [Aubade](https://github.com/DuckTapeKiller/obsidian-aubade)
-- [Baseline](https://github.com/aaaaalexis/obsidian-baseline)
+- [Baseline](https://github.com/svnaxis/obsidian-baseline)
 - [blobob](https://github.com/kazi-aidah/blobob)
 - [Border](https://github.com/akifyss/obsidian-border)
 - [Composer](https://github.com/vran-dev/obsidian-composer)
-- [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino)
+- [Cupertino](https://github.com/svnaxis/obsidian-cupertino)
 - [Elysian](https://github.com/matothetomato/Elysian)
 - [Fancy-a-Story](https://github.com/elsatam/obsidian-fancy-a-story)
 - [flexcyon](https://github.com/bladeacer/flexcyon)
@@ -208,15 +208,11 @@ Since themes tend to borrow a lot of ideas from each other, it's hard to keep tr
 - [Primary](https://github.com/primary-theme/obsidian)
 - [Prism](https://github.com/damiankorcz/Prism-Theme)
 - [Retroma](https://github.com/emarpiee/Retroma)
+- [Sea Slug](https://github.com/t-if/sea-slug)
 - [TerraFlow](https://github.com/dubefab/obsidian-TerraFlow)
 - [Ultra Lobster](https://github.com/7368697661/Ultra-Lobster)
 - [Underwater](https://github.com/seniblue/Underwater)
 - [Velocity](https://github.com/Gonzalo-D-Sales/obsidian-velocity)
 - [Willemstad](https://github.com/tingmelvin/willemstad-x)
 
-## Links
-- [GitHub repo](https://github.com/kyffa/Iridium)
-- [Release notes](https://github.com/kyffa/Iridium/releases)
-- [Obsidian Community listing](https://community.obsidian.md/themes/iridium)
-
-Last updated: 2026-09-14
+Last updated: 2026-10-03
