@@ -5,8 +5,8 @@ body {
 	--i-a-offset-lt: 4;
 	--i-bg-primary-c-dk: 0.004;
 	--i-bg-primary-l-dk: 0.24;
-	--i-step-c-dk: 0.0008;
-	--i-step-c-lt: 0.0018;
+	--i-step-c-dk: 0.0006;
+	--i-step-c-lt: 0.0017;
 	--i-step-l: 0.01;
 
 	/* Bases */
@@ -24,7 +24,6 @@ body {
 
 	/* Code */
 	--code-border-width: 1px;
-	--code-operator: var(--text-normal);
 	--code-radius: var(--i-radius-editor-m);
 
 	/* Collapse icons */
@@ -327,21 +326,21 @@ body {
 	--i-base-transparent-11: oklch(from var(--color-accent) calc(1 - 11 * var(--i-step-l) * var(--i-a-offset-lt)) calc(11 * var(--i-step-c-lt) * var(--i-a-offset-lt)) h / var(--i-a));
 	--i-base-transparent-12: oklch(from var(--color-accent) calc(1 - 12 * var(--i-step-l) * var(--i-a-offset-lt)) calc(12 * var(--i-step-c-lt) * var(--i-a-offset-lt)) h / var(--i-a));
 
-	--i-base-transparent-c-01: oklch(from var(--i-base-transparent-01) l calc(1 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-02: oklch(from var(--i-base-transparent-02) l calc(2 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-025: oklch(from var(--i-base-transparent-025) l calc(2.5 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-03: oklch(from var(--i-base-transparent-03) l calc(3 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-04: oklch(from var(--i-base-transparent-04) l calc(4 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-05: oklch(from var(--i-base-transparent-05) l calc(5 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-06: oklch(from var(--i-base-transparent-06) l calc(6 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-07: oklch(from var(--i-base-transparent-07) l calc(7 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-08: oklch(from var(--i-base-transparent-08) l calc(8 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-085: oklch(from var(--i-base-transparent-085) l calc(8.5 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-09: oklch(from var(--i-base-transparent-09) l calc(9 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-095: oklch(from var(--i-base-transparent-095) l calc(9.5 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-10: oklch(from var(--i-base-transparent-10) l calc(10 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-11: oklch(from var(--i-base-transparent-11) l calc(11 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
-	--i-base-transparent-c-12: oklch(from var(--i-base-transparent-12) l calc(12 * 0.0018 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-01: oklch(from var(--i-base-transparent-01) l calc(1 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-02: oklch(from var(--i-base-transparent-02) l calc(2 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-025: oklch(from var(--i-base-transparent-025) l calc(2.5 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-03: oklch(from var(--i-base-transparent-03) l calc(3 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-04: oklch(from var(--i-base-transparent-04) l calc(4 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-05: oklch(from var(--i-base-transparent-05) l calc(5 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-06: oklch(from var(--i-base-transparent-06) l calc(6 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-07: oklch(from var(--i-base-transparent-07) l calc(7 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-08: oklch(from var(--i-base-transparent-08) l calc(8 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-085: oklch(from var(--i-base-transparent-085) l calc(8.5 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-09: oklch(from var(--i-base-transparent-09) l calc(9 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-095: oklch(from var(--i-base-transparent-095) l calc(9.5 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-10: oklch(from var(--i-base-transparent-10) l calc(10 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-11: oklch(from var(--i-base-transparent-11) l calc(11 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
+	--i-base-transparent-c-12: oklch(from var(--i-base-transparent-12) l calc(12 * 0.0017 * var(--i-a-offset-lt) * 2.4) h);
 
 	--i-base-transparent-hover-04: oklch(from var(--color-accent) calc(1 - 4 * var(--i-step-l) * 10) calc(4 * var(--i-step-c-lt) * 10) h / 0.1);
 	--i-base-transparent-hover-045: oklch(from var(--color-accent) calc(1 - 4.5 * var(--i-step-l) * 10) calc(4.5 * var(--i-step-c-lt) * 10) h / 0.1);
@@ -365,23 +364,24 @@ body {
 	--i-calendar-today-bg: var(--i-base-transparent-c-085);
 
 	/* Callouts */
-	--i-callout-accent: oklch(from var(--color-accent) 60% 40% h);
-	--i-callout-red: oklch(from red 60% 40% h);
+	--i-callout-accent: oklch(from var(--color-accent) 60% 30% h);
+	--i-callout-red: oklch(from red 60% 30% h);
 
 	/* Code */
 	--i-code-inline-bg: var(--code-background);
 	--i-code-inline-border-color: var(--code-border-color);
-	--i-code-normal-block-color: oklch(54% 24% 170);
-	--i-code-normal-inline-color: oklch(from var(--color-accent) 50% 25% h);
+	--i-code-normal-block-color: var(--text-normal);
+	--i-code-normal-inline-color: oklch(from var(--color-accent) 48% 16% h);
 	--code-background: var(--i-base-transparent-01);
 	--code-border-color: var(--i-base-transparent-09);
-	--code-function: oklch(54% 24% 0);
-	--code-important: oklch(56% 32% 275);
-	--code-keyword: oklch(57% 42% 300);
-	--code-property: oklch(55% 28% 230);
-	--code-string: oklch(55% 32% 120);
-	--code-tag: oklch(58% 48% 355);
-	--code-value: oklch(57% 32% 60);
+	--code-function: oklch(53% 28% 170);
+	--code-important: oklch(53% 46% 155);
+	--code-keyword: oklch(56% 34% 310);
+	--code-operator: oklch(56% 38% 70);
+	--code-property: oklch(56% 28% 5);
+	--code-string: oklch(54% 42% 130);
+	--code-tag: oklch(58% 42% 355);
+	--code-value: oklch(54% 34% 240);
 
 	/* Editor background pattern */
 	--i-editor-bg-pattern-color: oklch(from var(--color-accent) calc(1 - var(--i-editor-bg-pattern-l-lt) * var(--i-step-l)) calc(var(--i-editor-bg-pattern-l-lt) * var(--i-step-c-lt)) h);
@@ -391,46 +391,46 @@ body {
 	--i-embed-title-bg: var(--i-base-transparent-02);
 
 	/* Extended Colors */
-	--color-red: oklch(65% 45% 15);
-	--color-orange: oklch(70% 45% 60);
-	--color-yellow: oklch(75% 100% 105);
+	--color-red: oklch(65% 40% 20);
+	--color-orange: oklch(70% 40% 60);
+	--color-yellow: oklch(75% 40% 90);
 	--color-green: oklch(70% 40% 130);
 	--color-cyan: oklch(70% 30% 175);
-	--color-blue: oklch(65% 35% 220);
-	--color-purple: oklch(65% 45% 295);
-	--color-pink: oklch(70% 45% 0);
+	--color-blue: oklch(65% 30% 220);
+	--color-purple: oklch(65% 35% 295);
+	--color-pink: oklch(70% 40% 0);
 
 	/* Graph view */
 	--graph-line: oklch(from var(--i-base-14) l 3% h);
 	--graph-node: oklch(from var(--color-base-70) l 12% h);
 
 	/* Headings */
-	--i-heading-highlight-color-h1: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h1)) / 50%);
-	--i-heading-highlight-color-h2: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / 50%);
-	--i-heading-highlight-color-h3: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / 50%);
-	--i-heading-highlight-color-h4: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / 50%);
-	--i-heading-highlight-color-h5: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / 50%);
-	--i-heading-highlight-color-h6: oklch(from var(--i-heading-color-start) 95% 8% calc(h + var(--i-heading-h-h6)) / 50%);
-	--i-heading-text-color-h1: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h1)));
-	--i-heading-text-color-h2: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
-	--i-heading-text-color-h3: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
-	--i-heading-text-color-h4: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
-	--i-heading-text-color-h5: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
-	--i-heading-text-color-h6: oklch(from var(--i-heading-color-start) 55% 45% calc(h + var(--i-heading-h-h6)));
-	--i-heading-underline-color-h1: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h1)) / 75%);
-	--i-heading-underline-color-h2: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / 75%);
-	--i-heading-underline-color-h3: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / 75%);
-	--i-heading-underline-color-h4: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / 75%);
-	--i-heading-underline-color-h5: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / 75%);
-	--i-heading-underline-color-h6: oklch(from var(--i-heading-color-start) 85% 20% calc(h + var(--i-heading-h-h6)) / 75%);
+	--i-heading-highlight-color-h1: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h1)) / var(--highlight-opacity));
+	--i-heading-highlight-color-h2: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / var(--highlight-opacity));
+	--i-heading-highlight-color-h3: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / var(--highlight-opacity));
+	--i-heading-highlight-color-h4: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / var(--highlight-opacity));
+	--i-heading-highlight-color-h5: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / var(--highlight-opacity));
+	--i-heading-highlight-color-h6: oklch(from var(--i-heading-color-start) 88% 9% calc(h + var(--i-heading-h-h6)) / var(--highlight-opacity));
+	--i-heading-text-color-h1: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h1)));
+	--i-heading-text-color-h2: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
+	--i-heading-text-color-h3: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
+	--i-heading-text-color-h4: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
+	--i-heading-text-color-h5: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
+	--i-heading-text-color-h6: oklch(from var(--i-heading-color-start) 56% 32% calc(h + var(--i-heading-h-h6)));
+	--i-heading-underline-color-h1: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h1)) / 75%);
+	--i-heading-underline-color-h2: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / 75%);
+	--i-heading-underline-color-h3: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / 75%);
+	--i-heading-underline-color-h4: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / 75%);
+	--i-heading-underline-color-h5: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / 75%);
+	--i-heading-underline-color-h6: oklch(from var(--i-heading-color-start) 82% 14% calc(h + var(--i-heading-h-h6)) / 75%);
 
 	/* Icons */
-	--i-icon-color-accent: oklch(from var(--color-accent) 65% 40% h);
+	--i-icon-color-accent: oklch(from var(--color-accent) 65% 35% h);
 
 	/* Inline title */
-	--i-inline-title-highlight-color: oklch(from var(--color-accent) 95% 8% h / 50%);
-	--i-inline-title-text-color: oklch(from var(--color-accent) 55% 45% h);
-	--i-inline-title-underline-color: oklch(from var(--color-accent) 85% 20% h / 75%);
+	--i-inline-title-highlight-color: oklch(from var(--color-accent) 88% 9% h / var(--highlight-opacity));
+	--i-inline-title-text-color: oklch(from var(--color-accent) 56% 32% h);
+	--i-inline-title-underline-color: oklch(from var(--color-accent) 82% 14% h / 75%);
 
 	/* Layouts */
 	--i-layout-amesite-divider-color: var(--i-base-09);
@@ -443,7 +443,7 @@ body {
 	--i-layout-osumilite-divider-color: var(--i-base-09);
 	--i-layout-osumilite-tab-container-bg: var(--i-base-01);
 	--i-layout-scorodite-icon-color-hover: oklch(from var(--i-icon-color-accent) l c calc(h + 60));
-	--i-layout-scorodite-text-color-active: oklch(from var(--color-accent) 50% 50% h);
+	--i-layout-scorodite-text-color-active: oklch(from var(--color-accent) 50% 45% h);
 	--i-layout-scorodite-text-color-hover: oklch(from var(--i-layout-scorodite-text-color-active) l c calc(h + 60));
 	--i-layout-scorodite-underline-color: oklch(from currentColor l c h / 22%);
 	--i-layout-sperrylite-center-pane-border-color: var(--i-base-06);
@@ -455,8 +455,8 @@ body {
 
 	/* Links */
 	--i-link-bg-hover: oklch(from currentColor calc(1 - 4 * var(--i-step-l)) calc(4 * var(--i-step-c-lt)) h);
-	--i-link-external-color: oklch(from var(--color-accent) 50% 40% calc(h + 45));
-	--i-link-internal-color: oklch(from var(--color-accent) 50% 40% calc(h - 45));
+	--i-link-external-color: oklch(from var(--color-accent) 52% 32% calc(h + 45));
+	--i-link-internal-color: oklch(from var(--color-accent) 52% 32% calc(h - 45));
 	--i-link-underline-color: color-mix(in oklch, currentColor var(--i-link-underline-lightness-lt), white);
 	--i-link-underline-color-hover: color-mix(in oklch, currentColor var(--i-link-underline-lightness-lt-hover), white);
 
@@ -490,12 +490,12 @@ body {
 	--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-05);
 
 	/* Style Settings */
-	--i-style-settings-h1-color: oklch(from var(--color-accent) 50% 50% h);
-	--i-style-settings-h2-color: oklch(from var(--color-accent) 50% 50% calc(h + 60));
-	--i-style-settings-h3-color: oklch(from var(--color-accent) 50% 50% calc(h + 60 * 2));
-	--i-style-settings-h4-color: oklch(from var(--color-accent) 50% 50% calc(h + 60 * 3));
-	--i-style-settings-h5-color: oklch(from var(--color-accent) 50% 50% calc(h + 60 * 4));
-	--i-style-settings-h6-color: oklch(from var(--color-accent) 50% 50% calc(h + 60 * 5));
+	--i-style-settings-h1-color: oklch(from var(--color-accent) 50% 40% h);
+	--i-style-settings-h2-color: oklch(from var(--color-accent) 50% 40% calc(h + 60));
+	--i-style-settings-h3-color: oklch(from var(--color-accent) 50% 40% calc(h + 60 * 2));
+	--i-style-settings-h4-color: oklch(from var(--color-accent) 50% 40% calc(h + 60 * 3));
+	--i-style-settings-h5-color: oklch(from var(--color-accent) 50% 40% calc(h + 60 * 4));
+	--i-style-settings-h6-color: oklch(from var(--color-accent) 50% 40% calc(h + 60 * 5));
 	--i-style-settings-heading-underline-color: oklch(from currentColor l c h / 30%);
 	--i-style-settings-picker-reset-bg-hover: var(--i-base-06);
 
@@ -506,16 +506,15 @@ body {
 	--table-header-background: var(--i-base-transparent-02);
 
 	/* Tags */
-	--i-tag-remove-color: oklch(from var(--color-accent) 65% 35% h);
 	--tag-background: var(--i-base-transparent-c-02);
 	--tag-border-color: var(--i-base-transparent-c-09);
 
 	/* Text */
-	--i-bold-color: oklch(from var(--color-accent) 55% 35% calc(h + 90));
-	--i-bold-italic-color-2: oklch(from var(--color-accent) 55% 35% h);
-	--i-italic-color: oklch(from var(--color-accent) 50% 45% calc(h - 90));
+	--i-bold-color: oklch(from var(--color-accent) 54% 32% calc(h + 90));
+	--i-bold-italic-color-2: oklch(from var(--color-accent) 54% 32% h);
+	--i-italic-color: oklch(from var(--color-accent) 52% 32% calc(h - 90));
 	--i-text-subtle: color-mix(in oklch, oklch(from var(--color-accent) 47% 2% h), oklch(from var(--color-accent) 74% 1% h));
-	--text-accent: oklch(from var(--color-accent) 50% 35% h);
+	--text-accent: oklch(from var(--color-accent) 50% 34% h);
 	--text-accent-hover: oklch(from var(--text-accent) calc(l - 0.15) c h);
 	--text-faint: oklch(from var(--color-accent) 74% 1% h);
 	--text-muted: oklch(from var(--color-accent) 47% 2% h);
@@ -608,18 +607,18 @@ body {
 	--i-base-transparent-11: oklch(from var(--color-accent) calc(var(--i-bg-primary-l-dk) + 11 * var(--i-step-l) * var(--i-a-offset-dk)) calc(var(--i-bg-primary-c-dk) + 11 * var(--i-step-c-dk) * var(--i-a-offset-dk)) h / var(--i-a));
 	--i-base-transparent-12: oklch(from var(--color-accent) calc(var(--i-bg-primary-l-dk) + 12 * var(--i-step-l) * var(--i-a-offset-dk)) calc(var(--i-bg-primary-c-dk) + 12 * var(--i-step-c-dk) * var(--i-a-offset-dk)) h / var(--i-a));
 
-	--i-base-transparent-c-01: oklch(from var(--i-base-transparent-01) l calc(var(--i-bg-primary-c-dk) + 1 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-02: oklch(from var(--i-base-transparent-02) l calc(var(--i-bg-primary-c-dk) + 2 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-03: oklch(from var(--i-base-transparent-03) l calc(var(--i-bg-primary-c-dk) + 3 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-04: oklch(from var(--i-base-transparent-04) l calc(var(--i-bg-primary-c-dk) + 4 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-05: oklch(from var(--i-base-transparent-05) l calc(var(--i-bg-primary-c-dk) + 5 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-06: oklch(from var(--i-base-transparent-06) l calc(var(--i-bg-primary-c-dk) + 6 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-07: oklch(from var(--i-base-transparent-07) l calc(var(--i-bg-primary-c-dk) + 7 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-08: oklch(from var(--i-base-transparent-08) l calc(var(--i-bg-primary-c-dk) + 8 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-09: oklch(from var(--i-base-transparent-09) l calc(var(--i-bg-primary-c-dk) + 9 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-10: oklch(from var(--i-base-transparent-10) l calc(var(--i-bg-primary-c-dk) + 10 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-11: oklch(from var(--i-base-transparent-11) l calc(var(--i-bg-primary-c-dk) + 11 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
-	--i-base-transparent-c-12: oklch(from var(--i-base-transparent-12) l calc(var(--i-bg-primary-c-dk) + 12 * 0.0008 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-01: oklch(from var(--i-base-transparent-01) l calc(var(--i-bg-primary-c-dk) + 1 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-02: oklch(from var(--i-base-transparent-02) l calc(var(--i-bg-primary-c-dk) + 2 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-03: oklch(from var(--i-base-transparent-03) l calc(var(--i-bg-primary-c-dk) + 3 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-04: oklch(from var(--i-base-transparent-04) l calc(var(--i-bg-primary-c-dk) + 4 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-05: oklch(from var(--i-base-transparent-05) l calc(var(--i-bg-primary-c-dk) + 5 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-06: oklch(from var(--i-base-transparent-06) l calc(var(--i-bg-primary-c-dk) + 6 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-07: oklch(from var(--i-base-transparent-07) l calc(var(--i-bg-primary-c-dk) + 7 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-08: oklch(from var(--i-base-transparent-08) l calc(var(--i-bg-primary-c-dk) + 8 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-09: oklch(from var(--i-base-transparent-09) l calc(var(--i-bg-primary-c-dk) + 9 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-10: oklch(from var(--i-base-transparent-10) l calc(var(--i-bg-primary-c-dk) + 10 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-11: oklch(from var(--i-base-transparent-11) l calc(var(--i-bg-primary-c-dk) + 11 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
+	--i-base-transparent-c-12: oklch(from var(--i-base-transparent-12) l calc(var(--i-bg-primary-c-dk) + 12 * 0.0006 * var(--i-a-offset-dk) * 3.2) h);
 
 	--i-base-transparent-hover-06: oklch(from var(--color-accent) calc(var(--i-bg-primary-l-dk) + 6 * var(--i-step-l) * 9) calc(var(--i-bg-primary-c-dk) + 6 * var(--i-step-c-dk) * 9) h / 0.1);
 	--i-base-transparent-hover-07: oklch(from var(--color-accent) calc(var(--i-bg-primary-l-dk) + 7 * var(--i-step-l) * 6) calc(var(--i-bg-primary-c-dk) + 7 * var(--i-step-c-dk) * 6) h / 0.15);
@@ -641,23 +640,24 @@ body {
 	--i-calendar-today-bg: var(--i-base-transparent-c-10);
 
 	/* Callouts */
-	--i-callout-accent: oklch(from var(--color-accent) 75% 25% h);
-	--i-callout-red: oklch(from red 75% 25% h);
+	--i-callout-accent: oklch(from var(--color-accent) 75% 20% h);
+	--i-callout-red: oklch(from red 75% 20% h);
 
 	/* Code */
 	--i-code-inline-bg: var(--i-base-transparent-03);
 	--i-code-inline-border-color: var(--i-base-transparent-10);
-	--i-code-normal-block-color: oklch(82% 20% 170);
-	--i-code-normal-inline-color: oklch(from var(--color-accent) 84% 14% h);
+	--i-code-normal-block-color: var(--text-normal);
+	--i-code-normal-inline-color: oklch(from var(--color-accent) 82% 12% h);
 	--code-background: var(--i-base-transparent-02);
 	--code-border-color: var(--i-base-transparent-09);
-	--code-function: oklch(82% 16% 20);
-	--code-important: oklch(74% 26% 275);
-	--code-keyword: oklch(74% 30% 315);
-	--code-property: oklch(76% 18% 215);
-	--code-string: oklch(74% 22% 120);
-	--code-tag: oklch(72% 30% 0);
-	--code-value: oklch(76% 24% 65);
+	--code-function: oklch(78% 20% 165);
+	--code-important: oklch(72% 26% 150);
+	--code-keyword: oklch(74% 22% 315);
+	--code-operator: oklch(76% 22% 65);
+	--code-property: oklch(80% 16% 20);
+	--code-string: oklch(76% 20% 125);
+	--code-tag: oklch(74% 26% 0);
+	--code-value: oklch(74% 20% 240);
 
 	/* Editor background pattern */
 	--i-editor-bg-pattern-color: oklch(from var(--color-accent) calc(var(--i-bg-primary-l-dk) + var(--i-editor-bg-pattern-l-dk) * var(--i-step-l)) calc(var(--i-bg-primary-c-dk) + var(--i-editor-bg-pattern-l-dk) * var(--i-step-c-dk)) h);
@@ -667,10 +667,10 @@ body {
 	--i-embed-title-bg: var(--i-base-transparent-03);
 
 	/* Extended Colors */
-	--color-red: oklch(70% 50% 15);
+	--color-red: oklch(70% 50% 20);
 	--color-orange: oklch(75% 35% 50);
-	--color-yellow: oklch(80% 50% 105);
-	--color-green: oklch(75% 40% 130);
+	--color-yellow: oklch(80% 40% 100);
+	--color-green: oklch(75% 40% 135);
 	--color-cyan: oklch(75% 35% 175);
 	--color-blue: oklch(70% 35% 220);
 	--color-purple: oklch(70% 50% 295);
@@ -681,32 +681,32 @@ body {
 	--graph-node: oklch(from var(--color-base-70) l 6% h);
 
 	/* Headings */
-	--i-heading-highlight-color-h1: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h1)) / 50%);
-	--i-heading-highlight-color-h2: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / 50%);
-	--i-heading-highlight-color-h3: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / 50%);
-	--i-heading-highlight-color-h4: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / 50%);
-	--i-heading-highlight-color-h5: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / 50%);
-	--i-heading-highlight-color-h6: oklch(from var(--i-heading-color-start) 40% 15% calc(h + var(--i-heading-h-h6)) / 50%);
-	--i-heading-text-color-h1: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h1)));
-	--i-heading-text-color-h2: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
-	--i-heading-text-color-h3: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
-	--i-heading-text-color-h4: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
-	--i-heading-text-color-h5: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
-	--i-heading-text-color-h6: oklch(from var(--i-heading-color-start) 80% 20% calc(h + var(--i-heading-h-h6)));
-	--i-heading-underline-color-h1: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h1)));
-	--i-heading-underline-color-h2: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
-	--i-heading-underline-color-h3: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
-	--i-heading-underline-color-h4: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
-	--i-heading-underline-color-h5: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
-	--i-heading-underline-color-h6: oklch(from var(--i-heading-color-start) 50% 20% calc(h + var(--i-heading-h-h6)));
+	--i-heading-highlight-color-h1: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h1)) / var(--highlight-opacity));
+	--i-heading-highlight-color-h2: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2) / var(--highlight-opacity));
+	--i-heading-highlight-color-h3: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4) / var(--highlight-opacity));
+	--i-heading-highlight-color-h4: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6) / var(--highlight-opacity));
+	--i-heading-highlight-color-h5: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8) / var(--highlight-opacity));
+	--i-heading-highlight-color-h6: oklch(from var(--i-heading-color-start) 48% 20% calc(h + var(--i-heading-h-h6)) / var(--highlight-opacity));
+	--i-heading-text-color-h1: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h1)));
+	--i-heading-text-color-h2: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
+	--i-heading-text-color-h3: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
+	--i-heading-text-color-h4: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
+	--i-heading-text-color-h5: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
+	--i-heading-text-color-h6: oklch(from var(--i-heading-color-start) 76% 18% calc(h + var(--i-heading-h-h6)));
+	--i-heading-underline-color-h1: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h1)));
+	--i-heading-underline-color-h2: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.2));
+	--i-heading-underline-color-h3: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.4));
+	--i-heading-underline-color-h4: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.6));
+	--i-heading-underline-color-h5: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h1) + (var(--i-heading-h-h6) - var(--i-heading-h-h1)) * 0.8));
+	--i-heading-underline-color-h6: oklch(from var(--i-heading-color-start) 52% 16% calc(h + var(--i-heading-h-h6)));
 
 	/* Icons */
 	--i-icon-color-accent: oklch(from var(--color-accent) 70% 25% h);
 
 	/* Inline title */
-	--i-inline-title-highlight-color: oklch(from var(--color-accent) 40% 15% h / 50%);
-	--i-inline-title-text-color: oklch(from var(--color-accent) 80% 20% h);
-	--i-inline-title-underline-color: oklch(from var(--color-accent) 50% 20% h);
+	--i-inline-title-highlight-color: oklch(from var(--color-accent) 48% 20% h / var(--highlight-opacity));
+	--i-inline-title-text-color: oklch(from var(--color-accent) 76% 18% h);
+	--i-inline-title-underline-color: oklch(from var(--color-accent) 52% 16% h);
 
 	/* Layouts */
 	--i-layout-amesite-divider-color: var(--i-base-09);
@@ -768,12 +768,12 @@ body {
 	--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-10);
 
 	/* Style Settings */
-	--i-style-settings-h1-color: oklch(from var(--color-accent) 80% 20% h);
-	--i-style-settings-h2-color: oklch(from var(--color-accent) 80% 20% calc(h + 60));
-	--i-style-settings-h3-color: oklch(from var(--color-accent) 80% 20% calc(h + 60 * 2));
-	--i-style-settings-h4-color: oklch(from var(--color-accent) 80% 20% calc(h + 60 * 3));
-	--i-style-settings-h5-color: oklch(from var(--color-accent) 80% 20% calc(h + 60 * 4));
-	--i-style-settings-h6-color: oklch(from var(--color-accent) 80% 20% calc(h + 60 * 5));
+	--i-style-settings-h1-color: oklch(from var(--color-accent) 80% 18% h);
+	--i-style-settings-h2-color: oklch(from var(--color-accent) 80% 18% calc(h + 60));
+	--i-style-settings-h3-color: oklch(from var(--color-accent) 80% 18% calc(h + 60 * 2));
+	--i-style-settings-h4-color: oklch(from var(--color-accent) 80% 18% calc(h + 60 * 3));
+	--i-style-settings-h5-color: oklch(from var(--color-accent) 80% 18% calc(h + 60 * 4));
+	--i-style-settings-h6-color: oklch(from var(--color-accent) 80% 18% calc(h + 60 * 5));
 	--i-style-settings-heading-underline-color: oklch(from currentColor l c h / 40%);
 	--i-style-settings-picker-reset-bg-hover: var(--i-base-08);
 
@@ -784,13 +784,12 @@ body {
 	--table-header-background: var(--i-base-transparent-03);
 
 	/* Tags */
-	--i-tag-remove-color: oklch(from var(--color-accent) 70% 30% h);
 	--tag-background: var(--i-base-transparent-c-03);
 	--tag-border-color: var(--i-base-transparent-c-10);
 
 	/* Text */
-	--i-bold-color: oklch(from var(--color-accent) 80% 18% calc(h + 90));
-	--i-bold-italic-color-2: oklch(from var(--color-accent) 80% 18% h);
+	--i-bold-color: oklch(from var(--color-accent) 78% 18% calc(h + 90));
+	--i-bold-italic-color-2: oklch(from var(--color-accent) 78% 18% h);
 	--i-italic-color: oklch(from var(--color-accent) 80% 18% calc(h - 90));
 	--i-text-subtle: color-mix(in oklch, oklch(from var(--color-accent) 77% 1% h), oklch(from var(--color-accent) 51% 1% h));
 	--text-accent: oklch(from var(--color-accent) 80% 15% h);
@@ -881,12 +880,7 @@ body {
 /* Light mode */
 .theme-light {
 	&:where(.i-lt-contrast-1) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-06);
-		--background-modifier-border: var(--i-base-09);
-		--background-modifier-border-hover: var(--i-base-12);
-		--background-modifier-hover: var(--i-base-transparent-hover-04);
 		--i-calendar-today-bg: var(--i-base-transparent-c-08);
-		--code-border-color: var(--i-base-transparent-08);
 		--i-layout-amesite-divider-color: var(--i-base-08);
 		--i-layout-amesite-osumilite-bg: var(--i-base-06);
 		--i-layout-amesite-osumilite-border-color: var(--i-base-13);
@@ -894,42 +888,42 @@ body {
 		--i-layout-osumilite-dashed-border-color: var(--i-base-11);
 		--i-layout-osumilite-divider-color: var(--i-base-08);
 		--i-notebook-navigator-file-bg-hover: var(--i-base-transparent-02);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-06);
+		--background-modifier-border: var(--i-base-09);
+		--background-modifier-border-hover: var(--i-base-12);
+		--background-modifier-hover: var(--i-base-transparent-hover-04);
+		--code-border-color: var(--i-base-transparent-08);
 		--pill-background: var(--i-base-transparent-04);
 		--tag-border-color: var(--i-base-transparent-c-08);
 	}
 
 	&:where(.i-lt-contrast-3) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-07);
-		--background-modifier-border: var(--i-base-11);
-		--background-modifier-border-hover: var(--i-base-14);
-		--background-modifier-hover: var(--i-base-transparent-hover-05);
-		--blockquote-background-color: var(--i-base-transparent-c-025);
 		--i-calendar-today-bg: var(--i-base-transparent-c-09);
-		--code-border-color: var(--i-base-transparent-10);
+		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
 		--i-layout-sperrylite-center-pane-border-color: var(--i-base-07);
 		--i-layout-sperrylite-tab-border-color-active: var(--i-base-13);
 		--i-layout-sperrylite-tab-border-color-hover: var(--i-base-11);
-		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
-		--setting-items-divider-color: var(--i-base-07);
-		--nav-indentation-guide-color: var(--i-base-transparent-07);
-		--pill-background: var(--i-base-transparent-05);
 		--i-properties-border-color: var(--i-base-16);
 		--i-properties-border-color-dashed: var(--i-base-17);
 		--i-properties-label-bg: var(--i-base-transparent-03);
 		--i-scrollbar-color: var(--i-base-12);
 		--i-scrollbar-color-active: var(--i-base-18);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-07);
+		--background-modifier-border: var(--i-base-11);
+		--background-modifier-border-hover: var(--i-base-14);
+		--background-modifier-hover: var(--i-base-transparent-hover-05);
+		--blockquote-background-color: var(--i-base-transparent-c-025);
+		--code-border-color: var(--i-base-transparent-10);
+		--nav-indentation-guide-color: var(--i-base-transparent-07);
+		--pill-background: var(--i-base-transparent-05);
+		--setting-items-divider-color: var(--i-base-07);
 		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-06);
 	}
 
 	&:where(.i-lt-contrast-4) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-075);
-		--background-modifier-border: var(--i-base-12);
-		--background-modifier-border-hover: var(--i-base-15);
-		--background-modifier-hover: var(--i-base-transparent-hover-055);
-		--blockquote-background-color: var(--i-base-transparent-c-025);
 		--i-button-bg: var(--i-base-08);
 		--i-calendar-today-bg: var(--i-base-transparent-c-095);
-		--code-border-color: var(--i-base-transparent-11);
+		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
 		--i-layout-amesite-divider-color: var(--i-base-10);
 		--i-layout-amesite-osumilite-bg: var(--i-base-08);
 		--i-layout-amesite-osumilite-border-color: var(--i-base-15);
@@ -940,29 +934,29 @@ body {
 		--i-layout-sperrylite-tab-border-color-active: var(--i-base-14);
 		--i-layout-sperrylite-tab-border-color-hover: var(--i-base-12);
 		--i-link-bg-hover: oklch(from currentColor calc(1 - 5 * var(--i-step-l)) calc(5 * var(--i-step-c-lt)) h);
-		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
-		--setting-items-divider-color: var(--i-base-08);
-		--nav-indentation-guide-color: var(--i-base-transparent-08);
-		--pill-background: var(--i-base-transparent-05);
 		--i-properties-border-color: var(--i-base-18);
 		--i-properties-border-color-dashed: var(--i-base-19);
 		--i-properties-label-bg: var(--i-base-transparent-03);
 		--i-scrollbar-color: var(--i-base-13);
 		--i-scrollbar-color-active: var(--i-base-19);
-		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-06);
 		--i-table-row-bg-hover: var(--i-base-transparent-025);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-075);
+		--background-modifier-border: var(--i-base-12);
+		--background-modifier-border-hover: var(--i-base-15);
+		--background-modifier-hover: var(--i-base-transparent-hover-055);
+		--blockquote-background-color: var(--i-base-transparent-c-025);
+		--code-border-color: var(--i-base-transparent-11);
+		--nav-indentation-guide-color: var(--i-base-transparent-08);
+		--pill-background: var(--i-base-transparent-05);
+		--setting-items-divider-color: var(--i-base-08);
+		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-06);
 		--tag-border-color: var(--i-base-transparent-c-10);
 	}
 
 	&:where(.i-lt-contrast-5) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-08);
-		--background-modifier-border: var(--i-base-13);
-		--background-modifier-border-hover: var(--i-base-16);
-		--background-modifier-hover: var(--i-base-transparent-hover-06);
-		--blockquote-background-color: var(--i-base-transparent-c-025);
 		--i-button-bg: var(--i-base-08);
 		--i-calendar-today-bg: var(--i-base-transparent-c-10);
-		--code-border-color: var(--i-base-transparent-12);
+		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
 		--i-layout-amesite-divider-color: var(--i-base-11);
 		--i-layout-amesite-osumilite-bg: var(--i-base-09);
 		--i-layout-amesite-osumilite-border-color: var(--i-base-16);
@@ -973,17 +967,22 @@ body {
 		--i-layout-sperrylite-tab-border-color-active: var(--i-base-15);
 		--i-layout-sperrylite-tab-border-color-hover: var(--i-base-13);
 		--i-link-bg-hover: oklch(from currentColor calc(1 - 5 * var(--i-step-l)) calc(5 * var(--i-step-c-lt)) h);
-		--i-checkbox-shadow-hover: var(--i-base-transparent-06);
-		--setting-items-divider-color: var(--i-base-08);
-		--nav-indentation-guide-color: var(--i-base-transparent-08);
-		--pill-background: var(--i-base-transparent-05);
 		--i-properties-border-color: var(--i-base-19);
 		--i-properties-border-color-dashed: var(--i-base-20);
 		--i-properties-label-bg: var(--i-base-transparent-03);
 		--i-scrollbar-color: var(--i-base-13);
 		--i-scrollbar-color-active: var(--i-base-19);
-		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-06);
 		--i-table-row-bg-hover: var(--i-base-transparent-025);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-08);
+		--background-modifier-border: var(--i-base-13);
+		--background-modifier-border-hover: var(--i-base-16);
+		--background-modifier-hover: var(--i-base-transparent-hover-06);
+		--blockquote-background-color: var(--i-base-transparent-c-025);
+		--code-border-color: var(--i-base-transparent-12);
+		--nav-indentation-guide-color: var(--i-base-transparent-08);
+		--pill-background: var(--i-base-transparent-05);
+		--setting-items-divider-color: var(--i-base-08);
+		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-06);
 		--tag-border-color: var(--i-base-transparent-c-11);
 	}
 }
@@ -993,17 +992,12 @@ body {
 /* Dark mode */
 .theme-dark {
 	&:where(.i-dk-contrast-2) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-09);
-		--background-modifier-border: var(--i-base-12);
-		--background-modifier-border-hover: var(--i-base-15);
-		--background-modifier-hover: var(--i-base-transparent-hover-07);
 		--i-audio-embed-bg: var(--i-base-transparent-06);
-		--blockquote-background-color: var(--i-base-transparent-c-06);
 		--i-button-bg: var(--i-base-09);
 		--i-calendar-today-bg: var(--i-base-transparent-c-11);
+		--i-checkbox-shadow-hover: var(--i-base-transparent-10);
 		--i-code-inline-bg: var(--i-base-transparent-04);
 		--i-code-inline-border-color: var(--i-base-transparent-11);
-		--code-border-color: var(--i-base-transparent-10);
 		--i-layout-amesite-divider-color: var(--i-base-10);
 		--i-layout-amesite-osumilite-bg: var(--i-base-08);
 		--i-layout-amesite-osumilite-border-color: var(--i-base-15);
@@ -1014,16 +1008,21 @@ body {
 		--i-layout-sperrylite-tab-border-color-active: var(--i-base-15);
 		--i-layout-sperrylite-tab-border-color-hover: var(--i-base-13);
 		--i-link-bg-hover: oklch(from currentColor calc(var(--i-bg-primary-l-dk) + 6 * var(--i-step-l)) calc(var(--i-bg-primary-c-dk) + 6 * var(--i-step-c-dk)) h);
-		--i-checkbox-shadow-hover: var(--i-base-transparent-10);
-		--setting-items-divider-color: var(--i-base-08);
-		--nav-indentation-guide-color: var(--i-base-transparent-08);
-		--pill-background: var(--i-base-transparent-07);
 		--i-properties-bg-focus: var(--i-base-transparent-c-08);
 		--i-properties-border-color: var(--i-base-17);
 		--i-properties-border-color-dashed: var(--i-base-18);
 		--i-properties-label-bg: var(--i-base-transparent-04);
 		--i-scrollbar-color: var(--i-base-13);
 		--i-scrollbar-color-active: var(--i-base-19);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-09);
+		--background-modifier-border: var(--i-base-12);
+		--background-modifier-border-hover: var(--i-base-15);
+		--background-modifier-hover: var(--i-base-transparent-hover-07);
+		--blockquote-background-color: var(--i-base-transparent-c-06);
+		--code-border-color: var(--i-base-transparent-10);
+		--nav-indentation-guide-color: var(--i-base-transparent-08);
+		--pill-background: var(--i-base-transparent-07);
+		--setting-items-divider-color: var(--i-base-08);
 		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-12);
 		--tag-background: var(--i-base-transparent-c-04);
 		--tag-border-color: var(--i-base-transparent-c-11);
@@ -1034,17 +1033,12 @@ body {
 	}
 
 	&:where(.i-dk-contrast-3) {
-		--background-modifier-active-hover: var(--i-base-transparent-hover-10);
-		--background-modifier-border: var(--i-base-14);
-		--background-modifier-border-hover: var(--i-base-17);
-		--background-modifier-hover: var(--i-base-transparent-hover-08);
 		--i-audio-embed-bg: var(--i-base-transparent-07);
-		--blockquote-background-color: var(--i-base-transparent-c-06);
 		--i-button-bg: var(--i-base-10);
 		--i-calendar-today-bg: var(--i-base-transparent-c-12);
+		--i-checkbox-shadow-hover: var(--i-base-transparent-10);
 		--i-code-inline-bg: var(--i-base-transparent-04);
 		--i-code-inline-border-color: var(--i-base-transparent-12);
-		--code-border-color: var(--i-base-transparent-11);
 		--i-layout-amesite-divider-color: var(--i-base-11);
 		--i-layout-amesite-osumilite-bg: var(--i-base-09);
 		--i-layout-amesite-osumilite-border-color: var(--i-base-17);
@@ -1055,16 +1049,21 @@ body {
 		--i-layout-sperrylite-tab-border-color-active: var(--i-base-16);
 		--i-layout-sperrylite-tab-border-color-hover: var(--i-base-14);
 		--i-link-bg-hover: oklch(from currentColor calc(var(--i-bg-primary-l-dk) + 6 * var(--i-step-l)) calc(var(--i-bg-primary-c-dk) + 6 * var(--i-step-c-dk)) h);
-		--i-checkbox-shadow-hover: var(--i-base-transparent-10);
-		--setting-items-divider-color: var(--i-base-09);
-		--nav-indentation-guide-color: var(--i-base-transparent-09);
-		--pill-background: var(--i-base-transparent-08);
 		--i-properties-bg-focus: var(--i-base-transparent-c-08);
 		--i-properties-border-color: var(--i-base-19);
 		--i-properties-border-color-dashed: var(--i-base-20);
 		--i-properties-label-bg: var(--i-base-transparent-04);
 		--i-scrollbar-color: var(--i-base-14);
 		--i-scrollbar-color-active: var(--i-base-20);
+		--background-modifier-active-hover: var(--i-base-transparent-hover-10);
+		--background-modifier-border: var(--i-base-14);
+		--background-modifier-border-hover: var(--i-base-17);
+		--background-modifier-hover: var(--i-base-transparent-hover-08);
+		--blockquote-background-color: var(--i-base-transparent-c-06);
+		--code-border-color: var(--i-base-transparent-11);
+		--nav-indentation-guide-color: var(--i-base-transparent-09);
+		--pill-background: var(--i-base-transparent-08);
+		--setting-items-divider-color: var(--i-base-09);
 		--slider-thumb-shadow-hover: 0 0 0 5px var(--i-base-transparent-12);
 		--tag-background: var(--i-base-transparent-c-04);
 		--tag-border-color: var(--i-base-transparent-c-12);
@@ -1088,19 +1087,11 @@ body {
 }
 
 .i-lt-chroma-1 {
-	--i-step-c-lt: 0.0006;
+	--i-step-c-lt: 0.001;
 }
 
-.i-lt-chroma-2 {
-	--i-step-c-lt: 0.0012;
-}
-
-.i-lt-chroma-4 {
-	--i-step-c-lt: 0.0024;
-}
-
-.i-lt-chroma-5 {
-	--i-step-c-lt: 0.003;
+.i-lt-chroma-3 {
+	--i-step-c-lt: 0.002;
 }
 
 
@@ -2372,11 +2363,11 @@ audio::-webkit-media-controls-enclosure {
 body:not(.i-callout-outlined, .i-callout-filled, .i-callout-outlined-filled) .callout {
 	--i-callout-bg-dk: transparent;
 	--i-callout-bg-lt: transparent;
-	--i-callout-border-color-dk: oklch(from var(--callout-color) 75% 40% h / 35%);
-	--i-callout-border-color-lt: oklch(from var(--callout-color) 55% 50% h / 35%);
+	--i-callout-border-color-dk: oklch(from var(--callout-color) 68% 22% h / 35%);
+	--i-callout-border-color-lt: oklch(from var(--callout-color) 58% 32% h / 35%);
 	--i-callout-content-border-block-start: 1px dashed var(--i-callout-border-color);
-	--i-callout-title-bg-dk: oklch(from var(--callout-color) 44% 14% h / 25%);
-	--i-callout-title-bg-lt: oklch(from var(--callout-color) 88% 18% h / 25%);
+	--i-callout-title-bg-dk: oklch(from var(--callout-color) 42% 12% h / 25%);
+	--i-callout-title-bg-lt: oklch(from var(--callout-color) 88% 12% h / 25%);
 	--callout-border-width: 1px;
 	--callout-content-padding: var(--i-callout-padding);
 }
@@ -2394,21 +2385,21 @@ body:not(.i-callout-outlined, .i-callout-filled, .i-callout-outlined-filled) .ca
 .i-callout-outlined .callout {
 	--i-callout-bg-dk: transparent;
 	--i-callout-bg-lt: transparent;
-	--i-callout-border-color-dk: oklch(from var(--callout-color) 70% 36% h / 40%);
-	--i-callout-border-color-lt: oklch(from var(--callout-color) 56% 56% h / 40%);
+	--i-callout-border-color-dk: oklch(from var(--callout-color) 72% 28% h / 35%);
+	--i-callout-border-color-lt: oklch(from var(--callout-color) 60% 32% h / 40%);
 	--callout-border-width: 1px;
 }
 
 .i-callout-filled .callout {
-	--i-callout-bg-dk: oklch(from var(--callout-color) 45% 15% h / 25%);
-	--i-callout-bg-lt: oklch(from var(--callout-color) 90% 15% h / 25%);
+	--i-callout-bg-dk: oklch(from var(--callout-color) 42% 12% h / 25%);
+	--i-callout-bg-lt: oklch(from var(--callout-color) 90% 10% h / 25%);
 }
 
 .i-callout-outlined-filled .callout {
-	--i-callout-bg-dk: oklch(from var(--callout-color) 40% 12% h / 25%);
-	--i-callout-bg-lt: oklch(from var(--callout-color) 96% 10% h / 25%);
-	--i-callout-border-color-dk: oklch(from var(--callout-color) 74% 32% h / 30%);
-	--i-callout-border-color-lt: oklch(from var(--callout-color) 55% 40% h / 30%);
+	--i-callout-bg-dk: oklch(from var(--callout-color) 36% 8% h / 25%);
+	--i-callout-bg-lt: oklch(from var(--callout-color) 96% 6% h / 25%);
+	--i-callout-border-color-dk: oklch(from var(--callout-color) 58% 16% h / 35%);
+	--i-callout-border-color-lt: oklch(from var(--callout-color) 60% 30% h / 30%);
 	--callout-border-width: 1px;
 }
 
@@ -3005,42 +2996,42 @@ body:not(.i-alternative-checkboxes-off) {
 		box-shadow: inset 0 0 0 1px var(--checkbox-border-color-hover);
 	}
 
-	:is(
-		[data-task='-'],
-		[data-task='>'],
-		[data-task='<'],
-		[data-task='?'],
-		[data-task=b],
-		[data-task=i],
-		[data-task=S],
-		[data-task=p],
-		[data-task=c],
-		[data-task=u],
-		[data-task=d],
-		[data-task='1'],
-		[data-task='2'],
-		[data-task='3'],
-		[data-task='4'],
-		[data-task='5'],
-		[data-task='6'],
-		[data-task=a]
-	) input[type=checkbox]:checked::after {
-		mask-size: 113%;
+	[data-task='-'],
+	[data-task='>'],
+	[data-task='<'],
+	[data-task='?'],
+	[data-task=b],
+	[data-task=i],
+	[data-task=S],
+	[data-task=p],
+	[data-task=c],
+	[data-task=u],
+	[data-task=d],
+	[data-task='1'],
+	[data-task='2'],
+	[data-task='3'],
+	[data-task='4'],
+	[data-task='5'],
+	[data-task='6'],
+	[data-task=a] {
+		input[type=checkbox]:checked::after {
+			mask-size: 113%;
+		}
 	}
 
-	:is(
-		[data-task='!'],
-		[data-task='*'],
-		[data-task='"'],
-		[data-task=l],
-		[data-task=I],
-		[data-task=f],
-		[data-task=k],
-		[data-task=w],
-		[data-task=n],
-		[data-task=t]
-	) input[type=checkbox]:checked::after {
-		mask-size: 100%;
+	[data-task='!'],
+	[data-task='*'],
+	[data-task='"'],
+	[data-task=l],
+	[data-task=I],
+	[data-task=f],
+	[data-task=k],
+	[data-task=w],
+	[data-task=n],
+	[data-task=t] {
+		input[type=checkbox]:checked::after {
+			mask-size: 100%;
+		}
 	}
 
 	/* Gravity UI Icons | MIT License | https://github.com/gravity-ui/icons */
@@ -3218,7 +3209,7 @@ body:not(.i-alternative-checkboxes-off) {
 	}
 
 	&[data-property-type=tags] .multi-select-pill {
-		--pill-color-remove: var(--i-tag-remove-color);
+		--pill-color-remove: var(--i-icon-color-accent);
 		--pill-padding-x: calc(0.5em - var(--tag-border-width));
 		--pill-padding-y: calc(0.15em - var(--tag-border-width));
 
@@ -3691,19 +3682,19 @@ body:not(.is-phone) {
 	--nav-item-weight-hover: var(--nav-item-weight);
 
 	.theme-light & {
-		--i-folder-bg-border-color-root: oklch(from var(--i-folder-color-start) 35% 10% calc(h + 60 * var(--i-folder-number-root)) / 25%);
+		--i-folder-bg-border-color-root: oklch(from var(--i-folder-color-start) 35% 15% calc(h + 60 * var(--i-folder-number-root)) / 25%);
 		--i-folder-bg-root: oklch(from var(--i-folder-color-start) 90% 20% calc(h + 60 * var(--i-folder-number-root)) / 25%);
-		--i-folder-chevron-color-root: oklch(from var(--i-folder-color-start) 65% 50% calc(h + 60 * var(--i-folder-number-root)));
-		--i-folder-text-color-root: oklch(from var(--i-folder-color-start) 55% 45% calc(h + 60 * var(--i-folder-number-root)));
-		--i-folder-underline-color-root: oklch(from var(--i-folder-color-start) 85% 20% calc(h + 60 * var(--i-folder-number-root)) / 75%);
+		--i-folder-chevron-color-root: oklch(from var(--i-folder-color-start) 65% 40% calc(h + 60 * var(--i-folder-number-root)));
+		--i-folder-text-color-root: oklch(from var(--i-folder-color-start) 54% 38% calc(h + 60 * var(--i-folder-number-root)));
+		--i-folder-underline-color-root: oklch(from var(--i-folder-color-start) 82% 14% calc(h + 60 * var(--i-folder-number-root)) / 75%);
 	}
 
 	.theme-dark & {
-		--i-folder-bg-border-color-root: oklch(from var(--i-folder-color-start) 90% 25% calc(h + 60 * var(--i-folder-number-root)) / 25%);
-		--i-folder-bg-root: oklch(from var(--i-folder-color-start) 70% 25% calc(h + 60 * var(--i-folder-number-root)) / 25%);
+		--i-folder-bg-border-color-root: oklch(from var(--i-folder-color-start) 86% 24% calc(h + 60 * var(--i-folder-number-root)) / 25%);
+		--i-folder-bg-root: oklch(from var(--i-folder-color-start) 66% 22% calc(h + 60 * var(--i-folder-number-root)) / 25%);
 		--i-folder-chevron-color-root: oklch(from var(--i-folder-color-start) 70% 35% calc(h + 60 * var(--i-folder-number-root)));
-		--i-folder-text-color-root: oklch(from var(--i-folder-color-start) 80% 20% calc(h + 60 * var(--i-folder-number-root)));
-		--i-folder-underline-color-root: oklch(from var(--i-folder-color-start) 50% 20% calc(h + 60 * var(--i-folder-number-root)));
+		--i-folder-text-color-root: oklch(from var(--i-folder-color-start) 80% 18% calc(h + 60 * var(--i-folder-number-root)));
+		--i-folder-underline-color-root: oklch(from var(--i-folder-color-start) 52% 16% calc(h + 60 * var(--i-folder-number-root)));
 	}
 }
 
@@ -4446,16 +4437,10 @@ settings:
 				value: i-lt-chroma-1
 			-
 				label: 2
-				value: i-lt-chroma-1
-			-
-				label: 3
 				value: none
 			-
-				label: 4
-				value: i-lt-chroma-4
-			-
-				label: 5
-				value: i-lt-chroma-5
+				label: 3
+				value: i-lt-chroma-3
 	-
 		id: i-dk-contrast
 		title: 'Dark mode: Contrast'
